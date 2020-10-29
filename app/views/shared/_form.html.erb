@@ -1,0 +1,17 @@
+<div class="container p-5">
+  <div class="row">
+    <div class="col-6 mx-auto">
+        <h1 class="mb-5">Ajouter un appartement</h1>
+        <%= simple_form_for(flat) do |f| %>
+          <%= f.input :address , label: "Addresse de l'appartement"  %>
+          <%= f.input :presentation , label: "Description de l'appartement"  %>
+          <%= f.input :rent , label: "Loyer"  %>
+          <%= f.association :equipments , collection: ['CategoryCountry.all', 'hbcjdb', 'bhcsjk'], label: "Equipements disponibles dans l'appartement" %>
+          <%= f.input :photos, as: :file ,input_html: { multiple: true, class: 'd-none hidden', id: 'photo-input'} , label_html: { class: 'upload-photo'}, label: '📷 Ajouter une photo'   %>
+          <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+          <br>
+          <%= f.submit 'Ajouter mon appartement' , :class => "btn btn-primary"  %>
+        <% end %>
+    </div>
+  </div>
+</div>
