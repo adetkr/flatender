@@ -30,7 +30,7 @@ class FlatsController < ApplicationController
 
 
   def params_flat
-    params.require(:flat).permit(:address, :presentation, :rent, photos: [])
+    params.require(:flat).permit(:title, :address, :presentation, :rent, photos: [])
   end
 
   def set_flat
