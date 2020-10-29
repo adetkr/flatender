@@ -1,5 +1,6 @@
 class FlatsController < ApplicationController
 
+
   before_action :authenticate_user! , only:  [:new, :create]
 
   def new
@@ -10,11 +11,19 @@ class FlatsController < ApplicationController
     @flat = Flat.new(params_flat)
     @flat.user = current_user
     if @flat.save
-      redirect_to root_path
+      redirect_to flat_path(@flat)
     else
 
       render :new
     end
+  end
+
+  def show
+    @flat = Flat.find(params[:id])
+  end
+
+  def index
+    @flats = Flat.all
   end
 
   private
@@ -27,4 +36,5 @@ class FlatsController < ApplicationController
   def set_flat
     @flat = Flat.find(params[:id])
   end
+
 end
