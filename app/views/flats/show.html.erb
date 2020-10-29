@@ -1,1 +1,23 @@
-test
+<section id="flat">
+  <div class="controller">
+    <h1><%= @flat.title %> </h1>
+    <div class="row">
+      <div class="col-7">
+         Futur photo
+        <div id="presentation">
+          <p><%= @flat.presentation %></p>
+
+        </div>
+      </div>
+      <div class="col-5">
+        Proposed by:
+        <br>
+        <b><%= @flat.user.name %></b>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</section>
