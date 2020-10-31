@@ -21,7 +21,7 @@
             <button id = "like" data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" data-action="click->like#likeFlat"> Liker </button>
           <% end %>
         <% else %>
-          <button id = "like" data-user-id = "" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" data-action="click->like#showModal"> Liker </button>
+          <button id = "not-connected" data-user-id = "" data-flat-id = "<%= @flat.id %>" class="btn btn-primary"> Liker </button>
         <% end %>
 
 
