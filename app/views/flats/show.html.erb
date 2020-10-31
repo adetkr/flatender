@@ -17,10 +17,29 @@
 
         </div>
       </div>
-      <div class="col-5">
+      <div class="col-5" data-controller="like">
         Proposed by:
         <br>
         <b><%= @flat.user.name %></b>
+
+        <% if  current_user and @flat.user != current_user %>
+          <% like = Like.find_by(user_id: current_user.id, flat_id: @flat.id) %>
+          <% if   Like.where(user_id: current_user.id, flat_id: @flat.id).count != 0 %>
+            <button id = "like" data-like-id = "<%= like.id %>"   data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" disabled=true > Liké </button>
+          <% else %>
+            <a id = "match-modal" class="hidden">  </a>
+            <button id = "like" data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" data-action="click->like#likeFlat"> Liker </button>
+          <% end %>
+        <% else %>
+          <% if @flat.user != current_user %>
+            <button id = "not-connected" data-user-id = "" data-flat-id = "<%= @flat.id %>" class="btn btn-primary"> Liker </button>
+          <% end %>
+
+        <% end %>
+
+
+
+
       </div>
 
     </div>
