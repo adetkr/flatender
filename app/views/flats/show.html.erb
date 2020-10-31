@@ -1,9 +1,17 @@
 <section id="flat">
   <div class="controller">
-    <h1><%= @flat.title %> </h1>
+    <h1><%= @flat.title %> d</h1>
     <div class="row">
       <div class="col-7">
-         Futur photo
+        <% if @flat.photos.attached? %>
+        <% @flat.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
+        <% else %>
+          <%= image_tag "flat-default.jpg" %>
+        <% end %>
+
+
         <div id="presentation">
           <p><%= @flat.presentation %></p>
 
@@ -21,3 +29,6 @@
 
 
 </section>
+
+
+
