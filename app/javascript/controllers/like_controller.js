@@ -12,6 +12,12 @@ export default class extends Controller {
       text: "Vous devez vous connecter avant de pouvoir liker des appartements",
       icon: "error"
     });
+     initSweetalert('#match-modal', {
+      title: "Match !",
+      text: "Vous venez d'avoir un match avec cet appartement",
+      icon: "success"
+    });
+
   }
 
   dislikeFlat(event) {
@@ -19,10 +25,10 @@ export default class extends Controller {
   }
 
   likeFlat(event) {
-    console.log(event.target.dataset);
+
     const userId = event.target.dataset.userId;
     const flatId = event.target.dataset.flatId;
-    event.target.disabled = true;
+
     fetchWithToken("/likes", {
       method: "POST",
       headers: {
@@ -33,7 +39,12 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-        console.log(data);
+            event.target.disabled = true;
+            event.target.innerText = "Liké";
+        if (data.match_exist) {
+          const button = document.querySelector("#match-modal");
+          button.click();
+        }
 
       })
       .then((error) => {

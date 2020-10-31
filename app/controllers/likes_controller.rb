@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     like = Like.new(like_params)
 
     if like.save
-      render json: { success: true }
+      render json: { success: true , match_exist: like.match_exist?}
     elsif like.save
 
     else
