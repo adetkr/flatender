@@ -34,22 +34,22 @@ puts "alex exist"
 puts "-------------------------------"
 puts "création des 4 appartements "
 
-pierre_home = Flat.new(title:"A lovely flat in Saint Denis", address: "37 rue Paul-Edouard, 93200 Saint-Denis, France", presentation: "presentation test", rent: 500, user_id: "#{pierre.id}")
+pierre_home = Flat.new(title:"A lovely flat in Paris", address: "16 Villa Gaudelet, Paris", presentation: "presentation test", rent: 500, user_id: "#{pierre.id}")
 pierre_home.save!
 
 puts "pierre_home exist"
 
-ademola_home = Flat.new(title:"Come and study on the beach", address: "Playa Matapalo, Carrillo, Guanacaste Province, Sardinal District, Costa Rica", presentation: "presentation test", rent: 300, user_id: "#{ademola.id}")
+ademola_home = Flat.new(title:"Come and study on the beach", address: "Paseo Colón, Merced, San José, Costa Rica", presentation: "presentation test", rent: 300, user_id: "#{ademola.id}")
 ademola_home.save!
 
 puts "ademola_home exist"
 
-aline_home = Flat.new(title:"You will love studying in Roma", address: "196, 00138 Roma RM, Italie", presentation: "presentation test", rent: 600, user_id: "#{aline.id}")
+aline_home = Flat.new(title:"You will love studying in Roma", address: "Piazza del Campidoglio, 00186 Roma RM, Italie", presentation: "presentation test", rent: 600, user_id: "#{aline.id}")
 aline_home.save!
 
 puts "aline_home exist"
 
-alex_home = Flat.new(title:"Come and learn spanish in my lovely city", address: "Av. 5 de Mayo 61, Centro Histórico de la Cdad. de México, Centro, Cuauhtémoc, 06000 Centro, CDMX, Mexique", presentation: "presentation test", rent: 600, user_id: "#{alex.id}")
+alex_home = Flat.new(title:"Come and learn spanish in my lovely city", address: "Miguel Hidalgo, Mexico City, Mexique", presentation: "presentation test", rent: 600, user_id: "#{alex.id}")
 alex_home.save!
 
 puts "alex_home exist"

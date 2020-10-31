@@ -1,6 +1,5 @@
 class FlatsController < ApplicationController
 
-
   before_action :authenticate_user! , only:  [:new, :create]
 
   def new
@@ -24,6 +23,14 @@ class FlatsController < ApplicationController
 
   def index
     @flats = Flat.all
+
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
+      }
+    end
   end
 
   private
