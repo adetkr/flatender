@@ -9,10 +9,24 @@
 
         </div>
       </div>
-      <div class="col-5">
+      <div class="col-5" data-controller="like">
         Proposed by:
         <br>
         <b><%= @flat.user.name %></b>
+
+        <% if  current_user %>
+          <% if   Like.where(user_id: current_user.id, flat_id: @flat.id).count != 0 %>
+            <button id = "like" data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" data-action="click->like#dislikeFlat"> Disliker </button>
+          <% else %>
+            <button id = "like" data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" data-action="click->like#likeFlat"> Liker </button>
+          <% end %>
+        <% else %>
+          <button id = "like" data-user-id = "" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" data-action="click->like#showModal"> Liker </button>
+        <% end %>
+
+
+
+
       </div>
 
     </div>
