@@ -6,6 +6,8 @@ class LikesController < ApplicationController
 
     if like.save
       render json: { success: true }
+    elsif like.save
+
     else
       render json: { success: false, errors: like.errors.messages }, status: :unprocessable_entity
     end

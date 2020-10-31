@@ -15,8 +15,9 @@
         <b><%= @flat.user.name %></b>
 
         <% if  current_user %>
+          <% like = Like.find_by(user_id: current_user.id, flat_id: @flat.id) %>
           <% if   Like.where(user_id: current_user.id, flat_id: @flat.id).count != 0 %>
-            <button id = "like" data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" data-action="click->like#dislikeFlat"> Disliker </button>
+            <button id = "like" data-like-id = "<%= like.id %>"   data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" data-action="click->like#dislikeFlat"> Disliker </button>
           <% else %>
             <button id = "like" data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" data-action="click->like#likeFlat"> Liker </button>
           <% end %>
