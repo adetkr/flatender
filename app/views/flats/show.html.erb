@@ -1,27 +1,63 @@
-<section id="flat">
-  <div class="controller">
-    <h1><%= @flat.title %> d</h1>
+<section id="flat" class="pt-4">
+  <div class="container">
+    <h1 class="pb-3 h2"><%= @flat.title %> d</h1>
     <div class="row">
       <div class="col-7">
-        <% if @flat.photos.attached? %>
-        <% @flat.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-        <% end %>
-        <% else %>
-          <%= image_tag "flat-default.jpg" %>
-        <% end %>
-
-
-        <div id="presentation">
+        <div class="imglist mb-5">
+          <% if @flat.photos.attached? %>
+            <div class="mb-2 pr-2 main-img">
+              <a data-fancybox="gallery" href="<%= cl_image_path @flat.photos.first.key, height: 394, width: 700, crop: :fill %>">
+                <%= cl_image_tag @flat.photos.first.key, height: 394, width: 700, crop: :fill, class: "img-fluid" %>
+              </a>
+            </div>
+          <% end  %>
+          <div class="mb-2 d-flex thumb-img">
+          <% if  @flat.photos.length >= 2 %>
+            <% @flat.photos[1..-1].each do |photo| %>
+              <a data-fancybox="gallery" href="<%= cl_image_path photo.key, height: 394, width: 700, crop: :fill  %>">
+                <%= cl_image_tag photo.key, height: 90, width: 160, crop: :fill, class: "img-fluid pr-2" %>
+              </a>
+            <% end %>
+          </div>
+          <% end %>
+          <% if !@flat.photos.attached? %>
+            <%= image_tag "flat-default.jpg" %>
+          <% end %>
+        </div>
+        <div id="presentation" class="bg-white-smoke rounded-lg p-4 mb-5">
           <p><%= @flat.presentation %></p>
+        </div>
+        <div id="equipment" class="bg-white-smoke rounded-lg p-4 mb-5">
+          <h3>Equipment</h3>
+          <p><%= @flat.presentation %></p>
+        </div>
+      </div>
+
+      <!--  User presentation -->
+
+      <div class="col-5">
+        <div class="bg-white-smoke rounded-lg p-4 mb-5">
+           <div id="info" class="d-flex">
+           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar flex-shrink mr-3" %>
+            <div class="flex-grow-1">
+              Proposed by:
+              <br>
+              <b class="text-primary"><%= @flat.user.name %></b>
+            </div>
+           </div>
+           <hr>
+           <div>
+             <p>
+               <%= @flat.user.presentation %>
+             </p>
+           </div>
+
 
         </div>
       </div>
-      <div class="col-5">
-        Proposed by:
-        <br>
-        <b><%= @flat.user.name %></b>
+
       </div>
+      <!--  User presentation -->
 
     </div>
   </div>
