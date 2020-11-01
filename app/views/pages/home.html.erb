@@ -1,15 +1,18 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://cdn.pixabay.com/photo/2016/11/21/14/12/books-1845614_960_720.jpg);">
   <div class="container">
-    <h1>Home exchange</h1>
-    <h2>for student abroad</h2>
-    <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
-        <input class="form-control string required" placeholder="Search your next flat by city, university or by an address" type="text" name="search[query]" id="flat_address" />
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    <% end %>
+    <div class="home-title">
+      <h1>Home exchange</h1>
+      <h2>for student abroad</h2>
+    </div>
+    <div class="col-4 p-0 search">
+      <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
+        <div class="search-form-control form-group">
+          <input class="form-control string required" placeholder= "Where do you go studying ?" type="text" name="search[query]" id="flat_address" />
+          <button type="submit" class="btn btn-danger">SEARCH
+          </button>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 <div class="bg-white process">
