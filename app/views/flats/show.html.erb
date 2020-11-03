@@ -1,49 +1,76 @@
-<section id="flat" class="pt-4">
-  <div class="container">
-    <h1 class="pb-3 h2"><%= @flat.title %> d</h1>
+<section id="flat" class="p-5">
+  <div class="container-fluid">
+    <p class="text-primary h6"><%= @flat.user.university %></p>
+    <h1 class="pb-3 h2"><%= @flat.title %></h1>
     <div class="row">
       <div class="col-7">
-        <div class="imglist mb-5">
+        <div class="lightgallery mb-5">
           <% if @flat.photos.attached? %>
-            <div class="mb-2 pr-2 main-img">
-              <a data-fancybox="gallery" href="<%= cl_image_path @flat.photos.first.key, height: 394, width: 700, crop: :fill %>">
-                <%= cl_image_tag @flat.photos.first.key, height: 394, width: 700, crop: :fill, class: "img-fluid" %>
+            <div class=" mb-2 pr-2 main-img">
+              <a href="<%= cl_image_path @flat.photos.first.key, height: 500, width: 1200, crop: :fill %>">
+                <%= cl_image_tag @flat.photos.first.key, height: 500, width: 1200, crop: :fill, class: "img-fluid" %>
               </a>
             </div>
           <% end  %>
-          <div class="mb-2 d-flex thumb-img">
+
           <% if  @flat.photos.length >= 2 %>
+          <div class="mb-2 d-flex thumb-img">
             <% @flat.photos[1..-1].each do |photo| %>
-              <a data-fancybox="gallery" href="<%= cl_image_path photo.key, height: 394, width: 700, crop: :fill  %>">
-                <%= cl_image_tag photo.key, height: 90, width: 160, crop: :fill, class: "img-fluid pr-2" %>
+              <a href="<%= cl_image_path photo.key, height: 500, width: 1200, crop: :fill  %>">
+                <%= cl_image_tag photo.key, height: 150, width: 300, crop: :fill, class: "img-fluid pr-2" %>
               </a>
             <% end %>
           </div>
           <% end %>
           <% if !@flat.photos.attached? %>
-            <%= image_tag "flat-default.jpg", height: 394, width: 700, crop: :fill, class: "img-fluid" %>
+            <%= image_tag "flat-default.jpg", height: 500, width: 1200, crop: :fill, class: "img-fluid rounded-lg" %>
           <% end %>
         </div>
-        <div id="presentation" class="bg-white-smoke rounded-lg p-4 mb-5">
+
+        <!-- presentation -->
+        <div id="presentation" class="bg-white-smoke rounded-lg p-4 mb-5 border">
           <p><%= @flat.presentation %></p>
         </div>
-        <div id="equipment" class="bg-white-smoke rounded-lg p-4 mb-5">
+
+        <!--  Equipment -->
+        <div id="equipment" class="bg-white-smoke rounded-lg p-4 mb-5 border">
           <h3>Equipment</h3>
-          <p><%= @flat.presentation %></p>
+          <ul class="list-group">
+            <% @flat.flat_equipments.each do |equipment| %>
+              <li><%= flat_equipment.equipment.name %>  </li>
+            <% end %>
+          </ul>
         </div>
+
+        <!--  Map -->
+        <div id="map" class="rounded-lg"
+          style="width: 100%; height: 350px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+
+
+
+
+
+
+
+
+
       </div>
 
 
       <!--  User presentation -->
-
-      <div class="col-5">
-        <div class="bg-white-smoke rounded-lg p-4 mb-5">
+      <div class="pl-5 col-5">
+        <div class="col-4 bg-white-smoke rounded-lg p-4 mb-5 mr-3 border position-fixed">
            <div id="info" class="d-flex">
-           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar flex-shrink mr-3" %>
+            <div>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar flex-shrink mr-3" %>
+            </div>
             <div class="flex-grow-1">
               Proposed by:
               <br>
-              <b class="text-primary"><%= @flat.user.name %></b>
+              <span class="text-primary font-weight-normal"><%= @flat.user.name %></span>
             </div>
            </div>
            <hr>
@@ -51,31 +78,38 @@
              <p>
                <%= @flat.user.presentation %>
              </p>
+             <p>
+               <span class="text-primary font-weight-bold">Availability of the apartment</span>
+               <br>
+               <i class="fas fa-calendar-alt text-secondary mr-1"></i> Septembre 2021 - Aout 2022 (Date flexible)
+             </p>
            </div>
-                   <% if  current_user and @flat.user != current_user %>
-          <% like = Like.find_by(user_id: current_user.id, flat_id: @flat.id) %>
-          <% if   Like.where(user_id: current_user.id, flat_id: @flat.id).count != 0 %>
-            <button id = "like" data-like-id = "<%= like.id %>"   data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" disabled=true > Liké </button>
-          <% else %>
-            <a id = "match-modal" class="hidden">  </a>
-            <button id = "like" data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn btn-primary" data-action="click->like#likeFlat"> Liker </button>
-          <% end %>
-        <% else %>
-          <% if @flat.user != current_user %>
-            <button id = "not-connected" data-user-id = "" data-flat-id = "<%= @flat.id %>" class="btn btn-primary"> Liker </button>
-          <% end %>
-
-        <% end %>
-
-
-
+           <hr class="mt-5">
+           <div class="d-flex justify-content-between align-items-center">
+            <div id="like">
+              <% if  current_user and @flat.user != current_user %>
+              <% like = Like.find_by(user_id: current_user.id, flat_id: @flat.id) %>
+              <% if   Like.where(user_id: current_user.id, flat_id: @flat.id).count != 0 %>
+              <button id = "like" data-like-id = "<%= like.id %>"   data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn-style-01 text-uppercase py-2 px-5 rounded-lg" disabled=true > Like <i class="fas fa-heart ml-1"></i></button>
+              <% else %>
+              <a id = "match-modal" class="hidden">  </a>
+              <button id = "like" data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn-style-01 text-uppercase py-2 px-5 rounded-lg" data-action="click->like#likeFlat"> Liked <i class="fas fa-star ml-1"></i></button>
+              <% end %>
+              <% else %>
+              <% if @flat.user != current_user %>
+              <button id = "not-connected" data-user-id = "" data-flat-id = "<%= @flat.id %>" class="btn-style-01"> Liker </button>
+              <% end %>
+              <% end %>
+            </div>
+            <div id="price">
+              <span class="h4"><%= @flat.rent %> €</span><span>/mo</span>
+            </div>
+           </div>
 
         </div>
       </div>
-
-
       </div>
-      <!--  User presentation -->
+      <!--  /User presentation -->
 
     </div>
   </div>
@@ -83,6 +117,5 @@
 
 
 </section>
-
 
 

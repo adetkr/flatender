@@ -13,7 +13,13 @@ User.delete_all
 
 
 puts "-------------------------------"
-puts "création de 4 users "
+puts "création de 5 users "
+
+celeste = User.new(name: 'Celeste', email:'celeste@test.com', presentation: "Hello, my name is Celeste (but you can call me Cell ^_^) , i live in wonderfull madrid as communcation engineer students. I plan on studying in france next year in the university of St Denis", university: "Universidad Complutense de Madrid", password: "celeste@test.com")
+celeste.save!
+puts "celeste exist"
+
+
 
 pierre = User.new(name: 'Pierre', email:'pierre@test.com', presentation: "Je vis à Saint-Denis", university: "Le Wagon Saint-Denis", password: "pierre@test.com")
 pierre.save!
