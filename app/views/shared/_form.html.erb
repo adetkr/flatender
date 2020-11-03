@@ -7,7 +7,7 @@
           <%= f.input :address , label: "Addresse de l'appartement"  %>
           <%= f.input :presentation , label: "Description de l'appartement"  %>
           <%= f.input :rent , label: "Loyer"  %>
-          <%= f.association :equipments , collection: ['CategoryCountry.all', 'hbcjdb', 'bhcsjk'], label: "Equipements disponibles dans l'appartement" %>
+          <%= f.association :equipments %>
           <%= f.input :photos, as: :file ,input_html: { multiple: true, class: 'd-none hidden', id: 'photo-input'} , label_html: { class: 'upload-photo'}, label: '📷 Ajouter une photo'   %>
           <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
           <br>
