@@ -40,7 +40,7 @@ puts "alex exist"
 puts "-------------------------------"
 puts "création des 4 appartements "
 
-pierre_home = Flat.new(title:"A lovely flat in Paris", address: "16 Villa Gaudelet, Paris", presentation: "presentation test", rent: 500, user_id: "#{pierre.id}")
+pierre_home = Flat.new(title:"A lovely flat in Paris", address: "16 Villa Gaudelet, Paris 11e Arrondissement, Île-de-France, France", presentation: "presentation test", rent: 500, user_id: "#{pierre.id}")
 pierre_home.save!
 
 puts "pierre_home exist"

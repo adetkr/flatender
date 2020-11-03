@@ -22,9 +22,15 @@ class FlatsController < ApplicationController
   end
 
   def index
-    @flats = Flat.all
+      @flats = Flat.geocoded
+    if params[:search]
+      # @flats = @flats.search_by_address(params[:search][:query])
+      @flats = @flats.near(params[:search][:query], 30)
+    elsif params[:query]
+      @flats = @flats.near(params[:query], 30)
+    end
 
-    @markers = @flats.geocoded.map do |flat|
+    @markers = @flats.map do |flat|
       {
         lat: flat.latitude,
         lng: flat.longitude,
