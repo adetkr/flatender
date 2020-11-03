@@ -1,18 +1,44 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
   <div class="container">
-    <h1>FlaTender</h1>
-    <p>Exchange your flat with another student</p>
-      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <input class="form-control string required" placeholder="Search your next flat by city, university or by an address" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i> Search
-      </button>
-    </div>
-<% end %>
-
-<!--     <a class="btn btn-flat" href="#">Apply now</a>
- -->  </div>
+    <h1>Home exchange</h1>
+    <h2>for student abroad</h2>
+    <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <input class="form-control string required" placeholder="Search your next flat by city, university or by an address" type="text" name="search[query]" id="flat_address" />
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+    <% end %>
+  </div>
 </div>
 
+<section class="bg-light-blue pt-5 pb-5">
+  <div class="container">
+    <div class="row align-items-center">
+        <div class="col-lg-3 mb-3 mb-md-0">
+            <span class="h2 d-block">Most wanted cities</span>
+        </div>
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col d-flex">
+                    <div class="card mb-3">
+                        <img class="card-img" src="https://via.placeholder.com/400x300/5fa9f8/ffffff" alt="Amanda Shah">
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="https://via.placeholder.com/400x300/5fa9f8/ffffff" alt="Lucas Brüner">
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="card mb-3">
+                        <img class="card-img-top" src="https://via.placeholder.com/400x300/5fa9f8/ffffff" alt="Lucille Hobson">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
 
