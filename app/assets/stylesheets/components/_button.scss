@@ -1,0 +1,108 @@
+
+.btn-style-01 {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    color: #fff;
+    cursor: pointer;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #e71658, #af1143);
+    box-shadow: 0 4px 15px 0 rgba(231, 22, 88, 0.1);
+    }
+
+
+.btn-style-01:hover, .btn-style-01:focus {
+    background-position: 100% 0;
+    transition: all .4s ease-in-out;
+    box-shadow: 0 4px 15px 0 rgba(231, 22, 88, 0.3);
+    outline: none;
+}
+
+.btn-style-01:hover {
+    transform: translate(0px, -3px);
+    box-shadow: 0 4px 15px 0 rgba(231, 22, 88, 0.3);
+}
+
+
+
+
+.btn-style-01 > * {
+  position: relative;
+}
+
+.btn-style-01 span {
+  display: block;
+}
+
+.btn-style-01:before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+  width: 0;
+  padding-top: 0;
+
+  border-radius: 100%;
+
+  background-color: rgba(236, 240, 241, .1);
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.translate-x-5-hover{
+
+}
+
+.btn-style-01:active:before {
+  width: 120%;
+  padding-top: 120%;
+
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+.translate-x-5-hover{
+  &:hover {
+
+  }
+}
+
+
+.bounce {
+  display: inline-block;
+  position: relative;
+  -moz-animation: bounce 1s infinite;
+  -o-animation: bounce 1s  infinite;
+  -webkit-animation: bounce 1s  infinite;
+  animation: bounce 1s  infinite;
+}
+
+@-webkit-keyframes bounce {
+    0% { transform:scale(1); }
+    100% { transform:scale(1.1); }
+}
+@-moz-keyframes bounce {
+    0% { transform:scale(1); }
+    100% { transform:scale(1.1); }
+}
+@-o-keyframes bounce {
+    0% { transform:scale(1); }
+    100% { transform:scale(1.1); }
+}
+@-ms-keyframes bounce {
+    0% { transform:scale(1); }
+    100% { transform:scale(1.1); }
+}
+@keyframes bounce {
+    0% { transform:scale(1); }
+    100% { transform:scale(1.1); }
+}

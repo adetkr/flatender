@@ -1,18 +1,124 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://cdn.pixabay.com/photo/2016/11/21/14/12/books-1845614_960_720.jpg);">
   <div class="container">
-    <h1>FlaTender</h1>
-    <p>Exchange your flat with another student</p>
-      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <input class="form-control string required" placeholder="Search your next flat by city, university or by an address" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i> Search
-      </button>
+    <div class="home-title">
+      <h1>Home exchange</h1>
+      <h2>for student abroad</h2>
     </div>
-<% end %>
-
-<!--     <a class="btn btn-flat" href="#">Apply now</a>
- -->  </div>
+    <div class="col-4 p-0 search">
+      <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
+        <div class="search-form-control form-group">
+          <input class="form-control string required" placeholder= "Where do you go studying ?" type="text" name="search[query]" id="flat_address" />
+          <button type="submit" class="btn btn-danger">SEARCH
+          </button>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
+<div class="bg-white process">
+  <h1>How it <span>works</span> ?</h1>
+</div>
+<div class="experience-container">
+    <div class="row text-justify experience">
+      <div class="col-md-3 p-4 ">
+          <div ><i class="fas fa-house-user picto"></i>
+            <h5>I offer my <span>appartment</span> for exchange with a foreign student</h5>
+            <p>I provide informations about my flat, amenities, equipment and avaibilities</p>
+          </div>
+      </div>
+      <div class="col-md-3  p-4 ">
+           <div ><i class="fas fa-search picto"></i>
+            <h5>I am looking for a <span>new appartment</span> in the city where I am going to study</h5>
+            <p>I like all flats matching with my requests</p>
+          </div>
+      </div>
+      <div class="col-md-3  p-4">
+          <div ><i class="fas fa-grin-hearts picto"></i>
+            <h5><span>It's a Match !</span> my appartment has been liked by someone that I have also liked his flat! </h5>
+            <p>I start a chat with the person who target my flat. We agree to seal the deal !</p>
+          </div>
+      </div>
+       <div class="col-md-3  p-4">
+          <div ><i class="fas fa-file-signature picto"></i>
+            <h5> We sign a <span>contract of agreement</span> both of us agree to exchange our appartment</h5>
+            <p> I rent my flat and get a new one abraod ! Thanks FlaTender </p>
+          </div>
+      </div>
+    </div>
+</div>
+
+<section class="pt-5 pb-5 bg-white">
+  <div class="city-container ">
+    <div class="row">
+        <div class="col-2 city">
+            <h3 class="mb-3"> Most <span>wanted</span> cities </h3>
+          <div class="chevron">
+              <a class="btn mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                  <i class="fas fa-chevron-left"></i>
+              </a>
+              <a class="btn mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                  <i class="fas fa-chevron-right"></i>
+              </a>
+          </div>
+        </div>
+        <div class="col-10">
+            <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+
+                            <div class="col-md-3 mb-3">
+                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2018/07/20/14/02/rome-3550739_960_720.jpg)">
+                                  <%= link_to "Roma", flats_path(query: "Rome, Lazio, Italie") %>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                 <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2015/12/15/09/20/car-1093927_960_720.jpg)">
+                                  <%= link_to "Mexico", flats_path(query: "Mexico, Estado de México, Mexique") %>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2015/09/23/12/14/eiffel-tower-953590_960_720.jpg)">
+                                  <%= link_to "Paris", flats_path(query: "Paris, Île-de-France, France") %>
+                                </div>
+                            </div>
+                             <div class="col-md-3 mb-3">
+                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2016/12/01/22/43/stockholm-1876342_960_720.jpg)">
+                                  <%= link_to "Stockholm", flats_path(query: "Stockholm, Stockholms län, Suède") %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                           <div class="col-md-3 mb-3">
+                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2019/02/17/22/50/jungle-4003374_960_720.jpg)">
+                                  <%= link_to "San Jose", flats_path(query: "San José, Provincia San José, Costa Rica") %>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                 <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2017/01/24/15/49/sydney-2005716_960_720.jpg)">
+                                  <%= link_to "Sydney", flats_path(query: "Sydney, New South Wales, Australie") %>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2016/02/24/03/06/helicopter-1218974_960_720.jpg)">
+                                  <%= link_to "Cap Town", flats_path(query: "Le Cap, Western Cape, Afrique du Sud") %>
+                                </div>
+                            </div>
+                             <div class="col-md-3 mb-3">
+                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2012/06/25/15/34/berlin-wall-50727_960_720.jpg)">
+                                  <%= link_to "Berlin", flats_path(query: "Berlin, Allemagne") %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
