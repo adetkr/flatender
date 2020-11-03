@@ -1,0 +1,92 @@
+
+
+
+  <div class="row">
+
+    <div class="col-12 col-lg-2 matches-list">
+      <div class="d-flex">
+        <i class="fas fa-search ml-1"></i>
+
+        <p>Search</p>
+      </div>
+      <div class="d-flex">
+        <i class="fas fa-user ml-1"></i>
+
+        <p>Profile</p>
+      </div>
+      <div class="d-flex">
+        <i class="fas fa-heart ml-1"></i>
+        <p>Matches</p>
+
+      </div>
+
+      <div class="match-container">
+        <% @matchs.each do |match| %>
+          <div class="d-flex">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
+            <p><%= match.name[0..5] %></p>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="col-12 col-lg-7 messages-container container">
+      <div class="messages">
+            <%= render 'shared/received_message' %>
+            <%= render 'shared/sent_message' %>
+            <%= render 'shared/received_message' %>
+            <%= render 'shared/sent_message' %>
+      </div>
+      <div class="message-form">
+        <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
+          <div class="search-form-control form-group">
+            <input class="form-control string required" placeholder= "Where do you go studying ?" type="text" name="search[query]" id="flat_address" />
+            <button type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-3 flat-details">
+      <div class="flat-owner d-flex">
+
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
+
+      <div>
+        <p>Proposed by</p>
+        <h3>Celeste</h3>
+      </div>
+      </div>
+
+      <hr>
+
+      <div class = "flat-desc">
+        <h6>Apartamento céntrico y bien comunicado.WIFI.</h6>
+
+        <p>Apartamento céntrico en el barrio de Lavapiés, ideal para parejas que quieran conocer andando los sitios mas emblemáticos de la ciudad. </p>
+
+
+
+        <p>Availaibility of the appartment</p>
+        <p>Septembre 2021 - Aout 2022 (Date flexible)</p>
+      </div>
+
+       <hr>
+
+       <div class="flat-photos">
+          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
+          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
+          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
+          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
+          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
+          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
+       </div>
+
+       <a class = "btn btn-primary" href="">GENERATE CONTRACT</a>
+
+
+    </div>
+  </div>
+
