@@ -1,0 +1,13 @@
+<h1>User edit</h1>
+
+
+        <%= simple_form_for @user do |f| %>
+        <%= f.input :name %>
+        <%= f.input :presentation%>
+        <%= f.input :university %>
+        <%= f.input :presentation , as: :text%>
+        <%= f.input :photo, as: :file ,input_html: {  class: 'd-none hidden', id: 'photo-input'} , label_html: { class: 'upload-photo'}, label: '📷 Ajouter une photo de profil' %>
+        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+        <br>
+        <%= f.submit "Mettre à jour", class: "btn btn-primary" %>
+        <% end %>

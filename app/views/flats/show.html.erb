@@ -65,7 +65,18 @@
         <div class="col-4 bg-white-smoke rounded-lg p-4 mb-5 mr-3 border position-fixed">
            <div id="info" class="d-flex">
             <div>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar flex-shrink mr-3" %>
+                <% if @flat.user.photo.attached? %>
+                  <%= cl_image_tag @drone.user.photo.key, class: "avatar mr-2" %>
+                <% else %>
+                  <%= image_tag  "https://kitt.lewagon.com/placeholder/users/random", class: "avatar mr-2" %>
+                <% end %>
+
+
+
+
+
+
+
             </div>
             <div class="flex-grow-1">
               Proposed by:
