@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :flats
   resources :likes, only: [:create]
+  resources :matches, only: [:show] do
+    resources :messages, only: :create
+  end
   resources :users, only: [:update, :show, :edit]
+
 end

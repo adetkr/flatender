@@ -1,0 +1,7 @@
+<p><%=  message.created_at.strftime("%a %b %e at %l:%M%p") %></p>
+<div class="d-flex" >
+  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
+  <div class="received-message ">
+    <p><%= message.content %></p>
+  </div>
+</div>
