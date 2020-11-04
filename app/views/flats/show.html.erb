@@ -48,16 +48,7 @@
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-
-
-
-
-
-
-
-
-
-      </div>
+x     </div>
 
 
       <!--  User presentation -->
@@ -66,18 +57,11 @@
            <div id="info" class="d-flex">
             <div>
                 <% if @flat.user.photo.attached? %>
-                  <%= cl_image_tag @drone.user.photo.key, class: "avatar mr-2" %>
+                  <%= cl_image_tag @flat.user.photo.key, class: "avatar mr-2 rounded-circle" %>
                 <% else %>
                   <%= image_tag  "https://kitt.lewagon.com/placeholder/users/random", class: "avatar mr-2" %>
                 <% end %>
-
-
-
-
-
-
-
-            </div>
+           </div>
             <div class="flex-grow-1">
               Proposed by:
               <br>
@@ -101,10 +85,10 @@
               <% if  current_user and @flat.user != current_user %>
               <% like = Like.find_by(user_id: current_user.id, flat_id: @flat.id) %>
               <% if   Like.where(user_id: current_user.id, flat_id: @flat.id).count != 0 %>
-              <button id = "like" data-like-id = "<%= like.id %>"   data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn-style-01 text-uppercase py-2 px-5 rounded-lg" disabled=true > Like <i class="fas fa-heart ml-1"></i></button>
+              <button id = "like" data-like-id = "<%= like.id %>"   data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn-style-01 text-uppercase py-2 px-5 rounded-sm" disabled=true > Like <i class="fas fa-heart ml-1"></i></button>
               <% else %>
               <a id = "match-modal" class="hidden">  </a>
-              <button id = "like" data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn-style-01 text-uppercase py-2 px-5 rounded-lg" data-action="click->like#likeFlat"> Liked <i class="fas fa-star ml-1"></i></button>
+              <button id = "like" data-user-id = "<%= current_user.id %>" data-flat-id = "<%= @flat.id %>" class="btn-style-01 text-uppercase py-2 px-5 rounded-sm" data-action="click->like#likeFlat"> Liked <i class="fas fa-star ml-1"></i></button>
               <% end %>
               <% else %>
               <% if @flat.user != current_user %>
