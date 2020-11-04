@@ -1,5 +1,50 @@
+.background-color-white {
+    background-color: white;
+}
+
 .cards-flat {
     flex-grow: 1;
     border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    color: black;
+    background-color: #F8FBFB;
+}
+
+.cards-flat:hover {
+    border: 1px solid rgb(231, 22, 88);
+}
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+    bottom: 5px;
+    left: 228px;
+}
+
+.font-16px {
+    font-size: 18px;
+}
+
+.font-14px {
+    font-size: 14px;
+}
+
+.pink-color {
+    color: #EF5F8C; 
+}
+
+.pink-color-bold {
+    color: #EF5F8C;
+    font-weight: bold;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
 }
