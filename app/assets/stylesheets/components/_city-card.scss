@@ -19,7 +19,7 @@
 }
 
 .city-card a:hover {
-  color: $red;
+  color: $primary;
   text-decoration: none;
 }
 .city-container {
@@ -28,11 +28,11 @@
 }
 
 i.fas.fa-chevron-right {
-  color: $red;
+  color: $secondary;
 }
 
 i.fas.fa-chevron-left {
-  color: $purple;
+  color: $secondary;
 }
 
 .city h3 {

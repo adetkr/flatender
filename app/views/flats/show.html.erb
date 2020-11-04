@@ -48,16 +48,7 @@
           data-markers="<%= @markers.to_json %>"
           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
         </div>
-
-
-
-
-
-
-
-
-
-      </div>
+x     </div>
 
 
       <!--  User presentation -->
@@ -65,8 +56,12 @@
         <div class="col-4 bg-white-smoke rounded-lg p-4 mb-5 mr-3 border position-fixed">
            <div id="info" class="d-flex">
             <div>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar flex-shrink mr-3" %>
-            </div>
+                <% if @flat.user.photo.attached? %>
+                  <%= cl_image_tag @flat.user.photo.key, class: "avatar mr-2 rounded-circle" %>
+                <% else %>
+                  <%= image_tag  "https://kitt.lewagon.com/placeholder/users/random", class: "avatar mr-2" %>
+                <% end %>
+           </div>
             <div class="flex-grow-1">
               Proposed by:
               <br>
