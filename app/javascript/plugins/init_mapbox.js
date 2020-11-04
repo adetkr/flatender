@@ -24,6 +24,7 @@ const buildMap = () => {
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
     });
+  }
 
     const addMarkersToMap = (map, markers) => {
     markers.forEach((marker) => {
@@ -35,6 +36,7 @@ const buildMap = () => {
     .addTo(map);
   });
 };
+
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
