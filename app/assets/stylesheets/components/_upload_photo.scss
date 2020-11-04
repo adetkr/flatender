@@ -10,3 +10,21 @@
 #photo-preview {
   margin-bottom: 24px;
 }
+
+.main-img img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+
+
+
+div.thumb-img a:first-child img,  {
+  border-bottom-left-radius: 1rem;
+
+}
+
+div.thumb-img a:last-child img,  {
+  border-bottom-right-radius: 1rem;
+
+}

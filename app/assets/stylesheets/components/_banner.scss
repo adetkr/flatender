@@ -2,11 +2,11 @@
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  position: relative;
 }
 
 .banner h1 {
   margin: 0;
-  color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
@@ -18,3 +18,68 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
+.home-title h1, h2 {
+  font-size: 55px;
+}
+
+.photo-presentation {
+  width: 340px;
+  content: url(https://res.cloudinary.com/wagon/image/upload/c_fill,h_460,q_auto,w_488/v1601981900/pi8g3tee57nh5bqvtsrz.webp);
+  position: relative;
+
+}
+
+.photo-picto {
+  position: absolute;
+  right: 203px;
+  top: 166px;
+}
+
+.photo-picto .fa-university, .fa-graduation-cap {
+  color: $red;
+  font-size: 35px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  background-color: white;
+  padding: 9px;
+  box-shadow: 0 0 15px rgba(0, 0, 1, 0.9);
+
+}
+
+.photo-picto .fa-heart, .fa-key {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  background-color: $red;
+  padding: 9px;
+    box-shadow: 0 0 15px rgba(0, 0, 1, 0.9);
+
+}
+
+.fa-university {
+ position: absolute;
+ top: 55px;
+ right: -14px;
+}
+
+.fa-graduation-cap {
+position: absolute;
+left: 0px;
+bottom: -26px;
+}
+
+.photo-picto .fa-heart {
+  position: absolute;
+  right: -16px;
+  bottom: -3px;
+}
+
+.photo-picto .fa-key {
+  position: absolute;
+  top: -31px;
+  left: -14px;
+}
+
+

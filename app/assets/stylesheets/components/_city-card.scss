@@ -1,0 +1,41 @@
+.city-card {
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  width: 260px;
+  display: flex;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.city-card a {
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  left: 37px;
+  bottom: 5px;
+  text-shadow: 1px 3px 7px rgba(0,0,27,30);
+}
+
+.city-card a:hover {
+  color: $red;
+  text-decoration: none;
+}
+.city-container {
+  margin-right: 28px;
+  margin-left: 75px;
+}
+
+i.fas.fa-chevron-right {
+  color: $red;
+}
+
+i.fas.fa-chevron-left {
+  color: $purple;
+}
+
+.city h3 {
+  font-weight: bold;
+}
+

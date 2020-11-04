@@ -1,0 +1,28 @@
+
+<div class= "container">
+  <% if current_user == @user %>
+
+    <div class = "profile">
+        <%= link_to profile_path(@user) , class: "btn btn-primary" do %>
+              <i class="fas fa-arrow-left"></i> Retour à mon profil
+        <% end %>
+      <div class= "profile_header">
+        <%= simple_form_for @user do |f| %>
+        <%= f.input :name %>
+        <%= f.input :address%>
+        <%= f.input :phone_number %>
+        <%= f.input :presentation , as: :text%>
+        <%= f.input :photo, as: :file ,input_html: {  class: 'd-none hidden', id: 'photo-input'} , label_html: { class: 'upload-photo'}, label: '📷 Ajouter une photo de profil' %>
+        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+        <br>
+        <%= f.submit "Mettre à jour", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+
+  </div>
+
+
+</div>
