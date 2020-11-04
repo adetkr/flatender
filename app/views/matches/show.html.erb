@@ -32,19 +32,24 @@
     </div>
 
     <div class="col-12 col-lg-7 messages-container container">
-      <div class="messages">
-            <%= render 'shared/received_message' %>
-            <%= render 'shared/sent_message' %>
-            <%= render 'shared/received_message' %>
-            <%= render 'shared/sent_message' %>
+      <div class="messages" id="messages" data-matchId = <%= @match.id %>>
+            <% @match.messages.each do |message| %>
+              <% if message.user == current_user %>
+                <%= render 'shared/sent_message', message: message %>
+              <% else %>
+                <%= render 'shared/received_message', message: message %>
+              <% end %>
+
+            <% end %>
       </div>
       <div class="message-form">
-        <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
+        <%= simple_form_for [ @match, @message ] do |f| %>
           <div class="search-form-control form-group">
-            <input class="form-control string required" placeholder= "Where do you go studying ?" type="text" name="search[query]" id="flat_address" />
+            <%= f.input :content, class: "form-control string required", label: false, placeholder: "Entrez votre message ici..." %>
             <button type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i>
             </button>
           </div>
+
         <% end %>
       </div>
     </div>

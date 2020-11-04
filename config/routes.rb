@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :flats
   resources :likes, only: [:create]
   resources :matches, only: [:show] do
-
+    resources :messages, only: :create
   end
 
 end

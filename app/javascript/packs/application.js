@@ -26,7 +26,7 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete'
-
+import { initMatchCable } from '../channels/match_channel'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -38,6 +38,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   previewImageOnFileSelect();
   initAutocomplete();
+  initMatchCable();
 
 });
 
