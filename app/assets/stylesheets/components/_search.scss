@@ -7,7 +7,17 @@
   top: 8px;
   bottom: 8px;
   right: 8px;
+  border-radius: 7px;
+  font-size: 13px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  background-color: $red;
+
 }
+
+.search-form-control .btn:hover {
+    background-color: #e85a72;
+    border: 1px solid #e85a72;
+  }
 
 .search-form-control .form-control {
   height: 3.5rem;
@@ -16,7 +26,10 @@
 }
 
 .search-form-control .form-control:focus {
-  border: 1px solid #1EDD88;
+  border: 1px solid #4c154a;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+input#flat_address {
+    height: 60px;
 }

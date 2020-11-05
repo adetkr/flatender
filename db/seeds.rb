@@ -13,7 +13,13 @@ User.delete_all
 
 
 puts "-------------------------------"
-puts "création de 4 users "
+puts "création de 5 users "
+
+celeste = User.new(name: 'Celeste', email:'celeste@test.com', presentation: "Hello, my name is Celeste (but you can call me Cell ^_^) , i live in wonderfull madrid as communcation engineer students. I plan on studying in france next year in the university of St Denis", university: "Universidad Complutense de Madrid", password: "celeste@test.com")
+celeste.save!
+puts "celeste exist"
+
+
 
 pierre = User.new(name: 'Pierre', email:'pierre@test.com', presentation: "Je vis à Saint-Denis", university: "Le Wagon Saint-Denis", password: "pierre@test.com")
 pierre.save!
@@ -34,7 +40,7 @@ puts "alex exist"
 puts "-------------------------------"
 puts "création des 4 appartements "
 
-pierre_home = Flat.new(title:"A lovely flat in Paris", address: "16 Villa Gaudelet, Paris", presentation: "presentation test", rent: 500, user_id: "#{pierre.id}")
+pierre_home = Flat.new(title:"A lovely flat in Paris", address: "16 Villa Gaudelet, Paris 11e Arrondissement, Île-de-France, France", presentation: "presentation test", rent: 500, user_id: "#{pierre.id}")
 pierre_home.save!
 
 puts "pierre_home exist"

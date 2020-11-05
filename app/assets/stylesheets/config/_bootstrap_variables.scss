@@ -6,20 +6,45 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 #ffffff;
 $font-size-base: 1rem;
 
 // Colors
 $body-color: $gray;
-$primary:    $blue;
+$primary: #E71658;
+$secondary: #4B154A;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
 $warning:    $orange;
 
 // Buttons & inputs' radius
-$border-radius:    2px;
-$border-radius-lg: 2px;
-$border-radius-sm: 2px;
+$border-radius:    10px;
+$border-radius-lg: 1rem;
+$border-radius-sm: 5px;
+
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+
+$font-weight-lighter:         100 !default;
+$font-weight-light:           200 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            600 !default;
+$font-weight-bolder:          800 !default;
+
 
 // Override other variables below!
+.text-primary {
+  color: $primary !important;
+}
+
+
+
+$font-weight-base: $font-weight-light!default;
+
+
+
+body p {
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+}
+
