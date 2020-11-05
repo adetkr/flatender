@@ -1,0 +1,75 @@
+.matches-list {
+  border: 1px solid gray;
+  background-color: $white-smoke;
+  height: 100vh;
+  p, i {
+
+    padding: 10px;
+  }
+  i {
+    color: $primary;
+  }
+
+  img {
+    height: 40px;
+    width: 40px;
+  }
+}
+
+.match-container {
+  padding-left: 48px;
+
+}
+
+.messages-container {
+  border: 1px solid gray;
+  img {
+    height: 40px;
+    width: 40px;
+  }
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+
+.flat-details {
+  border: 1px solid gray;
+  img {
+    height: 80px;
+    width: 80px;
+  }
+
+  padding-top: 16px;
+}
+
+.sent-message {
+  border-radius: 10px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  background-color: $primary;
+  padding: 16px;
+
+}
+
+.sent-message-container {
+    p {
+    text-align: right;
+  }
+}
+
+.flat-owner .flat-desc .flat-photos{
+
+  margin-bottom: 16px;
+  margin-top: 16px;
+
+}
+.received-message {
+  border-radius: 10px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  background-color: $white-smoke;
+  padding: 16px;
+
+}
