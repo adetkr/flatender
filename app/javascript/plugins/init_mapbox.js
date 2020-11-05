@@ -10,10 +10,6 @@ const buildMap = () => {
   });
 };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> f478f1139daafb8fca366d3785b3469b26b2c18a
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
@@ -38,17 +34,6 @@ const buildMap = () => {
     .setLngLat([ marker.lng, marker.lat ])
     .setPopup(popup) // add this
     .addTo(map);
-<<<<<<< HEAD
-=======
-const addMarkersToMap = (map, markers) => {
-  console.log(markers)
-  markers.forEach((marker) => {
-    new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .addTo(map);
->>>>>>> master
-=======
->>>>>>> f478f1139daafb8fca366d3785b3469b26b2c18a
   });
 };
 
