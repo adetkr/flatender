@@ -8,7 +8,7 @@
 
 Like.delete_all
 Equipment.delete_all
-Flat.delete_all
+Flat.all.each(&:destroy)
 User.delete_all
 
 
@@ -87,7 +87,16 @@ iron = Equipment.new(name: "Iron")
 desk = Equipment.new(name: "Desk")
 coffeemachine = Equipment.new(name: "Coffee-machine")
 puts "equipements créés"
-
+puts "-------------------------------"
+puts "création d'un match"
+contrat1 = Contract.new(content: 'test', signature:"test", match_id: "#{Match.last.id}")
+contrat1.save!
+puts "contrat créé"
+puts "-------------------------------"
+puts "création d'un contrat"
+contrat1 = Contract.new(content: 'test', signature:"test", match_id: "#{Match.last.id}")
+contrat1.save!
+puts "contrat créé"
 
 
 

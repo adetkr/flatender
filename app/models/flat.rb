@@ -1,6 +1,7 @@
 class Flat < ApplicationRecord
   belongs_to :user
 
+  has_many :flat_matches, dependent: :destroy
   has_many :flat_equipments, dependent: :destroy
   has_many :equipments, through: :flat_equipments
   has_many :likes, dependent: :destroy
