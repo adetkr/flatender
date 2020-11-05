@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   resources :flats
   resources :likes, only: [:create]
-
+  resources :contracts, only: [:create,:show]
 end
