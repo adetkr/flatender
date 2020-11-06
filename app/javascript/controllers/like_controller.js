@@ -15,7 +15,16 @@ export default class extends Controller {
      initSweetalert('#match-modal', {
       title: "Match !",
       text: "Vous venez d'avoir un match avec cet appartement",
-      icon: "success"
+      icon: "success",
+ showCloseButton: true,
+  showCancelButton: true,
+  focusConfirm: false,
+  confirmButtonText:
+    '<i class="fa fa-thumbs-up"></i> Great!',
+  confirmButtonAriaLabel: 'Thumbs up, great!',
+  cancelButtonText:
+    '<i class="fa fa-thumbs-down"></i>',
+  cancelButtonAriaLabel: 'Thumbs down'
     });
 
   }
@@ -40,7 +49,7 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
             event.target.disabled = true;
-            event.target.innerText = "Liké";
+            event.target.innerText = "LIKED";
         if (data.match_exist) {
           const button = document.querySelector("#match-modal");
           button.click();

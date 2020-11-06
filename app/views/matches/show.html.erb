@@ -23,8 +23,16 @@
       <div class="match-container">
         <% @matchs.each do |match| %>
           <div class="d-flex">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
-            <p><%= match.name[0..5] %></p>
+            <% if @user.photo.attached? %>
+              <%= cl_image_tag @user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle dropdown-toggle"%>
+            <% else %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar rounded-circle dropdown-toggle"%>
+            <% end %>
+
+            <%= link_to match_path(match) do %>
+              <p><%= match.name[0..5] %></p>
+            <% end %>
+
           </div>
         <% end %>
       </div>
@@ -32,7 +40,7 @@
     </div>
 
     <div class="col-12 col-lg-7 messages-container container">
-      <div class="messages" id="messages" data-matchId = <%= @match.id %>>
+      <div class="messages" id="messages" data-matchId = "<%= @match.id %>" >
             <% @match.messages.each do |message| %>
               <% if message.user == current_user %>
                 <%= render 'shared/sent_message', message: message %>
@@ -54,23 +62,28 @@
       </div>
     </div>
 
+
     <div class="col-12 col-lg-3 flat-details">
       <div class="flat-owner d-flex">
 
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle dropdown-toggle"%>
+      <% else %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar rounded-circle dropdown-toggle"%>
+      <% end %>
 
       <div>
         <p>Proposed by</p>
-        <h3>Celeste</h3>
+        <h3> <%= @user.name %></h3>
       </div>
       </div>
 
       <hr>
 
       <div class = "flat-desc">
-        <h6>Apartamento céntrico y bien comunicado.WIFI.</h6>
+        <h6> <%= @flat.title %></h6>
 
-        <p>Apartamento céntrico en el barrio de Lavapiés, ideal para parejas que quieran conocer andando los sitios mas emblemáticos de la ciudad. </p>
+        <p><%= @flat.presentation %> </p>
 
 
 
@@ -81,12 +94,9 @@
        <hr>
 
        <div class="flat-photos">
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
+          <% @flat.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
+          <% end %>
        </div>
 
        <a class = "btn btn-primary" href="">GENERATE CONTRACT</a>
