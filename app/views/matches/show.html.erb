@@ -89,9 +89,6 @@
           <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
        </div>
 
-       <a class = "btn btn-primary" href="">GENERATE CONTRACT</a>
+       <%= link_to 'Generate contract', match_contracts_path(params[:id]), method: :post, class: "btn btn-primary" %>
 
-
-    </div>
-  </div>
 

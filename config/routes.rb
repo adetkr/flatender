@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :likes, only: [:create]
   resources :matches, only: [:show] do
     resources :messages, only: :create
+    resources :contracts, only: [:create, :show, :pdf_generate]
   end
   resources :users, only: [:update, :show, :edit]
-
 end
