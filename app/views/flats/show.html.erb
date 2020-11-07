@@ -52,8 +52,8 @@
 
            <% if @flat.user == current_user  %>
               <h5>Ajouter une equipement</h5>
-              <%= simple_form_for([@flat,@flat_equipment]) do |f| %>
-                <%= f.association :equipment %>
+              <%= simple_form_for(@flat_equipment, url: flat_flat_equipments_path(@flat)) do |f| %>
+                <%= f.association :equipment, as: :check_boxes, checked: @flat.equipment_ids %>
                 <%= f.submit "ajouter une equipment" %>
               <% end %>
            <% end %>
