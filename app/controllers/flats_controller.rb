@@ -16,6 +16,7 @@ class FlatsController < ApplicationController
   end
 
   def show
+    @flat_equipment = FlatEquipment.new
     @flat = Flat.find(params[:id])
      @markers = [    {
       lat: @flat.latitude,
@@ -23,6 +24,21 @@ class FlatsController < ApplicationController
       infoWindow: render_to_string(partial: "info_window", locals: { flat: @flat })
     }]
   end
+
+
+  def edit
+    @flat = Flat.find(params[:id])
+  end
+
+  def update
+    @flat = Flat.find(params[:id])
+    @flat.update(params_flat)
+    redirect_to flat_path(@flat)
+  end
+
+
+
+
 
   def index
     @flats = Flat.all.order("created_at DESC").geocoded
@@ -46,7 +62,7 @@ class FlatsController < ApplicationController
 
 
   def params_flat
-    params.require(:flat).permit(:title, :address, :presentation, :rent, photos: [])
+    params.require(:flat).permit(:title, :address, :presentation, :rent, :surface, :rooms, photos: [])
   end
 
   def set_flat
