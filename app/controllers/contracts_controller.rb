@@ -1,8 +1,4 @@
 class ContractsController < ApplicationController
-  def show
-    # @contract = Contract.find(params[:id])
-    
-  end
 
   def pdf_generate
     pdf_html = ActionController::Base.new.render_to_string(template: 'contracts/pdf_generate', layout: 'pdf')
@@ -15,6 +11,17 @@ class ContractsController < ApplicationController
     # file.write(pdf)
   end
 
-  # def create
-  # end
+
+  def show
+    @contract = Contract.find(params[:id])
+  end
+
+  def create
+    @match = Match.find(params[:match_id])
+    @contract = Contract.new
+    @contract.match = @match
+    @contract.save!
+    redirect_to match_contract_path(@match, @contract.id)
+  end
+
 end
