@@ -5,7 +5,16 @@ class LikesController < ApplicationController
     like = Like.new(like_params)
 
     if like.save
-      render json: { success: true , match_exist: like.match_exist?}
+      if like.match_exist?
+        if Match.last.flat1.user == current_user
+        render json: { success: true , match_exist: true, matchid: "#{Match.last.id}", matchname: "#{Match.last.flat2.user.name}" }
+        else
+        render json: { success: true , match_exist: true, matchid: "#{Match.last.id}", matchname: "#{Match.last.flat1.user.name}" }
+        end
+
+      else
+        render json: { success: true , match_exist: false}
+      end
     elsif like.save
 
     else

@@ -6,16 +6,22 @@ import { initSweetalert } from '../plugins/init_sweetalert';
 
 export default class extends Controller {
   connect() {
+
     console.log('Hello like controller');
-    initSweetalert('#not-connected', {
-      title: "Vous n'êtes pas connectés",
-      text: "Vous devez vous connecter avant de pouvoir liker des appartements",
-      icon: "error"
-    });
+
      initSweetalert('#match-modal', {
       title: "Match !",
       text: "Vous venez d'avoir un match avec cet appartement",
-      icon: "success"
+      icon: "success",
+ showCloseButton: true,
+  showCancelButton: true,
+  focusConfirm: false,
+  confirmButtonText:
+    '<i class="fa fa-thumbs-up"></i> Great!',
+  confirmButtonAriaLabel: 'Thumbs up, great!',
+  cancelButtonText:
+    '<i class="fa fa-thumbs-down"></i>',
+  cancelButtonAriaLabel: 'Thumbs down'
     });
 
   }
@@ -40,14 +46,23 @@ export default class extends Controller {
       .then(response => response.json())
       .then((data) => {
             event.target.disabled = true;
-            event.target.innerText = "Liké";
+            event.target.innerText = "LIKED";
+          const chatlink = document.querySelector("#matchpath");
+          const matchname = document.querySelector("#matchName");
+
         if (data.match_exist) {
-          const button = document.querySelector("#match-modal");
-          button.click();
+          console.log(chatlink.attributes.href);
+          console.log(data.matchname);
+          chatlink.setAttribute('href', `/matches/${data.matchid}`);
+
+          matchname.innerText = `${data.matchname}`
+          //button.click();
+          $('#MatchModal').modal('show');
         }
 
       })
       .then((error) => {
+        console.log("error");
         console.log(error);
       });
 
