@@ -1,15 +1,20 @@
 class ContractsController < ApplicationController
   def show
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "test_contract",
-        template: "contracts/show.html.erb",
-        layout: 'pdf.html.erb'
-      end
-    end
+    # @contract = Contract.find(params[:id])
+    
   end
 
-  def create
+  def pdf_generate
+    pdf_html = ActionController::Base.new.render_to_string(template: 'contracts/pdf_generate', layout: 'pdf')
+    pdf = WickedPdf.new.pdf_from_string(pdf_html)
+    send_data pdf, filename: 'votre_contrat.pdf'
+    # FileUtils.mkdir_p "#{Rails.root}/tmp/contracts"
+    # dir = Rails.root.join('tmp', 'contracts')
+    # file = File.open(dir.join('file.pdf'), 'w+')
+    # file.binmode
+    # file.write(pdf)
   end
+
+  # def create
+  # end
 end
