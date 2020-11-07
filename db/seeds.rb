@@ -12,6 +12,7 @@ Flat.all.each(&:destroy)
 User.delete_all
 
 
+
 puts "-------------------------------"
 puts "création de 5 users "
 
@@ -80,12 +81,28 @@ ademolalikesaline.save!
 puts "likes avec match créés"
 puts "-------------------------------"
 puts "création d'équipements"
-wifi = Equipment.new(name: "Wi-Fi")
-desk = Equipment.new(name: "Desk")
-microwave = Equipment.new(name: "Microwave")
-iron = Equipment.new(name: "Iron")
-desk = Equipment.new(name: "Desk")
-coffeemachine = Equipment.new(name: "Coffee-machine")
+Equipment.create(name: "air-conditioning")
+Equipment.create(name: "degree")
+Equipment.create(name: "dishwashers")
+Equipment.create(name: "dryer")
+Equipment.create(name: "freezer")
+Equipment.create(name: "hair-dryer")
+Equipment.create(name: "iron")
+Equipment.create(name: "key")
+Equipment.create(name: "laundry")
+Equipment.create(name: "microwave")
+Equipment.create(name: "parking")
+Equipment.create(name: "pets")
+Equipment.create(name: "refrigerator")
+Equipment.create(name: "shower")
+Equipment.create(name: "soundproof")
+Equipment.create(name: "swiming-pool")
+Equipment.create(name: "terrace")
+Equipment.create(name: "user")
+Equipment.create(name: "washing-machine")
+Equipment.create(name: "weekly-cleaning")
+Equipment.create(name: "wifi")
+puts "equipements créés"
 puts "equipements créés"
 puts "-------------------------------"
 puts "création d'un match"
