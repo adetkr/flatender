@@ -7,16 +7,29 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+<% if controller_name == "flats" && action_name == "index" %>
+  <div class="col-6">
+    <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
+    <div class="form-group mb-0 bg-gray-6 no-algolia-icon d-flex justify-content-start rounded">
+      <div class="d-flex align-items-center px-3 py-2">
+        <i class="fas h2 text-primary fa-map-marker-alt"></i>
+      </div>
+      <div class="d-flex align-items-center flex-grow-1 px-0 py-2">
+        <input class="border-0 bg-gray-6 my-0 px-0 w-100" type="text" name="search[query]" id="flat_address">
+      </div>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", root_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag current_user.photo.key,  class: "avatar rounded-circle dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
