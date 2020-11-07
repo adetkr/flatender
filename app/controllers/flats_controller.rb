@@ -26,6 +26,12 @@ class FlatsController < ApplicationController
   end
 
 
+  def flat_equipments
+    @flat = Flat.find(params[:flat_id])
+    @flat.equipment_ids = equipments_params[:equipment_id]
+    redirect_to @flat
+  end
+
   def edit
     @flat = Flat.find(params[:id])
   end
@@ -35,9 +41,6 @@ class FlatsController < ApplicationController
     @flat.update(params_flat)
     redirect_to flat_path(@flat)
   end
-
-
-
 
 
   def index
@@ -60,6 +63,9 @@ class FlatsController < ApplicationController
 
   private
 
+  def equipments_params
+    params.require(:flat_equipment).permit(equipment_id: [])
+  end
 
   def params_flat
     params.require(:flat).permit(:title, :address, :presentation, :rent, :surface, :rooms, photos: [])
