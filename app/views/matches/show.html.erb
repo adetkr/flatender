@@ -7,30 +7,42 @@
       <div class="d-flex">
         <i class="fas fa-search ml-1"></i>
 
-        <p>Search</p>
+        <p>Mes recherches</p>
       </div>
       <div class="d-flex">
         <i class="fas fa-user ml-1"></i>
+        <%= link_to user_path(current_user) do %>
 
-        <p>Profile</p>
+        <p>Mon profil</p>
+        <% end %>
+
       </div>
       <div class="d-flex">
         <i class="fas fa-heart ml-1"></i>
-        <p>Matches</p>
+        <p>Mes Matchs</p>
 
       </div>
 
       <div class="match-container">
         <% @matchs.each do |match| %>
+          <%
+            if match.flat1.user == current_user
+
+              user = match.flat2.user
+            else
+
+              user = match.flat1.user
+            end
+           %>
           <div class="d-flex">
-            <% if @user.photo.attached? %>
-              <%= cl_image_tag @user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle dropdown-toggle"%>
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle dropdown-toggle"%>
             <% else %>
               <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar rounded-circle dropdown-toggle"%>
             <% end %>
 
             <%= link_to match_path(match) do %>
-              <p><%= match.name[0..5] %></p>
+              <p><%= user.name %></p>
             <% end %>
 
           </div>
@@ -40,15 +52,19 @@
     </div>
 
     <div class="col-12 col-lg-7 messages-container container">
+      <% if @match %>
       <div class="messages" id="messages" data-matchId = "<%= @match.id %>" >
-            <% @match.messages.each do |message| %>
-              <% if message.user == current_user %>
-                <%= render 'shared/sent_message', message: message %>
-              <% else %>
-                <%= render 'shared/received_message', message: message %>
+
+
+              <% @match.messages.each do |message| %>
+                <% if message.user == current_user %>
+                  <%= render 'shared/sent_message', message: message %>
+                <% else %>
+                  <%= render 'shared/received_message', message: message %>
+                <% end %>
+
               <% end %>
 
-            <% end %>
       </div>
       <div class="message-form">
         <%= simple_form_for [ @match, @message ] do |f| %>
@@ -60,46 +76,54 @@
 
         <% end %>
       </div>
+      <% end %>
     </div>
 
 
     <div class="col-12 col-lg-3 flat-details">
-      <div class="flat-owner d-flex">
+       <% if @user %>
 
-      <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle dropdown-toggle"%>
-      <% else %>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar rounded-circle dropdown-toggle"%>
+        <div class="flat-owner d-flex">
+
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle dropdown-toggle"%>
+        <% else %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar rounded-circle dropdown-toggle"%>
+        <% end %>
+
+        <div>
+          <p>Proposed by</p>
+          <h3 class="text-primary"> <%= @user.name %></h3>
+
+        </div>
+        </div>
+
+        <hr>
+
+        <div class = "flat-desc">
+          <h6> <%= @flat.title %></h6>
+
+          <p><%= @flat.presentation %> </p>
+
+
+
+          <p class="text-primary">Availaibility of the appartment</p>
+          <p>Septembre 2021 - Aout 2022 (Date flexible)</p>
+        </div>
+
+         <hr>
+
+         <div class="flat-photos">
+            <% @flat.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
+            <% end %>
+         </div>
+
+         <div>
+         <a class = "btn btn-primary" href="">GENERATE CONTRACT</a>
+
+         </div>
       <% end %>
-
-      <div>
-        <p>Proposed by</p>
-        <h3> <%= @user.name %></h3>
-      </div>
-      </div>
-
-      <hr>
-
-      <div class = "flat-desc">
-        <h6> <%= @flat.title %></h6>
-
-        <p><%= @flat.presentation %> </p>
-
-
-
-        <p>Availaibility of the appartment</p>
-        <p>Septembre 2021 - Aout 2022 (Date flexible)</p>
-      </div>
-
-       <hr>
-
-       <div class="flat-photos">
-          <% @flat.photos.each do |photo| %>
-            <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <% end %>
-       </div>
-
-       <a class = "btn btn-primary" href="">GENERATE CONTRACT</a>
 
 
     </div>

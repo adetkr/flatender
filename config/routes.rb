@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :likes, only: [:create]
-  resources :matches, only: [:show] do
+  resources :matches, only: [:show, :index] do
     resources :messages, only: :create
   end
   resources :users, only: [:update, :show, :edit]

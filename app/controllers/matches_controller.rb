@@ -1,12 +1,24 @@
 class MatchesController < ApplicationController
+  def index
+    @matchs = []
+    @match = nil
+    current_user.flats.each do |flat|
+      flatmatchs = FlatMatch.where(flat_id: flat.id)
+      flatmatchs.each do |flatmatch|
+        @matchs << Match.find(flatmatch.match.id)
+      end
 
+    end
+    render :show
+  end
   def show
     @matchs = []
     current_user.flats.each do |flat|
-      flatmatch = FlatMatch.find_by(flat_id: flat.id)
-      if flatmatch != nil
-      @matchs << Match.find(flatmatch.match.id)
+      flatmatchs = FlatMatch.where(flat_id: flat.id)
+      flatmatchs.each do |flatmatch|
+        @matchs << Match.find(flatmatch.match.id)
       end
+
     end
 
 
