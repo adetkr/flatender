@@ -6,12 +6,18 @@
 $body-font: "Nunito Sans", "Helvetica", "sans-serif";
 $headers-font: "Poppins", "Helvetica", "sans-serif";
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+
+
+
+@font-face {
+font-family: "icomoon";
+src: url(font-path("icomoon.eot") + "?im1wxq") format("embedded-opentype"),
+url(font-path("icomoon.woff")) format("woff"),
+url(font-path("icomoon.ttf")) format("truetype"),
+url(font-path("icomoon.svg") + "#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+
