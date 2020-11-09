@@ -1,6 +1,10 @@
 <p><%=  message.created_at.strftime("%a %b %e at %l:%M%p") %></p>
 <div class="d-flex" >
-  <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
+      <% if message.user.photo.attached? %>
+        <%= cl_image_tag message.user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle dropdown-toggle"%>
+      <% else %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar rounded-circle dropdown-toggle"%>
+      <% end %>
   <div class="received-message ">
     <p><%= message.content %></p>
   </div>
