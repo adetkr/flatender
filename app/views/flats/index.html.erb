@@ -4,7 +4,7 @@
       <div class="col-6 p-4 my-4">
         <% @flats.each do |flat| %>
           <%= link_to flat_path(flat) do %>
-            <div class="card cards-flat rounded border-1 mb-4 d-flex bg-white-smoke align-items-between ">
+            <div class="card cards-flat rounded border-1 mb-4 d-flex bg-white-smoke align-items-between hover-card " data-cardId="card-<%= flat.id %>" data-lat="<%= flat.latitude %>" data-lng="<%= flat.longitude %>">
               <div class="d-flex justify-content-start">
                 <div class="col-4 p-0 rounded overflow-hidden">
                   <div class="thumbnail rounded"
