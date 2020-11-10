@@ -33,6 +33,11 @@ $font-weight-bold:            600 !default;
 $font-weight-bolder:          800 !default;
 
 
+// Background
+$modal-backdrop-bg:                 #ffffff !default;
+$modal-backdrop-opacity:            .7 !default;
+
+
 // Override other variables below!
 .text-primary {
   color: $primary !important;

@@ -1,0 +1,125 @@
+#dashboard-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 250px;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    overflow-y: auto !important;
+}
+
+
+
+.dashboard-menu {
+  list-style: none;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+
+li.dashboard-menu-item {
+  padding: 1rem 2rem;
+  margin: 0;
+}
+
+
+li.dashboard-menu-item {
+  &:hover{
+    background-color: $gray-6;
+    a {
+      color: $primary;
+    }
+  }
+}
+
+li.dashboard-menu-item.active {
+  background-color: $gray-6;
+    a {
+      color: $primary;
+  }
+}
+
+
+
+.matches-menu {
+  list-style: none;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+
+li.matches-menu-item {
+  padding: 1rem 2rem;
+  margin: 0;
+}
+
+
+li.matches-menu-item {
+  &:hover{
+    background-color: $gray-6;
+    a {
+      color: $primary;
+      img {
+        border-color: $primary !important;
+      }
+    }
+  }
+}
+
+li.matches-menu-item.active {
+  background-color: $gray-6;
+    a {
+      color: $primary;
+  }
+}
+
+
+.messages-container {
+  padding-left:250px;
+  padding-right:350px;
+  overflow: auto;
+
+}
+
+.messages{
+  padding-bottom: 150px;
+}
+
+
+.message-content {
+  max-width: 50%;
+}
+
+.message-form {
+    position: fixed;
+    bottom: 0px;
+    width: calc(100% - 350px);
+}
+
+.flat-details {
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-width: 350px;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    overflow-y: auto !important;
+}
+
+
+div.generate-contract {
+  position: fixed;
+  bottom: 0px;
+  width: 350px;
+
+    a {
+      display: block;
+      min-width: 200px !important;
+      margin: 0 auto;
+  }
+}
