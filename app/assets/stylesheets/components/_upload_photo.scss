@@ -14,17 +14,27 @@
 .main-img img {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
+  padding-right:0.25rem;
+  padding-left:0.25rem;
+}
+
+.gal-thumb {
+  width: 20%;
+  padding-right:0.25rem;
+  padding-left:0.25rem;
 }
 
 
 
 
-div.thumb-img a:first-child img,  {
+.lightgallery-flat .gal-thumb:nth-child(2) img {
   border-bottom-left-radius: 1rem;
 
 }
 
-div.thumb-img a:last-child img,  {
+.lightgallery-flat .gal-thumb:last-child img {
   border-bottom-right-radius: 1rem;
 
 }
+
+

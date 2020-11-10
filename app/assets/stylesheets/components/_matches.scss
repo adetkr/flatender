@@ -1,105 +1,22 @@
-.matches-list {
-  overflow-y: scroll;
-  border: 1px solid gray;
-  background-color: $white-smoke;
-  height: 100vh;
-  p, i {
-
-    padding: 10px;
-  }
-  i {
-    color: $primary;
-  }
-
-  img {
-    height: 40px;
-    width: 40px;
-  }
+.match-modal-container {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: $primary;
 }
 
-.match-container {
-  padding-left: 48px;
-
-}
-
-.messages {
-  overflow-y: scroll;
-    display: flex;
-  flex-direction: column;
-}
-
-.messages-container {
-  height: 100vh;
-
-  border: 1px solid gray;
-  img {
-    height: 40px;
-    width: 40px;
-  }
-  display: flex;
-  flex-direction: column;
-  align-content: space-between;
-  justify-content: space-between;
-
+.match-modal-container::after {
+    content: ""; // ::before and ::after both require content
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(120deg, $primary, $secondary);
+    opacity: .7;
 }
 
 
-.flat-details {
-  overflow-y: scroll;
-  border: 1px solid gray;
-  img {
-    height: 80px;
-    width: 80px;
-  }
-
-  padding-top: 16px;
-    justify-content: space-evenly;
-    align-content: space-evenly;
-    display: flex;
-    flex-direction: column;
-  height: 100vh;
-}
-
-.sent-message {
-  border-radius: 10px;
-  //margin-bottom: 8px;
-  //margin-top: 8px;
-  float: right;
-  //padding: 16px;
-  p {
-    background-color: $primary;
-    border-radius: 10px;
-    padding: 10px;
-
-
-  }
-
-}
-
-.sent-message-container {
-    p {
-    text-align: right;
-  }
-
-
-
-}
-
-.flat-owner .flat-desc .flat-photos{
-
-  margin-bottom: 16px;
-  margin-top: 16px;
-
-}
-.received-message {
-  border-radius: 10px;
-  //margin-bottom: 8px;
-  //margin-top: 8px;
-  background-color: $white-smoke;
-  //padding: 16px;
-
-  p {
-        margin: 10px;
-  }
-
+.match-modal-content {
+  z-index:2000;
 }

@@ -21,42 +21,47 @@ puts "celeste exist"
 
 
 
-pierre = User.new(name: 'Pierre', email:'pierre@test.com', presentation: "Je vis à Saint-Denis", university: "Le Wagon Saint-Denis", password: "pierre@test.com")
+pierre = User.new(name: 'Pierre', email:'pierre@test.com', presentation: "Hae duae provinciae bello quondam piratico catervis mixtae praedonum a Servilio pro consule missae sub iugum factae sunt vectigales. et hae quidem regiones velut in prominenti terrarum lingua positae ob orbe eoo monte Amano disparantur.", university: "Le Wagon Saint-Denis", password: "pierre@test.com")
 pierre.save!
 puts "pierre exist"
 
-ademola = User.new(name: 'Ademola', email:'ademola@test.com', presentation: "je vis au Costa Rica", university: "Le Wagon Costa Rica", password: "ademola@test.com")
+ademola = User.new(name: 'Ademola', email:'ademola@test.com', presentation: "Et est admodum mirum videre plebem innumeram mentibus ardore quodam infuso cum dimicationum curulium eventu pendentem. haec similiaque memorabile nihil vel serium agi Romae permittunt. ergo redeundum ad textum.", university: "Le Wagon Costa Rica", password: "ademola@test.com")
 ademola.save!
 puts "ademola exist"
 
-aline = User.new(name: 'Aline', email:'aline@test.com', presentation: "je vis a Rome", university: "Le Wagon Rome", password: "aline@test.com")
+aline = User.new(name: 'Aline', email:'aline@test.com', presentation: "Ego vero sic intellego, Patres conscripti, nos hoc tempore in provinciis decernendis perpetuae pacis habere oportere rationem. Nam quis hoc non sentit omnia alia esse nobis vacua ab omni periculo atque etiam suspicione belli?", university: "Le Wagon Rome", password: "aline@test.com")
 aline.save!
 puts "aline exist"
 
-alex = User.new(name: 'Alex', email:'alex@test.com', presentation: "je vis a Mexico", university: "Le Wagon Mexico", password: "aline@test.com")
+alex = User.new(name: 'Alex', email:'alex@test.com', presentation: "je vis a Mexico", university: "Quam ob rem id primum videamus, si placet, quatenus amor in amicitia progredi debeat. Numne, si Coriolanus habuit amicos, ferre contra patriam arma illi cum Coriolano debuerunt? num Vecellinum amici regnum adpetentem, num Maelium debuerunt iuvare?", password: "aline@test.com")
 alex.save!
 puts "alex exist"
 
 puts "-------------------------------"
-puts "création des 4 appartements "
+puts "création des 5 appartements "
 
-pierre_home = Flat.new(title:"A lovely flat in Paris", address: "16 Villa Gaudelet, Paris 11e Arrondissement, Île-de-France, France", presentation: "presentation test", rent: 500, user_id: "#{pierre.id}")
+pierre_home = Flat.new(surface: 38, rooms: 2, title:"A lovely flat in Paris", address: "16 Villa Gaudelet, Paris 11e Arrondissement, Île-de-France, France", presentation: "Ut enim benefici liberalesque sumus, non ut exigamus gratiam (neque enim beneficium faeneramur sed natura propensi ad liberalitatem sumus), sic amicitiam non spe mercedis adducti sed quod omnis eius fructus in ipso amore inest, expetendam putamus.", rent: 500, user_id: "#{pierre.id}")
 pierre_home.save!
 
 puts "pierre_home exist"
 
-ademola_home = Flat.new(title:"Come and study on the beach", address: "Paseo Colón, Merced, San José, Costa Rica", presentation: "presentation test", rent: 300, user_id: "#{ademola.id}")
+ademola_home = Flat.new(surface: 65, rooms: 3, title:"Come and study on the beach", address: "Paseo Colón, Merced, San José, Costa Rica", presentation: "Utque aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontium caedibus fecit victoriam luctuosam.", rent: 300, user_id: "#{ademola.id}")
 ademola_home.save!
 
 puts "ademola_home exist"
 
-aline_home = Flat.new(title:"You will love studying in Roma", address: "Piazza del Campidoglio, 00186 Roma RM, Italie", presentation: "presentation test", rent: 600, user_id: "#{aline.id}")
+aline_home = Flat.new(surface: 25, rooms: 1, title:"You will love studying in Roma", address: "Piazza del Campidoglio, 00186 Roma RM, Italie", presentation: "Et est admodum mirum videre plebem innumeram mentibus ardore quodam infuso cum dimicationum curulium eventu pendentem. haec similiaque memorabile nihil vel serium agi Romae permittunt. ergo redeundum ad textum.", rent: 600, user_id: "#{aline.id}")
 aline_home.save!
 
 puts "aline_home exist"
 
-alex_home = Flat.new(title:"Come and learn spanish in my lovely city", address: "Miguel Hidalgo, Mexico City, Mexique", presentation: "presentation test", rent: 600, user_id: "#{alex.id}")
+alex_home = Flat.new(surface: 90, rooms: 4, title:"Come and learn spanish in my lovely city", address: "Miguel Hidalgo, Mexico City, Mexique", presentation: "Abusus enim multitudine hominum, quam tranquillis in rebus diutius rexit, ex agrestibus habitaculis urbes construxit multis opibus firmas et viribus, quarum ad praesens pleraeque licet Graecis nominibus appellentur, quae isdem ad arbitrium inposita sunt conditoris, primigenia tamen nomina non amittunt, quae eis Assyria lingua institutores veteres indiderunt.", rent: 600, user_id: "#{alex.id}")
 alex_home.save!
+
+
+celeste_home = Flat.new(surface: 38, rooms: 2, title:"Apartamento céntrico y bien comunicado", address: "Calle de Quintana, Madrid, Espagne", presentation: "Apartamento céntrico en el barrio de Lavapiés, ideal para parejas que quieran conocer andando los sitios mas emblemáticos de la ciudad. La casa se encuentra a 8 minutos del Reina Sofía, a 3 minutos de la parada de metro Anton Martin y del mercado del mismo nombre y a 10 minutos de la Estación de Atocha. Supermercado 24 horas a un minuto de casa.", rent: 600, user_id: "#{celeste.id}")
+celeste_home.save!
+
 
 puts "alex_home exist"
 

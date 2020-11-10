@@ -1,17 +1,17 @@
-<section id="card">
+<section id="card" class="mt-5">
   <div class="container-fluid bg-white">
     <div class="row">
-      <div class="col-6 p-4">
+      <div class="col-6 p-4 my-4">
         <% @flats.each do |flat| %>
           <%= link_to flat_path(flat) do %>
             <div class="card cards-flat rounded border-1 mb-4 d-flex bg-white-smoke align-items-between ">
               <div class="d-flex justify-content-start">
                 <div class="col-4 p-0 rounded overflow-hidden">
-                  <div class="thumbnail rounded "
+                  <div class="thumbnail rounded"
                   <% if flat.photos.attached? %>
                   style="background-image: url('<%= cl_image_path flat.photos.first.key, height: 300, width: 400, crop: :fill %>');"
                    <% else %>
-                  style="background-image: url('<%= image_path "flat-default.jpg", height: 300, width: 400, crop: :fill %>');"
+                  style="background-image: url('<%= image_path "noimage.png", height: 300, width: 400, crop: :fill %>');"
                   <% end %>
                   >
                   </div>
@@ -24,7 +24,7 @@
                     <% if flat.user.photo.attached? %>
                        <%= cl_image_tag flat.user.photo.key, height: 40, width: 40 , crop: :fill, class: "rounded-circle border border-white border-2 avatar-index" %>
                     <% else %>
-                       <%= image_tag  "https://kitt.lewagon.com/placeholder/users/random", height: 40, width: 40 , crop: :fill, class: "rounded-circle border border-white border-2 avatar-index" %>
+                       <%= image_tag "noavatar.png", height: 40, width: 40 , crop: :fill, class: "rounded-circle border border-white border-2 avatar-index" %>
                     <% end %>
                     Proposed by <span class="text-primary font-weight-bold"><%= flat.user.name %></span>
                   </p>
