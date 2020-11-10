@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:update, :show, :edit]
 
+  get '/docusign/callback', to: 'pages#callback'
+  get '/docusign/initiate', to: 'pages#initiate'
+
 end

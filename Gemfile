@@ -34,6 +34,7 @@ gem 'devise'
 gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
 
+gem 'docusign_rest'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
