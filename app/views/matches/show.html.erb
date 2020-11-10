@@ -1,57 +1,48 @@
+<section class="mt-5">
+<!-- navigation dashboard   -->
+  <div id="dashboard-nav" class="bg-white-smoke border-right col-2">
+    <hr class="my-5">
+    <ul class="dashboard-menu">
+      <li class="dashboard-menu-item">
+        <a href="<%= user_path(current_user) %>" class="h6">
+          <i class="fas fa-user h5 mr-3"></i> My profile
+        </a>
+      </li>
+      <li class="dashboard-menu-item active">
+        <a href="<%= matches_path() %>" class="h6">
+          <i class="fas fa-heart h5 mr-3"></i> My Matches
+        </a>
+      </li>
+    </ul>
 
-
-
-  <div class="row">
-
-    <div class="col-12 col-lg-2 matches-list">
-      <div class="d-flex">
-        <i class="fas fa-search ml-1"></i>
-
-        <p>Mes recherches</p>
-      </div>
-      <div class="d-flex">
-        <i class="fas fa-user ml-1"></i>
-        <%= link_to user_path(current_user) do %>
-
-        <p>Mon profil</p>
-        <% end %>
-
-      </div>
-      <div class="d-flex">
-        <i class="fas fa-heart ml-1"></i>
-        <p>Mes Matchs</p>
-
-      </div>
-
-      <div class="match-container">
-        <% @matchs.each do |match| %>
-          <%
-            if match.flat1.user == current_user
-
-              user = match.flat2.user
-            else
-
-              user = match.flat1.user
-            end
-           %>
-          <div class="d-flex">
-            <% if user.photo.attached? %>
-              <%= cl_image_tag user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle dropdown-toggle"%>
-            <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar rounded-circle dropdown-toggle"%>
-            <% end %>
-
-            <%= link_to match_path(match) do %>
-              <p><%= user.name %></p>
-            <% end %>
-
-          </div>
-        <% end %>
-      </div>
-
+    <div class="match-nav">
+       <% @matchs.each do |match| %>
+          <% if match.flat1.user == current_user
+            user = match.flat2.user
+          else
+            user = match.flat1.user
+          end %>
+        <ul class="matches-menu">
+          <li class="matches-menu-item">
+            <a href="<%= match_path(match) %>" class="h6">
+              <% if user.photo.attached? %>
+                <%= cl_image_tag user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle mr-3 border border-white"%>
+              <% else %>
+                  <%= image_tag "noavatar.png",  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle mr-3 border border-white"%>
+              <% end %>
+              <%= user.name %>
+            </a>
+          </li>
+        </ul>
+      <% end %>
     </div>
+  </div>
+  </div>
+<!-- / navigation dashboard   -->
 
-    <div class="col-12 col-lg-7 messages-container container">
+
+<!-- Chat  -->
+<div class="messages-container flex-grow-1 pt-4">
       <% if @match %>
       <div class="messages" id="messages" data-matchId = "<%= @match.id %>" >
 
@@ -66,65 +57,81 @@
               <% end %>
 
       </div>
-      <div class="message-form">
+
+    <!-- Formulaire  -->
+      <div class="message-form bg-white p-4 border-top">
         <%= simple_form_for [ @match, @message ] do |f| %>
-          <div class="search-form-control form-group">
-            <%= f.input :content, class: "form-control string required", label: false, placeholder: "Entrez votre message ici..." %>
-            <button type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i> </button>
+          <div class="search-form-control form-row">
+            <div class="col-8">
+              <%= f.input :content, class: "form-control form-control-lg string required w-75", label: false, placeholder: "Entrez votre message ici..." %>
+            </div>
+
+            <div class="col-4">
+              <button type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i> </button>
+            </div>
           </div>
 
         <% end %>
       </div>
+
+    <!-- /Formulaire  -->
+
+
+
+
+
+
+
       <% end %>
     </div>
 
+<!-- /Chat  -->
 
-    <div class="col-12 col-lg-3 flat-details">
-       <% if @user %>
 
-        <div class="flat-owner d-flex">
-
+<!-- flat detail  -->
+  <div class="flat-details bg-white border-left">
+     <hr class="my-5">
+      <% if @user %>
+        <div class="d-flex px-4">
         <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle dropdown-toggle"%>
+          <%= cl_image_tag @user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar-large rounded-circle mr-3"%>
         <% else %>
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar rounded-circle dropdown-toggle"%>
+          <%= image_tag "noavatar.png", class: "avatar-large rounded-circle mr-3"%>
         <% end %>
 
         <div>
-          <p>Proposed by</p>
-          <h3 class="text-primary"> <%= @user.name %></h3>
-
-        </div>
-        </div>
+          <p class="mb-0">Proposed by</p>
+          <p class="text-primary h4 font-weight-bold"> <%= @user.name %></p>
+         </div>
+      </div>
 
         <hr>
 
-        <div class = "flat-desc">
+        <div class="flat-desc px-4 border-bottom">
           <h6> <%= @flat.title %></h6>
-
-          <p><%= @flat.presentation %> </p>
-
-
-
+          <p><%= @flat.presentation.truncate(150) %><a href="<%= flat_path(@flat) %>" class="text-primary font-weight-bold">view flat details</a></p>
           <p class="text-primary">Availaibility of the appartment</p>
           <p>Septembre 2021 - Aout 2022 (Date flexible)</p>
         </div>
 
-         <hr>
-
-         <div class="flat-photos">
+        <% if @flat.photos.attached? %>
+          <div class="flat-photos">
+            <div class="row m-0 p-4">
             <% @flat.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
+              <div class="col-3 p-1">
+              <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, class: "img-fluid" %>
+              </div>
             <% end %>
-         </div>
+            </div>
+          </div>
+        <% end %>
 
-         <div>
-         <a class = "btn btn-primary" href="">GENERATE CONTRACT</a>
 
+         <div class="generate-contract bg-white p-4 border-top">
+           <a class="btn-style-01 p-3 text-white rounded text-uppercase" href="">Generate contract</a>
          </div>
       <% end %>
 
-
     </div>
-  </div>
-
+    <!-- /flat detail  -->
+</section>

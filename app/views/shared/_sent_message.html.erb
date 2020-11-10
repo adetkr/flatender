@@ -1,9 +1,11 @@
-<div class="sent-message-container">
-
-<p><%=  message.created_at.strftime("%a %b %e at %l:%M%p") %></p>
-<div class="sent-message d-flex">
-  <div>
-    <p><%= message.content %></p>
+<div class="d-flex align-items-end justify-content-end p-3 my-2 sent-message-container">
+  <div class="bg-secondary rounded-top rounded-left p-3 message-content">
+    <p class="text-white"><%= message.content %></p>
+    <span class="small text-white"><%=  message.created_at.strftime("%a %b %e at %l:%M%p") %></span>
   </div>
-</div>
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag message.user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar-large rounded-circle ml-3"%>
+      <% else %>
+        <%= image_tag "noavatar.png", class: "avatar-large rounded-circle ml-3"%>
+      <% end %>
 </div>
