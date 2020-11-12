@@ -25,5 +25,4 @@ class ContractsController < ApplicationController
     @contract.save!
     redirect_to match_contract_path(@match, @contract.id)
   end
-
 end
