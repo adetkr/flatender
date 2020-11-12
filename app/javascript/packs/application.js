@@ -27,6 +27,7 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete'
 import { initMatchCable } from '../channels/match_channel'
+import { initLightGallery } from '../plugins/init_lightgallery'
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -39,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   previewImageOnFileSelect();
   initAutocomplete();
   initMatchCable();
-
+  initLightGallery();
 });
 
 import "controllers"

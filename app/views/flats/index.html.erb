@@ -47,15 +47,72 @@
   </div>
 </section>
 
+<div class="filter-offcanvas bg-white shadow-lg pt-4 pb-5 px-0">
+
+    <div class="bg-white-smoke d-flex flex-grow-1 justify-content-between mt-5 px-3 pt-5 pb-3">
+      <h5>Filter</h5>
+      <button id="" class="btn btn-outline-primary close-filter-button py-0 px-2 border-white" type="button"> Close filter <span class="icon-close"></span> </button>
+    </div>
+
+    <div class="p-3">
+      <%= simple_form_for :search_flat, url: flats_path, method: :get do |f| %>
+      <h6>Rent (€)</h6>
+      <div class="form-row mb-3">
+        <div class="col-6">
+        <%= f.input :min_price, label: "Min. Price", as: :numeric  %>
+        </div>
+        <div class="col-6">
+        <%= f.input :max_price, label: "Max. price", as: :numeric %>
+        </div>
+      </div>
+
+      <h6>Surface (m2)</h6>
+      <div class="form-row mb-3">
+        <div class="col-6">
+        <%= f.input :min_surface, label: "Min. Surface", as: :numeric  %>
+        </div>
+        <div class="col-6">
+        <%= f.input :max_surface, label: "Max. Surface", as: :numeric %>
+        </div>
+      </div>
+
+      <h6>Rooms</h6>
+        <div class="form-row mb-3">
+        <div class="col-6">
+        <%= f.input :min_room, label: "Min. rooms", as: :numeric  %>
+        </div>
+        <div class="col-6">
+        <%= f.input :max_room, label: "Max. rooms", as: :numeric %>
+        </div>
+      </div>
+
+      <h6>Equipments</h6>
+       <%= f.input :flat_equipments, label: "flat equipments", as: :check_boxes %>
 
 
+      <%= f.button :submit, "Submit filter", class: "btn btn-outline-primary" %>
+      <% end %>
+    </div>
+</div>
 
 
+<script type="text/javascript">
+  (function() {
+      var button = document.querySelector('.filter-button');
+      var box = document.querySelector('.filter-offcanvas');
+      button.addEventListener('click', function() {
+        box.classList.toggle('show');
+      });
 
+    })();
 
+  (function() {
+      var button = document.querySelector('.close-filter-button');
+      var box = document.querySelector('.filter-offcanvas');
+      button.addEventListener('click', function() {
+        box.classList.toggle('show');
+      });
 
+    })();
 
-
-
-
-
+</script>
