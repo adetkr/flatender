@@ -5,11 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Message.delete_all
+#Contract.delete_all
+FlatMatch.delete_all
+Match.delete_all
 Like.delete_all
-Equipment.all.each(&:destroy)
-Flat.destroy_all
-User.destroy_all
+Equipment.delete_all
+Flat.all.each(&:destroy)
+User.delete_all
+
 
 
 puts "-------------------------------"
@@ -108,9 +112,13 @@ Equipment.create(name: "weekly-cleaning")
 Equipment.create(name: "wifi")
 puts "equipements créés"
 puts "equipements créés"
-
-
-
-
-
-
+puts "-------------------------------"
+#puts "création d'un match"
+#contrat1 = Contract.new(content: 'test', signature:"test", match_id: "#{Match.last.id}")
+#contrat1.save!
+#puts "contrat créé"
+#puts "-------------------------------"
+#puts "création d'un contrat"
+#contrat1 = Contract.new(content: 'test', signature:"test", match_id: "#{Match.last.id}")
+#contrat1.save!
+#puts "contrat créé"
