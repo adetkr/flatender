@@ -1,0 +1,9 @@
+     <p class="small text-primary font-weight-bold text-uppercase">rent/mo</p>
+      <div class="price-slider mb-3">
+        <div class="d-flex justify-content-between">
+          <input class="border-0 h6" type="number" value="5000" min="0" max="6"/>
+          <input class="border-0 h6" type="number" value="50000" min="0" max="6"/>
+        </div>
+      <input value="25000" min="0" max="6" step="6" type="range"/>
+      <input value="50000" min="0" max="6" step="6" type="range"/>
+      </div>
