@@ -17,24 +17,24 @@
     <h3 class="text-primary h2 font-weight-bold ml-5 my-5">Voici les détails de votre contrat entre vous et <%= other_user_flat.user.name %></h3>
 
     <p class="text-primary h3 font-weight-bold ml-5 my-5" >Si vous et votre binome signez ce contrat, votre prochaine adresse sera : </p>
-    <p><%= other_user_flat.address %></p>
-    <p>Aujourd'hui vôtre loyer s'élève à <%= current_user_flat.rent %> euros </p>
-    <p>Celui
+    <p class="text-secondary h3 font-weight-bold ml-5 my-5"><%= other_user_flat.address %></p>
+    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Aujourd'hui vôtre loyer s'élève à <span class="text-secondary"><%= current_user_flat.rent %> euros </span></p>
+    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Celui
       <% if other_user_flat.user.name.start_with?(/[AEIOU]/)%><%= "d'"%>
       <% else %><%= 'de' %>
       <% end %>
 
-    <%=other_user_flat.user.name %> est proposé au prix de <%= other_user_flat.rent %> euros </p>
+    <span class="text-secondary"> <%=other_user_flat.user.name %> est proposé au prix de <%= other_user_flat.rent %> euros </span></p>
       <% if other_user_flat.rent > current_user_flat.rent %>
       <% diff = other_user_flat.rent - current_user_flat.rent %>
-      <p> Vous vous engagez à payer chaque mois le complément de <%=  diff %> euros à <%=  other_user_flat.user.name  %> </p>
+      <p class="text-primary h3 font-weight-bold ml-5 my-5" > Vous vous engagez à payer chaque mois le complément de <%=  diff %> euros à <%=  other_user_flat.user.name  %> </p>
       <% else %>
       <% diff = current_user_flat.rent - other_user_flat.rent %>
-      <p> <%=  other_user_flat.user.name  %> s'engage à vous payer chaque mois le complément de <%=  diff %> euros </p>
+      <p class="text-primary h3 font-weight-bold ml-5 my-5"> <span class="text-secondary"><%= other_user_flat.user.name %></span> s'engage à vous payer chaque mois le complément de <%=  diff %> euros </p>
       <% end  %>
 
 
-    <p>Votre échange débutera le <%= "A CREER" %></p>
+    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Votre échange débutera le Septembre 2021 - Aout 2022 (Date flexible) </p>
 
 
     <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 p-3 text-white rounded text-uppercase" %>

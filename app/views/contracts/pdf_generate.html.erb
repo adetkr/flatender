@@ -1,1 +1,40 @@
-<h3>Féliciations  vous êtes sur la bonne voie pour vivre et étudier à l'étranger </h3>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+  <h2 class="text-primary h1 font-weight-bold ml-5 my-5">Félicitations <span class="text-secondary"><%=current_user.name%></span></span> vous êtes sur la bonne voie pour vivre et étudier à l'étranger </h2>
+    <% if contract.match.flat1.user == current_user %>
+      <% current_user_flat = contract.match.flat1 %>
+      <% other_user_flat = contract.match.flat2 %>
+    <% else %>
+      <% current_user_flat = contract.match.flat2 %>
+      <% other_user_flat = contract.match.flat1 %>
+    <% end %>
+
+    <h3 class="text-primary h2 font-weight-bold ml-5 my-5"><span class="text-secondary"><%= other_user_flat.user.name %></span>  souhaite échanger son appartement avec le vôtre</h3>
+
+    <h3 class="text-primary h2 font-weight-bold ml-5 my-5">Voici les détails de votre contrat entre vous et <%= other_user_flat.user.name %></h3>
+
+    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Si vous et votre binome signez ce contrat, votre prochaine adresse sera : </p>
+    <p class="text-secondary h3 font-weight-bold ml-5 my-5"><%= other_user_flat.address %></p>
+    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Aujourd'hui vôtre loyer s'élève à <span class="text-secondary"><%= current_user_flat.rent %> euros </span></p>
+    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Celui
+      <% if other_user_flat.user.name.start_with?(/[AEIOU]/)%><%= "d'"%>
+      <% else %><%= 'de' %>
+      <% end %>
+
+    <span class="text-secondary"> <%=other_user_flat.user.name %> est proposé au prix de <%= other_user_flat.rent %> euros </span></p>
+      <% if other_user_flat.rent > current_user_flat.rent %>
+      <% diff = other_user_flat.rent - current_user_flat.rent %>
+      <p class="text-primary h3 font-weight-bold ml-5 my-5" > Vous vous engagez à payer chaque mois le complément de <%=  diff %> euros à <%=  other_user_flat.user.name  %> </p>
+      <% else %>
+      <% diff = current_user_flat.rent - other_user_flat.rent %>
+      <p class="text-primary h3 font-weight-bold ml-5 my-5"> <span class="text-secondary"><%= other_user_flat.user.name %></span> s'engage à vous payer chaque mois le complément de <%=  diff %> euros </p>
+      <% end  %>
+
+
+    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Votre échange débutera le Septembre 2021 - Aout 2022 (Date flexible) </p>
+
+
+</div>
