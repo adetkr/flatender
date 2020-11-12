@@ -1,0 +1,32 @@
+ <h3>Féliciations <span><%=current_user.name%></span> vous êtes sur la bonne voie pour vivre et étudier à l'étranger </h3>
+    <% if @contract.match.flat1.user == current_user %>
+      <% current_user_flat = @contract.match.flat1 %>
+      <% other_user_flat = @contract.match.flat2 %>
+    <% else %>
+      <% current_user_flat = @contract.match.flat2 %>
+      <% other_user_flat = @contract.match.flat1 %>
+    <% end %>
+
+    <h3> <%= other_user_flat.user.name %> souhaite échanger son appartement avec le vôtre</h3>
+
+    <h3>Voici les détails de votre contrat entre vous et <%= other_user_flat.user.name %></h3>
+
+    <p>Si vous et votre binome signez ce contrat, votre prochaine adresse sera : </p>
+    <p><%= other_user_flat.address %></p>
+    <p>Aujourd'hui vôtre loyer s'élève à <%= current_user_flat.rent %> euros </p>
+    <p>Celui
+      <% if other_user_flat.user.name.start_with?(/[AEIOU]/)%><%= "d'"%>
+      <% else %><%= 'de' %>
+      <% end %>
+
+    <%=other_user_flat.user.name %> est proposé au prix de <%= other_user_flat.rent %> euros </p>
+      <% if other_user_flat.rent > current_user_flat.rent %>
+      <% diff = other_user_flat.rent - current_user_flat.rent %>
+      <p> Vous vous engagez à payer chaque mois le complément de <%=  diff %> euros à <%=  other_user_flat.user.name  %> </p>
+      <% else %>
+      <% diff = current_user_flat.rent - other_user_flat.rent %>
+      <p> <%=  other_user_flat.user.name  %> s'engage à vous payer chaque mois le complément de <%=  diff %> euros à  </p>
+      <% end  %>
+
+
+    <p>Votre échange débutera le <%= "A CREER" %></p>

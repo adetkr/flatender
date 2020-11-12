@@ -5,10 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Message.delete_all
+Contract.delete_all
+Match.delete_all
 Like.delete_all
 Equipment.delete_all
 Flat.all.each(&:destroy)
+FlatMatch.delete_all
 User.delete_all
 
 
