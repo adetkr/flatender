@@ -31,10 +31,11 @@ const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
-    new mapboxgl.Marker({color: "#4B154A"})
+    const markerBis = new mapboxgl.Marker({color: "#4B154A"})
     .setLngLat([ marker.lng, marker.lat ])
     .setPopup(popup) // add this
     .addTo(map);
+    markerBis._element.setAttribute("id", `card-${marker.cardId}`);
   });
 };
 
@@ -57,5 +58,23 @@ const initMapbox = () => {
     }
   }
 };
+
+const droneCards = document.querySelectorAll(".hover-card");
+droneCards.forEach((droneCard)=> {
+  droneCard.addEventListener('mouseenter', (event)=> {
+
+    const marker_hov = document.querySelector(`#${event.currentTarget.dataset.cardid}`);
+    marker_hov.click();
+    console.log(marker_hov);
+
+  });
+  droneCard.addEventListener('mouseleave', (event)=> {
+
+    const marker_hov_out = document.querySelector(`#${event.currentTarget.dataset.cardid}`);
+
+    marker_hov_out.click();
+
+  });
+});
 
 export { initMapbox };
