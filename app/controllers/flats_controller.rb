@@ -54,6 +54,7 @@ class FlatsController < ApplicationController
 
     @markers = @flats.map do |flat|
       {
+        cardId: flat.id,
         lat: flat.latitude,
         lng: flat.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { flat: flat }),
