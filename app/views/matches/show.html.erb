@@ -126,12 +126,13 @@
           </div>
         <% end %>
 
+         <div "generate-contract bg-white p-4 border-top" >
 
-         <div class="generate-contract bg-white p-4 border-top">
-           <a class="btn-style-01 p-3 text-white rounded text-uppercase" href="">Generate contract</a>
+       <%= link_to 'View your contract', match_contracts_path(params[:id]), method: :post, class: "btn-style-01 p-3 text-white rounded text-uppercase" %>
          </div>
       <% end %>
 
     </div>
     <!-- /flat detail  -->
 </section>
+>>>>>>> master

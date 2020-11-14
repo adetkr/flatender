@@ -32,4 +32,5 @@ class MatchesController < ApplicationController
     end
     @message = Message.new()
   end
+
 end

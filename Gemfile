@@ -33,6 +33,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 gem 'docusign_rest'
 

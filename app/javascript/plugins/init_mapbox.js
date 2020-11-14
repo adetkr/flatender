@@ -9,32 +9,19 @@ const buildMap = () => {
   });
 };
 
-  // if (mapElement) { // only build a map if there's a div#map to inject into
-  //   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-  //   const map = new mapboxgl.Map({
-  //     container: 'map',
-  //     style: 'mapbox://styles/mapbox/streets-v10',
-  //     zoom: 12
-  //   });
 
-  //   const markers = JSON.parse(mapElement.dataset.markers);
-  //   markers.forEach((marker) => {
-
-  //     new mapboxgl.Marker()
-  //       .setLngLat([ marker.lng, marker.lat ])
-  //       .addTo(map);
-  //   });
-  // }
 
 const addMarkersToMap = (map, markers) => {
   console.log("add markers");
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
-    new mapboxgl.Marker({color: "#4B154A"})
+    const markerBis = new mapboxgl.Marker({color: "#4B154A"})
     .setLngLat([ marker.lng, marker.lat ])
     .setPopup(popup) // add this
     .addTo(map);
+
+    markerBis._element.setAttribute("id", `card-${marker.cardId}`);
   });
 };
 
@@ -57,5 +44,23 @@ const initMapbox = () => {
     }
   }
 };
+
+const droneCards = document.querySelectorAll(".hover-card");
+droneCards.forEach((droneCard)=> {
+  droneCard.addEventListener('mouseenter', (event)=> {
+
+    const marker_hov = document.querySelector(`#${event.currentTarget.dataset.cardid}`);
+    marker_hov.click();
+    console.log(marker_hov);
+
+  });
+  droneCard.addEventListener('mouseleave', (event)=> {
+
+    const marker_hov_out = document.querySelector(`#${event.currentTarget.dataset.cardid}`);
+
+    marker_hov_out.click();
+
+  });
+});
 
 export { initMapbox };

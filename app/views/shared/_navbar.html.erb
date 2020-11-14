@@ -7,21 +7,26 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-<% if controller_name == "flats" && action_name == "index" %>
-  <div class="col-6">
-    <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
-    <div class="form-group mb-0 bg-gray-6 no-algolia-icon d-flex justify-content-start rounded">
-      <div class="d-flex align-items-center px-3 py-2">
-        <i class="fas h2 text-primary fa-map-marker-alt"></i>
+  <% if controller_name == "flats" && action_name == "index" %>
+    <div class="row w-75">
+    <div class="col-8 d-flex align-items-center">
+      <%= simple_form_for :search, url: flats_path, method: :get, :html=> { class: 'w-100' } do |f| %>
+      <div class="form-group mb-0 bg-gray-6 no-algolia-icon d-flex w-100 justify-content-start rounded">
+        <div class="d-flex align-items-center px-3 py-2">
+          <i class="fas h2 text-primary fa-map-marker-alt"></i>
+        </div>
+        <div class="d-flex align-items-center flex-grow-1 px-0 py-2">
+          <input placeholder="Where will you study ?" class="border-0 bg-gray-6 my-0 px-0 w-100" type="text" name="search[query]" id="flat_address">
+        </div>
       </div>
-      <div class="d-flex align-items-center flex-grow-1 px-0 py-2">
-        <input class="border-0 bg-gray-6 my-0 px-0 w-100" type="text" name="search[query]" id="flat_address">
-      </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
-<% end %>
 
+    <div class="col-4 d-flex align-items-center">
+      <button id="" class="btn btn-outline-primary filter-button p-3" type="button"> filter <i class="fas fa-filter"></i></button>
+    </div>
+    </div>
+  <% end %>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -39,8 +44,6 @@
           <% else %>
             <%= image_tag "noavatar.png", class: "avatar rounded-circle dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
-
-
 
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Voir tous les appartements", flats_path, class: "dropdown-item" %>
