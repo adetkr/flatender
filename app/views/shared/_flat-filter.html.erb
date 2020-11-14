@@ -1,0 +1,60 @@
+<%= simple_form_for :search_flat, url: flats_path, method: :get do |f| %>
+  <h6>Rent (€)</h6>
+  <div class="form-row">
+    <div class="col-6">
+      <% if  @min_price %>
+      <%= f.input :min_price, label: "Min. Price", as: :numeric, input_html: { value: @min_price}  %>
+      <% else %>
+      <%= f.input :min_price, label: "Min. Price", as: :numeric  %>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <% if  @max_price %>
+      <%= f.input :max_price, label: "max. Price", as: :numeric, input_html: { value: @max_price}  %>
+      <% else %>
+      <%= f.input :max_price, label: "max. Price", as: :numeric  %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <h6>Surface</h6>
+  <div class="form-row">
+    <div class="col-6">
+      <% if  @min_surface %>
+      <%= f.input :min_surface, label: "Min. surface", as: :numeric, input_html: { value: @min_surface}  %>
+      <% else %>
+      <%= f.input :min_surface, label: "Min. surface", as: :numeric  %>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <% if  @max_surface %>
+      <%= f.input :max_surface, label: "max. surface", as: :numeric, input_html: { value: @max_surface}  %>
+      <% else %>
+      <%= f.input :max_surface, label: "max. surface", as: :numeric  %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <h6>Rooms</h6>
+  <div class="form-row">
+    <div class="col-6">
+      <% if  @min_rooms %>
+      <%= f.input :min_rooms, label: "Min. rooms", as: :numeric, input_html: { value: @min_rooms}  %>
+      <% else %>
+      <%= f.input :min_rooms, label: "Min. rooms", as: :numeric  %>
+      <% end %>
+    </div>
+    <div class="col-6">
+      <% if  @max_rooms %>
+      <%= f.input :max_rooms, label: "max. rooms", as: :numeric, input_html: { value: @max_rooms}  %>
+      <% else %>
+      <%= f.input :max_rooms, label: "max. rooms", as: :numeric  %>
+      <% end %>
+    </div>
+  </div>
+
+
+<%= f.button :submit, "Submit filter", class: "btn btn-outline-primary" %>
+<% end %>

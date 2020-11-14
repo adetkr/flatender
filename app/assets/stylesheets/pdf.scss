@@ -1,12 +1,44 @@
+.contract-container {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 span.fla {
   color: #e83a59;
+  font-size: 70px;
 }
 
 span.tender {
   color: #4b154a;
+  font-size: 70px;
+
 }
 
 #pdf-title {
   color: #e83a59;
+  font-size: 40px;
+  text-align: center;
+
+}
+
+.purple {
+  color: #4b154a
+}
+
+.pink {
+  color: #e83a59
+}
+
+.terms {
+    font-size: 20px;
+}
+
+.service {
+    font-size: 20px;
+}
+
+.contract-end-page {
+    text-align: right;
 
 }
