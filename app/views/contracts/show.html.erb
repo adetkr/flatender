@@ -44,7 +44,7 @@
 
     <div >
       <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 btn-lg p-3 text-white rounded text-uppercase" %>
-      <%= link_to 'sign your contract', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 btn-lg p-3 text-white rounded text-uppercase" %>
+      <%= link_to 'sign your contract', sign_contract_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 btn-lg p-3 text-white rounded text-uppercase" %>
     </div>
 
 </div>
