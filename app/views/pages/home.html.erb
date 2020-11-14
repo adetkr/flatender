@@ -1,4 +1,4 @@
-<section class="vh-75 bg-white d-flex hero align-items-center mb-5" style="background-image: url('<%= image_path "bg-home-01.png" %>'), url('<%= image_path "bg-home-02.png" %>');">
+<section class="vh-75 bg-white d-flex hero align-items-center my-5 mb-5" style="background-image: url('<%= image_path "bg-home-01.png" %>'), url('<%= image_path "bg-home-02.png" %>');">
   <div class="container-fluid">
     <div class="row">
     <div class="col-7 p-5">
@@ -36,20 +36,7 @@
 </section>
 
 
-<!-- <div class="photo-picto">
-  <div class="photo-presentation img-fluid max-width: 100%">
-  </div>
-  <div>
-    <i class="fas fa-university"></i>
-    <i class="fas fa-key"></i>
-    <i class="fas fa-graduation-cap"></i>
-    <i class="fas fa-heart"></i>
-  </div>
-</div>
- -->
-
-
-<section class="">
+<section id="#howItWorks">
   <h2 class="text-primary h1 font-weight-bold ml-5 my-5">How it <span class="text-secondary">works</span> ?</h2>
 <div class="container-fluid bg-white-smoke p-5">
 
@@ -83,13 +70,13 @@
           </div>
       </div>
     </div>
-</section>>
+</section>
 
-<section class="pt-5 pb-5 bg-white">
-  <div class="city-container ">
-    <div class="row">
-        <div class="col-2 city">
-            <h3 class="mb-3"> Most <span>wanted</span> cities </h3>
+<section class="p-5 bg-white">
+  <div class="container-fluid ">
+    <div class="row ">
+        <div class="col-2 p-0">
+            <h3 class="text-primary font-weight-bold"> Most<span class="text-secondary"> wanted</span> cities </h3>
           <div class="chevron">
               <a class="btn mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
                   <i class="fas fa-chevron-left"></i>
@@ -103,51 +90,78 @@
             <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="row">
+                        <div class="row mx-0 mb-5">
+                          <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "tokyo") %>">
+                              <span class="city-text text-white h5 font-weight-bold">Tokyo</span>
+                              <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2017/10/01/13/27/tokyo-2805500_1280.jpg)">
+                              </div>
+                            </a>
+                          </div>
 
-                            <div class="col-md-3 mb-3">
-                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2018/07/20/14/02/rome-3550739_960_720.jpg)">
-                                  <%= link_to "Roma", flats_path(query: "Rome, Lazio, Italie") %>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                 <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2015/12/15/09/20/car-1093927_960_720.jpg)">
-                                  <%= link_to "Mexico", flats_path(query: "Mexico, Estado de México, Mexique") %>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2015/09/23/12/14/eiffel-tower-953590_960_720.jpg)">
-                                  <%= link_to "Paris", flats_path(query: "Paris, Île-de-France, France") %>
-                                </div>
-                            </div>
-                             <div class="col-md-3 mb-3">
-                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2016/12/01/22/43/stockholm-1876342_960_720.jpg)">
-                                  <%= link_to "Stockholm", flats_path(query: "Stockholm, Stockholms län, Suède") %>
-                                </div>
-                            </div>
-                        </div>
+                          <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Moscou") %>">
+                              <span class="city-text text-white h5 font-weight-bold">Moscou</span>
+                              <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2017/09/12/15/36/moscow-2742642_1280.jpg)">
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Londre") %>">
+                              <span class="city-text text-white h5 font-weight-bold">Londre</span>
+                              <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2010/12/13/10/21/bridge-2715_1280.jpg">
+                              </div>
+                            </a>
+                          </div>
+
+                          <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Mexico, Estado de México, Mexique") %>">
+                              <span class="city-text text-white h5 font-weight-bold">Mexico</span>
+                              <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2015/12/15/09/20/car-1093927_960_720.jpg)">
+                              </div>
+                            </a>
+                          </div>
+                          </div>
+
                     </div>
                     <div class="carousel-item">
-                        <div class="row">
-                           <div class="col-md-3 mb-3">
-                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2019/02/17/22/50/jungle-4003374_960_720.jpg)">
-                                  <%= link_to "San Jose", flats_path(query: "San José, Provincia San José, Costa Rica") %>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                 <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2017/01/24/15/49/sydney-2005716_960_720.jpg)">
-                                  <%= link_to "Sydney", flats_path(query: "Sydney, New South Wales, Australie") %>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2016/02/24/03/06/helicopter-1218974_960_720.jpg)">
-                                  <%= link_to "Cap Town", flats_path(query: "Le Cap, Western Cape, Afrique du Sud") %>
-                                </div>
-                            </div>
-                             <div class="col-md-3 mb-3">
-                                <div class="city-card" style="background-image: url(https://cdn.pixabay.com/photo/2012/06/25/15/34/berlin-wall-50727_960_720.jpg)">
-                                  <%= link_to "Berlin", flats_path(query: "Berlin, Allemagne") %>
-                                </div>
+                                                <div class="row mx-0 mb-5">
+                          <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Singapour") %>">
+                              <span class="city-text text-white h5 font-weight-bold">Singapour</span>
+                              <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2017/08/30/11/12/singapore-2696704_1280.jpg)">
+                              </div>
+                            </a>
+                          </div>
+
+                          <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Moscou") %>">
+                              <span class="city-text text-white h5 font-weight-bold">Rio</span>
+                              <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2020/01/31/21/25/brazil-4809011_1280.jpg)">
+                              </div>
+                            </a>
+                          </div>
+                          <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "marrakech") %>">
+                              <span class="city-text text-white h5 font-weight-bold">marrakech</span>
+                              <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2017/10/02/19/46/morocco-2809965_1280.jpg">
+                              </div>
+                            </a>
+                          </div>
+
+                          <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Quebec") %>">
+                              <span class="city-text text-white h5 font-weight-bold">Quebec</span>
+                              <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2017/04/24/17/25/frontenac-2257154_1280.jpg)">
+                              </div>
+                            </a>
+                          </div>
+                          </div>
+
+                    </div>
+
+
+
                             </div>
                         </div>
                     </div>

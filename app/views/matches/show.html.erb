@@ -1,94 +1,138 @@
+<section class="mt-5">
+<!-- navigation dashboard   -->
+  <div id="dashboard-nav" class="bg-white-smoke border-right col-2">
+    <hr class="my-5">
+    <ul class="dashboard-menu">
+      <li class="dashboard-menu-item">
+        <a href="<%= user_path(current_user) %>" class="h6">
+          <i class="fas fa-user h5 mr-3"></i> My profile
+        </a>
+      </li>
+      <li class="dashboard-menu-item active">
+        <a href="<%= matches_path() %>" class="h6">
+          <i class="fas fa-heart h5 mr-3"></i> My Matches
+        </a>
+      </li>
+    </ul>
 
-
-
-  <div class="row">
-
-    <div class="col-12 col-lg-2 matches-list">
-      <div class="d-flex">
-        <i class="fas fa-search ml-1"></i>
-
-        <p>Search</p>
-      </div>
-      <div class="d-flex">
-        <i class="fas fa-user ml-1"></i>
-
-        <p>Profile</p>
-      </div>
-      <div class="d-flex">
-        <i class="fas fa-heart ml-1"></i>
-        <p>Matches</p>
-
-      </div>
-
-      <div class="match-container">
-        <% @matchs.each do |match| %>
-          <div class="d-flex">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
-            <p><%= match.name[0..5] %></p>
-          </div>
-        <% end %>
-      </div>
-
-    </div>
-
-    <div class="col-12 col-lg-7 messages-container container">
-      <div class="messages" id="messages" data-matchId = <%= @match.id %>>
-            <% @match.messages.each do |message| %>
-              <% if message.user == current_user %>
-                <%= render 'shared/sent_message', message: message %>
+    <div class="match-nav">
+       <% @matchs.each do |match| %>
+          <% if match.flat1.user == current_user
+            user = match.flat2.user
+          else
+            user = match.flat1.user
+          end %>
+        <ul class="matches-menu">
+          <li class="matches-menu-item">
+            <a href="<%= match_path(match) %>" class="h6">
+              <% if user.photo.attached? %>
+                <%= cl_image_tag user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle mr-3 border border-white"%>
               <% else %>
-                <%= render 'shared/received_message', message: message %>
+                  <%= image_tag "noavatar.png",  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle mr-3 border border-white"%>
+              <% end %>
+              <%= user.name %>
+            </a>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+  </div>
+<!-- / navigation dashboard   -->
+
+
+<!-- Chat  -->
+<div class="messages-container flex-grow-1 pt-4">
+      <% if @match %>
+      <div class="messages" id="messages" data-matchId = "<%= @match.id %>" >
+
+
+              <% @match.messages.each do |message| %>
+                <% if message.user == current_user %>
+                  <%= render 'shared/sent_message', message: message %>
+                <% else %>
+                  <%= render 'shared/received_message', message: message %>
+                <% end %>
+
               <% end %>
 
-            <% end %>
       </div>
-      <div class="message-form">
+
+    <!-- Formulaire  -->
+      <div class="message-form bg-white p-4 border-top">
         <%= simple_form_for [ @match, @message ] do |f| %>
-          <div class="search-form-control form-group">
-            <%= f.input :content, class: "form-control string required", label: false, placeholder: "Entrez votre message ici..." %>
-            <button type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i>
-            </button>
+          <div class="search-form-control form-row">
+            <div class="col-8">
+              <%= f.input :content, class: "form-control form-control-lg string required w-75", label: false, placeholder: "Entrez votre message ici..." %>
+            </div>
+
+            <div class="col-4">
+              <button type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i> </button>
+            </div>
           </div>
 
         <% end %>
       </div>
+
+    <!-- /Formulaire  -->
+
+
+
+
+
+
+
+      <% end %>
     </div>
 
-    <div class="col-12 col-lg-3 flat-details">
-      <div class="flat-owner d-flex">
-
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle" %>
-
-      <div>
-        <p>Proposed by</p>
-        <h3>Celeste</h3>
-      </div>
-      </div>
-
-      <hr>
-
-      <div class = "flat-desc">
-        <h6>Apartamento céntrico y bien comunicado.WIFI.</h6>
-
-        <p>Apartamento céntrico en el barrio de Lavapiés, ideal para parejas que quieran conocer andando los sitios mas emblemáticos de la ciudad. </p>
+<!-- /Chat  -->
 
 
+<!-- flat detail  -->
+  <div class="flat-details bg-white border-left">
+     <hr class="my-5">
+      <% if @user %>
+        <div class="d-flex px-4">
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar-large rounded-circle mr-3"%>
+        <% else %>
+          <%= image_tag "noavatar.png", class: "avatar-large rounded-circle mr-3"%>
+        <% end %>
 
-        <p>Availaibility of the appartment</p>
-        <p>Septembre 2021 - Aout 2022 (Date flexible)</p>
+        <div>
+          <p class="mb-0">Proposed by</p>
+          <p class="text-primary h4 font-weight-bold"> <%= @user.name %></p>
+         </div>
       </div>
 
-       <hr>
+        <hr>
 
-       <div class="flat-photos">
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-          <%= image_tag "flat-default.jpg", height: 150, width: 150, crop: :fill, class: "img-fluid rounded-lg" %>
-       </div>
+        <div class="flat-desc px-4 border-bottom">
+          <h6> <%= @flat.title %></h6>
+          <p><%= @flat.presentation.truncate(150) %><a href="<%= flat_path(@flat) %>" class="text-primary font-weight-bold">view flat details</a></p>
+          <p class="text-primary">Availaibility of the appartment</p>
+          <p>Septembre 2021 - Aout 2022 (Date flexible)</p>
+        </div>
 
-       <%= link_to 'Generate contract', match_contracts_path(params[:id]), method: :post, class: "btn btn-primary" %>
+        <% if @flat.photos.attached? %>
+          <div class="flat-photos">
+            <div class="row m-0 p-4">
+            <% @flat.photos.each do |photo| %>
+              <div class="col-3 p-1">
+              <%= cl_image_tag photo.key, height: 150, width: 150, crop: :fill, class: "img-fluid" %>
+              </div>
+            <% end %>
+            </div>
+          </div>
+        <% end %>
 
+         <div "generate-contract bg-white p-4 border-top" >
 
+       <%= link_to 'View your contract', match_contracts_path(params[:id]), method: :post, class: "btn-style-01 p-3 text-white rounded text-uppercase" %>
+         </div>
+      <% end %>
+
+    </div>
+    <!-- /flat detail  -->
+</section>
+>>>>>>> master

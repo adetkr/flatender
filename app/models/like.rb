@@ -6,20 +6,28 @@ class Like < ApplicationRecord
 
   def match_exist?
     liked_flat_user = Flat.find(self.flat.id).user
-    current_user_flat = Flat.find_by(user_id: self.user.id)
-    if current_user_flat
-      matched_like = Like.find_by(user_id: liked_flat_user.id, flat_id: current_user_flat.id)
-      return matched_like != nil
-    else
-      return false
+    current_user_flats = Flat.where(user_id: self.user.id)
+
+    response = false
+    current_user_flats.each do |current_user_flat|
+
+
+        matched_like = Like.find_by(user_id: liked_flat_user.id, flat_id: current_user_flat.id)
+        response = response || matched_like != nil
+
     end
+
+    return response
+
 
   end
 
   def create_match_if_needed
     liked_flat_user = Flat.find(self.flat.id).user
-    current_user_flat = Flat.find_by(user_id: self.user.id)
-    if current_user_flat
+    current_user_flats = Flat.where(user_id: self.user.id)
+    current_user_flats.each do |current_user_flat|
+
+
       matched_like = Like.find_by(user_id: liked_flat_user.id, flat_id: current_user_flat.id)
       if matched_like
         # create match
@@ -39,7 +47,9 @@ class Like < ApplicationRecord
       else
 
       end
+
     end
+
   end
 
   def delete_match

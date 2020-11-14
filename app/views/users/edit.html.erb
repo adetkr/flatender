@@ -1,21 +1,54 @@
-<section id="edit_profil">
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <h4>Edit my profil</h4>
-        <%= simple_form_for @user do |f| %>
-        <%= f.input :name %>
-        <%= f.input :university %>
-        <%= f.input :presentation , as: :text%>
-        <%= f.input :photo, as: :file ,input_html: {  class: 'd-none hidden', id: 'photo-input'} , label_html: { class: 'upload-photo'}, label: '📷 Ajouter une photo de profil' %>
-        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
-          <br>
-        <%= f.submit "Mettre à jour", class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
+<section class="mt-5">
+<!-- navigation dashboard   -->
+  <div id="dashboard-nav" class="bg-white-smoke border-right col-2">
+    <hr class="my-5">
+    <ul class="dashboard-menu ">
+      <li class="dashboard-menu-item active">
+        <a href="<%= user_path(current_user) %>" class="h6">
+          <i class="fas fa-user h5 mr-3"></i> My profile
+        </a>
+      </li>
+      <li class="dashboard-menu-item">
+
+        <a href="<%= matches_path %>" class="h6">
+          <i class="fas fa-heart h5 mr-3"></i> My Matches
+        </a>
+      </li>
+    </ul>
+
+
   </div>
+<!-- / navigation dashboard   -->
+
+<div class="messages-container flex-grow-1 pt-4">
+  <div class="row">
+      <div class="col-12 p-5">
+        <a href="<%= user_path(current_user) %>" class="h6 text-primary">
+          < retour à mon profil
+        </a>
+        <hr class="my-4 border-0">
+        <div class="rounded-lg p-4 bg-white-smoke border">
+
+            <h4>Edit my profil</h4>
+            <%= simple_form_for @user do |f| %>
+            <%= f.input :name %>
+            <%= f.input :university %>
+            <%= f.input :presentation , as: :text%>
+            <%= f.input :photo, as: :file ,input_html: {  class: 'd-none hidden', id: 'photo-input'} , label_html: { class: 'upload-photo'}, label: '📷 Ajouter une photo de profil' %>
+            <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+              <br>
+            <%= f.submit "Mettre à jour", class: "btn btn-primary" %>
+            <% end %>
+      </div>
+   </div>
+</div>
+
+
+
 </section>
+
+
+
 
 
 

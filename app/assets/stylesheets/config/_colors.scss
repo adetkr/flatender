@@ -8,7 +8,7 @@ $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
-
+$gray-6:    #f2f2f2;
 
 $primary: #E71658;
 $secondary: #4B154A;
@@ -17,6 +17,11 @@ $white-smoke: #F8FBFB;
 .bg-white-smoke {
   background-color: $white-smoke !important;
 }
+
+.bg-gray-6 {
+  background-color: $gray-6 !important;
+}
+
 
 .text-primary {
   color: $primary !important;

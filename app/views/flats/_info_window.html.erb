@@ -1,3 +1,12 @@
-<h2 class="h6"><%= flat.title %></h2>
-<p><%= flat.address %></p>
-<p class="mb-0"><%= image_tag  "https://kitt.lewagon.com/placeholder/users/random", class: " avatar rounded-circle mr-2" %> Proposed by <span class="text-primary"><%= flat.user.name %></span> </p>
+<div id="tooltip-map">
+  <h2 class="h6"><%= flat.title %></h2>
+  <p><%= flat.address %></p>
+  <p class="mb-0">
+    <% if flat.user.photo.attached? %>
+      <%= cl_image_tag flat.user.photo.key, class: "avatar mr-2 rounded-circle" %>
+    <% else %>
+      <%= image_tag  "noavatar.png", class: "avatar mr-2 rounded-circle" %>
+    <% end %>
+    Proposed by <span class="text-primary"><%= flat.user.name %></span>
+  </p>
+</div>
