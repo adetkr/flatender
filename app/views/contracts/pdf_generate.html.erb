@@ -3,7 +3,7 @@
 <br>
 <br>
 <div class="container">
-  <h2 class="text-primary h1 font-weight-bold ml-5 my-5">Félicitations <span class="text-secondary"><%=current_user.name%></span></span> vous êtes sur la bonne voie pour vivre et étudier à l'étranger </h2>
+  <h2 class="text-primary h1 font-weight-bold ml-5 my-5">Félicitations <span class="text-secondary"><%=current_user.name%></span>vous êtes sur la bonne voie pour vivre et étudier à l'étranger </h2>
     <% if contract.match.flat1.user == current_user %>
       <% current_user_flat = contract.match.flat1 %>
       <% other_user_flat = contract.match.flat2 %>
@@ -24,7 +24,7 @@
       <% else %><%= 'de' %>
       <% end %>
 
-    <span class="text-secondary"> <%=other_user_flat.user.name %> est proposé au prix de <%= other_user_flat.rent %> euros </span></p>
+    <span class="text-secondary"> <%=other_user_flat.user.name %> est proposé au prix de <%= other_user_flat.rent %> euros </span>
       <% if other_user_flat.rent > current_user_flat.rent %>
       <% diff = other_user_flat.rent - current_user_flat.rent %>
       <p class="text-primary h3 font-weight-bold ml-5 my-5" > Vous vous engagez à payer chaque mois le complément de <%=  diff %> euros à <%=  other_user_flat.user.name  %> </p>
