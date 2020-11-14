@@ -9,13 +9,12 @@ class ContractsController < ApplicationController
     File.open(pdf_path, "wb") do |file|
       file << pdf
     end
-    #@contract.document_pdf.attach(io: pdf, filename: "Contract-#{@contract.id}.pdf", content_type: 'image/pdf')
 
-    result = Cloudinary::Uploader.upload(pdf_path, :resource_type => 'auto')
 
+    @contract.document_pdf.attach(io: File.open(pdf_path), filename: "Contract-#{@contract.id}.pdf", content_type: 'application/pdf')
+    @contract.save!
 
     send_enveloppe(@contract, pdf_path.to_s)
-    #redirect_to result["secure_url"]
 
     File.delete(pdf_path) if File.exist?(pdf_path)
 
