@@ -5,47 +5,41 @@
       <% current_user_flat = @contract.match.flat2 %>
       <% other_user_flat = @contract.match.flat1 %>
     <% end %>
-<br>
-<br>
-<br>
 
-<div class="container">
-  <div class="text-center logo">
-    <h1 class="text-primary font-weight-bold ml-5 my-3"> Congratulations <span class="text-secondary"><%=current_user.name%></span> <i class="fas fa-rocket text-primary"></i></h1>
-    <h2 class="text-secondary font-weight-bold ml-3">
-      <% if other_user_flat.user.photo.attached? %>
-          <%= cl_image_tag other_user_flat.user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar-large rounded-circle mr-3"%>
-        <% else %>
-          <%= image_tag "noavatar.png", class: "avatar-large rounded-circle mr-3"%>
-        <% end %>
-      <span class="text-primary"><%= other_user_flat.user.name %></span> wants also to exchange his flat with yours
-  </h2>
-  </div>
-    <h4 class="text-secondary font-weight-bold ml-5 text-center">Just one more step and you'll be ready to live and study abroad <i class="fas fa-flag-checkered text-secondary"> </i> <i class="fas fa-flag-checkered text-secondary"></i></h4>
-    <div class="border border-primary ml-5 my-3">
-      <h5 class="text-secondary font-weight-bold ml-5 mt-3"> Here you are the terms of the contract beetween <span class="text-primary"> you and <%= other_user_flat.user.name %></span></h5>
-      <h5 class="text-primary font-weight-bold ml-5 mb-5" >If both of you sign this contract : </h5>
-      <h5 class="text-secondary  font-weight-bold ml-5 mb-3"><i class="fas fa-house-user"> </i> Your next address will be : <%= other_user_flat.address %></h5>
-      <h5 class="text-primary  font-weight-bold ml-5 mb-3" ><i class="fas fa-key"></i> You agree to rent your flat to <%= other_user_flat.user.name %> at the price of euros <span class="text-secondary"><%= current_user_flat.rent %> euros </span></h5>
-      <h5 class="text-primary  font-weight-bold ml-5 mb-3" > <span class="text-secondary"><i class="fas fa-exchange-alt"></i> <%=other_user_flat.user.name %> rents his flat at the price of euros <%= other_user_flat.rent %> euros </span></h5>
-      <h5 class="text-secondary font-weight-bold ml-5 mb-3" >In that case :</h5>
+<section class="mt-5 pt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <%= image_tag "pdf_generate", width: 550, height: 550, class: "rounded" %>
+      </div>
+      <div class="col-6 p-3">
+        <h3> Congratulations <span class="text-primary"><%=current_user.name%></span></h3>
+        <div class="bg-white-smoke p-4 my-2 rounded-lg">
+          <p><span><%= other_user_flat.user.name %></span> wants also to exchange his flat with yours</p> 
+            <p>Just one more step and you'll be ready to live and study abroad</p>
+            <p>Here you are the terms of the contract beetween you and <%= other_user_flat.user.name %></span></p>  
+              <h5>If both of you sign this contract : </h5>
+              <p>Your next address will be : <%= other_user_flat.address %></p> 
+              <p>You agree to rent your flat to <%= other_user_flat.user.name %> at the price of euros <%= current_user_flat.rent %> euros</p>
+              <p><%=other_user_flat.user.name %> rents his flat at the price of euros <%= other_user_flat.rent %> euros</p>
+              <h5>In that case :</h5>
+                <% if other_user_flat.rent > current_user_flat.rent %>
+                <% diff = other_user_flat.rent - current_user_flat.rent %>
+                <p> You agree to settle to <%= other_user_flat.user.name %> every renting month the amount of euros <%= diff %></p>
+                <% else %>
+                <% diff = current_user_flat.rent - other_user_flat.rent %>
+                <p><%= other_user_flat.user.name %></span> agrees to settle to you every renting month the amount of euros <%= diff %></p>
+                <% end  %>
+              <p>Your exchange will start around September 2021 for a Year</p>
+        </div> 
+        <div class="d-flex justify-content-start align-items-center">
+          <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 btn-lg mr-3 p-3 text-white rounded text-uppercase" %>
+          <p class="text-primary text-uppercase">sign your contract</p>
+        </div>    
+      </div>
+    </div>    
+  </div>  
+</section>
 
-        <% if other_user_flat.rent > current_user_flat.rent %>
-        <% diff = other_user_flat.rent - current_user_flat.rent %>
-        <h5 class="text-primary font-weight-bold ml-5" > You agree to settle to <%=  other_user_flat.user.name  %> every renting month the amount of euros <%=  diff %></h5>
-        <% else %>
-        <% diff = current_user_flat.rent - other_user_flat.rent %>
-        <h5 class="text-primary font-weight-bold ml-5"> <span class="text-secondary"><i class="fas fa-wallet"></i> <%= other_user_flat.user.name %></span> agrees to settle to you every renting month the amount of euros <%=  diff %></h5>
-        <% end  %>
 
-
-      <h5 class="text-primary font-weight-bold ml-5" ><i class="fas fa-calendar-week"></i> Your exchange will start around September 2021 for a Year</h5>
-    </div>
-
-    <div >
-      <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 btn-lg p-3 text-white rounded text-uppercase" %>
-      <%= link_to 'sign your contract', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 btn-lg p-3 text-white rounded text-uppercase" %>
-    </div>
-
-</div>
 
