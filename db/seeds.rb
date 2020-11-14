@@ -10,6 +10,7 @@ Contract.delete_all
 FlatMatch.delete_all
 Match.delete_all
 Like.delete_all
+FlatEquipment.delete_all
 Equipment.delete_all
 Flat.all.each(&:destroy)
 FlatMatch.delete_all
