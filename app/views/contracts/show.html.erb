@@ -28,7 +28,7 @@
       <h5 class="text-secondary  font-weight-bold ml-5 mb-3"><i class="fas fa-house-user"> </i> Your next address will be : <%= other_user_flat.address %></h5>
       <h5 class="text-primary  font-weight-bold ml-5 mb-3" ><i class="fas fa-key"></i> You agree to rent your flat to <%= other_user_flat.user.name %> at the price of euros <span class="text-secondary"><%= current_user_flat.rent %> euros </span></h5>
       <h5 class="text-primary  font-weight-bold ml-5 mb-3" > <span class="text-secondary"><i class="fas fa-exchange-alt"></i> <%=other_user_flat.user.name %> rents his flat at the price of euros <%= other_user_flat.rent %> euros </span></h5>
-      <h5 class="text-primary font-weight-bold ml-5 mb-3" >In that case :</h5>
+      <h5 class="text-secondary font-weight-bold ml-5 mb-3" >In that case :</h5>
 
         <% if other_user_flat.rent > current_user_flat.rent %>
         <% diff = other_user_flat.rent - current_user_flat.rent %>
