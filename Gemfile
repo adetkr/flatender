@@ -35,6 +35,9 @@ gem 'geocoder'
 gem 'pg_search', '~> 2.3.0'
 gem 'wicked_pdf'
 
+gem 'docusign_rest'
+
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
