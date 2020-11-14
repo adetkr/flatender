@@ -1,40 +1,66 @@
-<br>
-<br>
-<br>
-<br>
+
+<span class="text-primary font-weight-normal h1 pl-2">fla</span><span class="text-secondary font-weight-bold h1">tender</span>
+<% if contract.match.flat1.user == current_user %>
+        <% current_user_flat = contract.match.flat1 %>
+        <% other_user_flat = contract.match.flat2 %>
+        <% else %>
+        <% current_user_flat = contract.match.flat2 %>
+        <% other_user_flat = contract.match.flat1 %>
+        <% end %>
+        <br>
 <div class="container">
-  <h2 class="text-primary h1 font-weight-bold ml-5 my-5">Félicitations <span class="text-secondary"><%=current_user.name%></span>vous êtes sur la bonne voie pour vivre et étudier à l'étranger </h2>
-    <% if contract.match.flat1.user == current_user %>
-      <% current_user_flat = contract.match.flat1 %>
-      <% other_user_flat = contract.match.flat2 %>
-    <% else %>
-      <% current_user_flat = contract.match.flat2 %>
-      <% other_user_flat = contract.match.flat1 %>
-    <% end %>
-
-    <h3 class="text-primary h2 font-weight-bold ml-5 my-5"><span class="text-secondary"><%= other_user_flat.user.name %></span>  souhaite échanger son appartement avec le vôtre</h3>
-
-    <h3 class="text-primary h2 font-weight-bold ml-5 my-5">Voici les détails de votre contrat entre vous et <%= other_user_flat.user.name %></h3>
-
-    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Si vous et votre binome signez ce contrat, votre prochaine adresse sera : </p>
-    <p class="text-secondary h3 font-weight-bold ml-5 my-5"><%= other_user_flat.address %></p>
-    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Aujourd'hui vôtre loyer s'élève à <span class="text-secondary"><%= current_user_flat.rent %> euros </span></p>
-    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Celui
-      <% if other_user_flat.user.name.start_with?(/[AEIOU]/)%><%= "d'"%>
-      <% else %><%= 'de' %>
-      <% end %>
-
-    <span class="text-secondary"> <%=other_user_flat.user.name %> est proposé au prix de <%= other_user_flat.rent %> euros </span>
-      <% if other_user_flat.rent > current_user_flat.rent %>
-      <% diff = other_user_flat.rent - current_user_flat.rent %>
-      <p class="text-primary h3 font-weight-bold ml-5 my-5" > Vous vous engagez à payer chaque mois le complément de <%=  diff %> euros à <%=  other_user_flat.user.name  %> </p>
-      <% else %>
-      <% diff = current_user_flat.rent - other_user_flat.rent %>
-      <p class="text-primary h3 font-weight-bold ml-5 my-5"> <span class="text-secondary"><%= other_user_flat.user.name %></span> s'engage à vous payer chaque mois le complément de <%=  diff %> euros </p>
-      <% end  %>
-
-
-    <p class="text-primary h3 font-weight-bold ml-5 my-5" >Votre échange débutera le Septembre 2021 - Aout 2022 (Date flexible) </p>
-
-
+    <h2 class="text-secondary text-center ml-5 my-5"> Contract between <%= current_user_flat.user.name %> and <%= other_user_flat.user.name %></h2>
+    <h4 class="text-secondary">Description of Services</h4>
+      <h5 class="text-primary">1.1 Flatender Payment Services.</h5>
+      <p>
+        By using the Payments Services, you agree to comply with these Payment Terms. Airbnb Payments may temporarily limit or suspend your access to or use of the Payment Services, or its features, to carry out maintenance measures that ensure the proper functioning of the Payment Services. Airbnb Payments may improve, enhance and modify the Payment Services and introduce new Payment Services from time to time. Airbnb Payments will provide notice to Members of any changes to the Payment Services, unless such changes do not materially increase the Members’ contractual obligations or decrease the Members’ rights under these Payments Terms.
+      </p>
+      <h5 class="text-primary">1.2 Third Party Services.</h5>
+      <p>
+       The Payment Services may contain links to third-party websites or resources (“Third-Party Services”). Such Third-Party Services are subject to different terms of service and privacy policies, and Members should review them. Airbnb Payments is not responsible or liable for the use of such Third-Party Services. Links to any Third-Party Services are not an endorsement by Airbnb Payments of those Third-Party Services.
+      </p>
+      <h5 class="text-primary">1.3 Your Flatender Account.</h5>
+      <p>
+       Airbnb Payments may enable features that allow you to authorize other Members or third parties to take certain actions that affect your Airbnb account. You may authorize a third party to use your Airbnb account if the feature is enabled for your Airbnb account. You acknowledge and agree that anyone you authorize to use your Airbnb account may use the Payment Services on your behalf and that you will be responsible for any payments made by such person. If you reside in the EEA and contract with Airbnb Payments Luxembourg, this Section 1.3 does not apply to you.
+      </p>
+      <h5 class="text-primary">1.4 Verification.</h5>
+      <p>
+       You authorize Airbnb Payments, directly or through third parties, to make any inquiries we consider necessary to verify your identity. This may include (i) screening you against third-party databases or other sources, (ii) requesting reports from service providers, (iii) asking you to provide a form of government identification (e.g., driver’s license or passport), your date of birth, your address, and other information; or (iv) requiring you to take steps to confirm ownership of your email address, Payment Method(s) or Payout Method(s). Airbnb Payments reserves the right to terminate, suspend, or limit access to the Payment Services in the event we are unable to obtain or verify any of this information.
+      </p>
 </div>
+<div class="container">
+    <h4 class="text-secondary">Payments Terms of Service</h4>
+      <p>
+      If you reside in, or the organization you are acting for is established in, the United States, the arbitration agreement and class actions waiver in Section 15 apply to you. Please read them carefully.</p>
+      <p>
+      As a consumer you can access the European Commission’s online dispute resolution platform here: https://ec.europa.eu/consumers/odr. Please note that Airbnb Payments is not committed or obliged to use an alternative dispute resolution entity to resolve disputes with consumers.
+      </p>
+      <p>
+      Last Updated: 30 October 2020
+      </p>
+
+      <p>
+      These Payments Terms of Service for European Users (“Payments Terms”) are a binding legal agreement between you and Airbnb Payments that govern the Payment Services (defined below) conducted through or in connection with the Flatender Platform. When these Payments Terms mention "Flatender",” “we,” “us,” or “our,” it refers to:
+      </p>
+      <p>
+      Flatender Payments Luxembourg S.A. (“Airbnb Payment Luxembourg”) if your country of residence is in the EEA.
+      Flatender Payments UK Ltd. (“Airbnb Payments UK”) if your country of residence is in the United Kingdom or Switzerland.
+      Flatender Payments provides payments services to Members publishing, offering and booking Accommodations, Experiences or other Host Services, including services in connection with the Open Homes Program and other current and future services provided via the Airbnb Platform. These payment services may include (if available) the following (collectively, “Payment Services”):
+      </p>
+      <p>
+      Collecting payments from Guests (“Payin”), by charging the payment method associated with their Airbnb account, such as credit card, debit card, bank account or PayPal account (“Payment Method”);
+      Effecting payments to Hosts (“Payout”) to a financial instrument associated with their Airbnb account, such as a PayPal account, bank account, direct deposit, a prepaid card, or a debit card (“Payout Method”);
+      Effecting payments to a third-party Payout Method designated by a Host;
+      Collection and payment of charitable donations;
+      Payment collection services; and
+      Other payment related services in connection with Host Services.
+      In order to use the Payment Services, you must be at least 18 years old, must have an Airbnb account in good standing in accordance with the Airbnb Terms of Service (“Terms”), and must keep your payment and personal information accurate and complete.
+      </p>
+      <p>
+      If you change your country of residence, the Airbnb company you contract with and the applicable version of the Payment Terms will be determined by your new country of residence from the date on which your country of residence changes. Please note, however, that the Airbnb Payments company with whom you contract will stay the same for all bookings made prior to your change of residence.
+      </p>
+      <p>
+      The Terms separately govern your use of the Airbnb Platform. If you see an undefined term in these Payment Terms, it has the same definition as in the Terms.
+      </p>
+  </div>
+
