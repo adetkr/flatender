@@ -1,0 +1,53 @@
+
+<span class="fla">fla</span><span class="tender">tender</span>
+<% if contract.match.flat1.user == current_user %>
+        <% current_user_flat = contract.match.flat1 %>
+        <% other_user_flat = contract.match.flat2 %>
+        <% else %>
+        <% current_user_flat = contract.match.flat2 %>
+        <% other_user_flat = contract.match.flat1 %>
+        <% end %>
+        <br>
+<div class="contract-container">
+    <h2 id="pdf-title"> Contract between <%= current_user_flat.user.name %> and <%= other_user_flat.user.name %></h2>
+    <h4 class="purple service">Description of Services</h4>
+      <h5 class="pink terms">1.1 Flatender Payment Services.</h5>
+      <p>
+        By using the Payments Services, you agree to comply with these Payment Terms. Airbnb Payments may temporarily limit or suspend your access to or use of the Payment Services, or its features, to carry out maintenance measures that ensure the proper functioning of the Payment Services. Airbnb Payments may improve, enhance and modify the Payment Services and introduce new Payment Services from time to time. Airbnb Payments will provide notice to Members of any changes to the Payment Services, unless such changes do not materially increase the Members’ contractual obligations or decrease the Members’ rights under these Payments Terms.
+      </p>
+      <h5 class="pink terms">1.2 Third Party Services.</h5>
+      <p>
+       The Payment Services may contain links to third-party websites or resources (“Third-Party Services”). Such Third-Party Services are subject to different terms of service and privacy policies, and Members should review them. Airbnb Payments is not responsible or liable for the use of such Third-Party Services. Links to any Third-Party Services are not an endorsement by Airbnb Payments of those Third-Party Services.
+      </p>
+      <h5 class="purple terms">1.3 Your Flatender Account.</h5>
+      <p>
+       Airbnb Payments may enable features that allow you to authorize other Members or third parties to take certain actions that affect your Airbnb account. You may authorize a third party to use your Airbnb account if the feature is enabled for your Airbnb account. You acknowledge and agree that anyone you authorize to use your Airbnb account may use the Payment Services on your behalf and that you will be responsible for any payments made by such person. If you reside in the EEA and contract with Airbnb Payments Luxembourg, this Section 1.3 does not apply to you.
+      </p>
+      <h5 class="pink terms">1.4 Verification.</h5>
+      <p>
+       You authorize Airbnb Payments, directly or through third parties, to make any inquiries we consider necessary to verify your identity. This may include (i) screening you against third-party databases or other sources, (ii) requesting reports from service providers, (iii) asking you to provide a form of government identification (e.g., driver’s license or passport), your date of birth, your address, and other information; or (iv) requiring you to take steps to confirm ownership of your email address, Payment Method(s) or Payout Method(s). Airbnb Payments reserves the right to terminate, suspend, or limit access to the Payment Services in the event we are unable to obtain or verify any of this information.
+      </p>
+</div>
+<div class="contract-container">
+    <h4 class="purple service">Payments Terms of Service</h4>
+      <p>
+      If you reside in, or the organization you are acting for is established in, the United States, the arbitration agreement and class actions waiver in Section 15 apply to you. Please read them carefully.</p>
+      <p>
+      As a consumer you can access the European Commission’s online dispute resolution platform here: https://ec.europa.eu/consumers/odr. Please note that Airbnb Payments is not committed or obliged to use an alternative dispute resolution entity to resolve disputes with consumers.
+      </p>
+</div>
+<div class="contract-end-page">
+  <p class="purple"><strong><%= Date.today.strftime("%d of %B, %Y") %></strong></p>
+  <p class="purple"><strong>You must sign this contract trough Docusign </strong></p>
+</div>
+
+
+
+<br>
+<br>
+<br>
+  <div class="container d-flex signature">
+    <p>Signature1</p>
+    <p>Signature2</p>
+  </div>
+
