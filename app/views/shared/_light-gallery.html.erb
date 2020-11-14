@@ -1,7 +1,7 @@
-<div id="lightgallery"  class="row mb-2 lightgallery-flat">
+<div id="lightgallery"  class="row lightgallery-flat">
 
   <% if @flat.photos.attached? %>
-    <div class="mb-2 main-img"  data-src="<%= cl_image_path @flat.photos.first.key, width: 800, crop: :fill %>" >
+    <div class="mt-0 mx-0 mb-2 main-img"  data-src="<%= cl_image_path @flat.photos.first.key, width: 800, crop: :fill %>" >
       <a href="">
         <%= cl_image_tag @flat.photos.first.key, height: 500, width: 1200, crop: :fill, class: "img-fluid" %>
       </a>

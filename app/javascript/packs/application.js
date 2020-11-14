@@ -25,13 +25,14 @@ require("channels")
 // External imports
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
-import { initAutocomplete } from '../plugins/init_autocomplete'
-import { initMatchCable } from '../channels/match_channel'
-import { initLightGallery } from '../plugins/init_lightgallery'
+import { initAutocomplete } from '../plugins/init_autocomplete';
+import { initMatchCable } from '../channels/match_channel';
+import { initLightGallery } from '../plugins/init_lightgallery';
+import { showPanel, closePanel } from './custom/toggle_button';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { previewImageOnFileSelect } from '../plugins/photo_preview'
+import { previewImageOnFileSelect } from '../plugins/photo_preview';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -41,6 +42,9 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initMatchCable();
   initLightGallery();
+  showPanel();
+  closePanel();
+
   if ($('#ContractSigned')) {
     $('#ContractSigned').modal('show');
   }

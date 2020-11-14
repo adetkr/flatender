@@ -3,6 +3,11 @@
   width: 100%;
   height: auto;
 }
+.signature {
+  display: flex;
+  justify-content: space-between;
+  color: #4b154a;
+}
 
 span.fla {
   color: #e83a59;
@@ -12,14 +17,12 @@ span.fla {
 span.tender {
   color: #4b154a;
   font-size: 70px;
-
 }
 
 #pdf-title {
   color: #e83a59;
   font-size: 40px;
   text-align: center;
-
 }
 
 .purple {
@@ -40,5 +43,4 @@ span.tender {
 
 .contract-end-page {
     text-align: right;
-
 }
