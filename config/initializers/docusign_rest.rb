@@ -6,7 +6,7 @@ require 'docusign_rest'
 
 DocusignRest.configure do |config|
   config.username       = 'tkradm@yahoo.fr'
-  config.password       = 'uzjifehT1'
+  config.password       = ENV['DOCUSIGN_PASSWORD']
   config.integrator_key = '979a64f3-6077-4354-8fe7-d9d6417f98fe'
   config.account_id     = '11962701'
   #config.endpoint       = 'https://www.docusign.net/restapi'
