@@ -38,6 +38,7 @@ gem 'wkhtmltopdf-binary'
 
 gem 'docusign_rest'
 
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
@@ -56,6 +57,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'wkhtmltopdf-binary', '0.12.6.5'
+
+end
+
+group :production do
+  gem 'wkhtmltopdf-heroku', '2.12.6.0'
 end
 
 group :test do

@@ -1,5 +1,5 @@
 
-<span class="text-primary font-weight-normal h1 pl-2">fla</span><span class="text-secondary font-weight-bold h1">tender</span>
+<span class="fla">fla</span><span class="tender">tender</span>
 <% if contract.match.flat1.user == current_user %>
         <% current_user_flat = contract.match.flat1 %>
         <% other_user_flat = contract.match.flat2 %>
@@ -9,7 +9,7 @@
         <% end %>
         <br>
 <div class="container">
-    <h2 class="text-secondary text-center ml-5 my-5"> Contract between <%= current_user_flat.user.name %> and <%= other_user_flat.user.name %></h2>
+    <h2 id="pdf-title"> Contract between <%= current_user_flat.user.name %> and <%= other_user_flat.user.name %></h2>
     <h4 class="text-secondary">Description of Services</h4>
       <h5 class="text-primary">1.1 Flatender Payment Services.</h5>
       <p>
