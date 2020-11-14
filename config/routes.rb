@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :likes, only: [:create]
   resources :matches, only: [:show, :index] do
     resources :messages, only: :create
+    resources :contracts, only: [:create, :show ]
   end
   resources :users, only: [:update, :show, :edit]
+  get '/generate_contract/:contract_id', to: 'contracts#pdf_generate', as: 'pdf'
 
 end

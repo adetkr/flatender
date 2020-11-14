@@ -9,22 +9,7 @@ const buildMap = () => {
   });
 };
 
-  // if (mapElement) { // only build a map if there's a div#map to inject into
-  //   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-  //   const map = new mapboxgl.Map({
-  //     container: 'map',
-  //     style: 'mapbox://styles/mapbox/streets-v10',
-  //     zoom: 12
-  //   });
 
-  //   const markers = JSON.parse(mapElement.dataset.markers);
-  //   markers.forEach((marker) => {
-
-  //     new mapboxgl.Marker()
-  //       .setLngLat([ marker.lng, marker.lat ])
-  //       .addTo(map);
-  //   });
-  // }
 
 const addMarkersToMap = (map, markers) => {
   console.log("add markers");
@@ -35,6 +20,7 @@ const addMarkersToMap = (map, markers) => {
     .setLngLat([ marker.lng, marker.lat ])
     .setPopup(popup) // add this
     .addTo(map);
+
     markerBis._element.setAttribute("id", `card-${marker.cardId}`);
   });
 };
