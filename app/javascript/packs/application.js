@@ -41,6 +41,14 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initMatchCable();
   initLightGallery();
+  if ($('#ContractSigned')) {
+    $('#ContractSigned').modal('show');
+  }
+
 });
 
 import "controllers"
+
+
+
+
