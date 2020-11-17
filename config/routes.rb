@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:update, :show, :edit]
   get '/generate_contract/:contract_id', to: 'contracts#pdf_generate', as: 'pdf'
+  get '/sign_contract/:contract_id', to: 'contracts#sign_contract', as: 'sign_contract'
+
+  get '/docusign/callback', to: 'pages#callback'
+  get '/docusign/initiate', to: 'pages#initiate'
 
 end

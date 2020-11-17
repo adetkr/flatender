@@ -59,7 +59,7 @@
       </div>
 
     <!-- Formulaire  -->
-      <div class="message-form bg-white p-4 border-top">
+      <div class="message-form bg-white p-4 border-top min-height-115">
         <%= simple_form_for [ @match, @message ] do |f| %>
           <div class="search-form-control form-row">
             <div class="col-8">
@@ -126,13 +126,17 @@
           </div>
         <% end %>
 
-         <div "generate-contract bg-white p-4 border-top" >
+         <div class="generate-contract bg-white p-4 border-top min-height-115">
+          <% if @contract %>
+            <%= link_to 'View your contract', match_contract_path(params[:id], @contract.id), class: "btn-style-01 p-3 text-white rounded text-uppercase" %>
+          <% else %>
+            <%= link_to 'Generate your contract', match_contracts_path(params[:id]), method: :post, class: "btn-style-01 p-3 text-white rounded text-uppercase" %>
+          <% end %>
 
-       <%= link_to 'View your contract', match_contracts_path(params[:id]), method: :post, class: "btn-style-01 p-3 text-white rounded text-uppercase" %>
          </div>
       <% end %>
 
     </div>
     <!-- /flat detail  -->
 </section>
->>>>>>> master
+

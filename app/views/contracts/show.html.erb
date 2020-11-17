@@ -13,33 +13,75 @@
         <%= image_tag "pdf_generate", width: 550, height: 550, class: "rounded" %>
       </div>
       <div class="col-6 p-3">
-        <h3> Congratulations <span class="text-primary"><%=current_user.name%></span></h3>
+        <h4> <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.1001 29.6795V28.9816C22.1001 28.7898 22.1888 28.6088 22.3403 28.4913C22.6606 28.2428 22.6606 27.7591 22.3403 27.5106C22.1888 27.3931 22.1001 27.2121 22.1001 27.0203V26.3223C22.1001 26.0783 22.298 25.8805 22.542 25.8805C22.786 25.8805 22.9838 25.6826 22.9838 25.4385V24.9372C22.9838 24.6931 22.786 24.4953 22.542 24.4953C22.2979 24.4953 22.1001 24.2974 22.1001 24.0534V22.7199C22.1001 22.4759 22.298 22.278 22.542 22.278C22.786 22.278 22.9838 22.0801 22.9838 21.8361V19.5837H17.9863V30.9617C17.9863 31.4126 18.1516 31.8479 18.4508 32.1852L19.7785 33.6819C20.1543 34.1056 20.8159 34.1056 21.1917 33.6819L22.5194 32.1852C22.8187 31.8479 22.9839 31.4126 22.9839 30.9617V30.5633C22.9839 30.3193 22.786 30.1214 22.542 30.1214C22.298 30.1215 22.1001 29.9236 22.1001 29.6795Z" fill="url(#paint0_radial)"/>
+            <path d="M21.2829 19.5839V31.3915C21.2829 31.8318 20.926 32.1887 20.4857 32.1887C20.0455 32.1887 19.6885 31.8318 19.6885 31.3915V19.5839H21.2829Z" fill="#E71658"/>
+            <path d="M20.4852 6.88831C16.5028 6.88831 13.2744 10.1167 13.2744 14.0991C13.2744 18.0815 16.5028 21.3099 20.4852 21.3099C24.4676 21.3099 27.696 18.0815 27.696 14.0991C27.696 10.1167 24.4676 6.88831 20.4852 6.88831ZM20.4852 13.4047C19.3562 13.4047 18.4406 12.4899 18.4406 11.3602C18.4406 10.2312 19.3562 9.31644 20.4852 9.31644C21.6142 9.31644 22.5297 10.2312 22.5297 11.3602C22.5297 12.4899 21.6142 13.4047 20.4852 13.4047Z" fill="url(#paint1_radial)"/>
+            <path d="M20.4852 6.88831C16.5028 6.88831 13.2744 10.1167 13.2744 14.0991C13.2744 18.0815 16.5028 21.3099 20.4852 21.3099C24.4676 21.3099 27.696 18.0815 27.696 14.0991C27.696 10.1167 24.4676 6.88831 20.4852 6.88831ZM20.4852 13.4047C19.3562 13.4047 18.4406 12.4899 18.4406 11.3602C18.4406 10.2312 19.3562 9.31644 20.4852 9.31644C21.6142 9.31644 22.5297 10.2312 22.5297 11.3602C22.5297 12.4899 21.6142 13.4047 20.4852 13.4047Z" fill="url(#paint2_linear)"/>
+            <path d="M8.69318 25.4876L9.18665 24.9941C9.32225 24.8585 9.51292 24.7933 9.70318 24.8173C10.1053 24.8681 10.4474 24.526 10.3966 24.1239C10.3726 23.9336 10.4379 23.7429 10.5735 23.6073L11.0669 23.1139C11.2395 22.9413 11.5193 22.9413 11.6919 23.1139C11.8645 23.2865 12.1443 23.2865 12.3168 23.1139L12.6713 22.7594C12.8439 22.5868 12.8439 22.307 12.6713 22.1345C12.4987 21.9619 12.4987 21.6821 12.6713 21.5095L13.6142 20.5666C13.7868 20.394 14.0666 20.394 14.2391 20.5666C14.4117 20.7392 14.6915 20.7392 14.8641 20.5666L16.4567 18.9739L12.9229 15.4401L4.87765 23.4853C4.55878 23.8041 4.36785 24.2287 4.34092 24.6789L4.22145 26.6761C4.18765 27.2413 4.65545 27.7091 5.22072 27.6753L7.21792 27.5559C7.66805 27.5289 8.09265 27.338 8.41152 27.0191L8.69318 26.7375C8.86578 26.5649 8.86578 26.2851 8.69318 26.1125C8.52058 25.9399 8.52058 25.6602 8.69318 25.4876Z" fill="url(#paint3_radial)"/>
+            <path d="M15.2531 17.7705L6.90387 26.1197C6.59253 26.4311 6.0878 26.4311 5.77647 26.1197C5.46513 25.8084 5.46513 25.3037 5.77647 24.9923L14.1257 16.6431L15.2531 17.7705Z" fill="url(#paint4_radial)"/>
+            <path d="M23.667 8.22963C20.8511 5.41369 16.2854 5.41369 13.4694 8.22963C10.6534 11.0456 10.6535 15.6112 13.4694 18.4272C16.2853 21.2432 20.851 21.2432 23.667 18.4272C26.483 15.6113 26.483 11.0456 23.667 8.22963ZM19.0593 12.8374C18.2609 12.039 18.2604 10.7448 19.0593 9.94596C19.8576 9.14763 21.1518 9.14823 21.9501 9.94649C22.7485 10.7448 22.749 12.039 21.9507 12.8374C21.1518 13.6362 19.8575 13.6357 19.0593 12.8374Z" fill="url(#paint5_radial)"/>
+            <path d="M21.7803 12.9899L26.6435 17.853C27.3115 16.7595 27.6965 15.4745 27.6965 14.0993C27.6965 13.1419 27.5095 12.2282 27.1706 11.3923C26.5415 11.9916 24.9561 13.0773 21.7803 12.9899Z" fill="url(#paint6_linear)"/>
+            <path d="M23.2069 0C19.6482 0 16.7404 2.84433 16.6377 6.3798C17.5941 6.1152 18.5935 6.05107 19.5709 6.18807C19.7634 4.35187 21.3204 2.9158 23.2069 2.9158C25.2239 2.9158 26.8641 4.55667 26.8641 6.57293C26.8641 7.98927 26.0542 9.22047 24.8741 9.82767C24.374 10.085 23.8069 10.2301 23.2069 10.2301C22.7973 10.2301 22.4036 10.1623 22.0355 10.0376H22.0348C21.6033 9.89107 21.2082 9.66587 20.8656 9.38007C20.2299 9.2656 19.5506 9.4544 19.0593 9.94573C18.7261 10.2789 18.5323 10.698 18.4775 11.131C19.3567 12.0451 20.4989 12.7048 21.7797 12.9898C22.2397 13.0919 22.7171 13.1458 23.2069 13.1458C24.1065 13.1458 24.9644 12.9643 25.7459 12.6355C28.1135 11.6405 29.7799 9.29767 29.7799 6.57287C29.7799 2.9486 26.8313 0 23.2069 0Z" fill="url(#paint7_radial)"/>
+            <defs>
+            <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20.4851 19.5837) rotate(90) scale(15.377 5.20545)">
+            <stop stop-color="#E71658"/>
+            <stop offset="1" stop-color="#CB134D"/>
+            </radialGradient>
+            <radialGradient id="paint1_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(20.4852 6.88831) rotate(90) scale(15.383 15.0214)">
+            <stop stop-color="#E71658"/>
+            <stop offset="1" stop-color="#CB134D"/>
+            </radialGradient>
+            <linearGradient id="paint2_linear" x1="25.9188" y1="19.5327" x2="21.0286" y2="14.6425" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF9100" stop-opacity="0"/>
+            <stop offset="1" stop-color="#FF9100"/>
+            </linearGradient>
+            <radialGradient id="paint3_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(10.3382 15.4401) rotate(90) scale(13.0528 12.7459)">
+            <stop stop-color="#E71658"/>
+            <stop offset="1" stop-color="#CB134D"/>
+            </radialGradient>
+            <radialGradient id="paint4_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(10.398 16.6431) rotate(90) scale(10.3575 10.114)">
+            <stop stop-color="#E71658"/>
+            <stop offset="1" stop-color="#CB134D"/>
+            </radialGradient>
+            <radialGradient id="paint5_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(18.5682 6.11768) rotate(90) scale(15.383 15.0214)">
+            <stop stop-color="#E71658"/>
+            <stop offset="1" stop-color="#CB134D"/>
+            </radialGradient>
+            <linearGradient id="paint6_linear" x1="25.5911" y1="15.5891" x2="24.5706" y2="12.4547" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF9100" stop-opacity="0"/>
+            <stop offset="1" stop-color="#FF9100"/>
+            </linearGradient>
+            <radialGradient id="paint7_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(23.2088) rotate(90) scale(14.0222 13.6888)">
+            <stop stop-color="#E71658"/>
+            <stop offset="1" stop-color="#4B154A"/>
+            </radialGradient>
+            </defs>
+            </svg>
+            Congratulations <span class="text-primary"><%=current_user.name%></span> !</h4>
         <div class="bg-white-smoke p-4 my-2 rounded-lg">
-          <p><span><%= other_user_flat.user.name %></span> wants also to exchange his flat with yours</p> 
-            <p>Just one more step and you'll be ready to live and study abroad</p>
-            <p>Here you are the terms of the contract beetween you and <%= other_user_flat.user.name %></span></p>  
-              <h5>If both of you sign this contract : </h5>
-              <p>Your next address will be : <%= other_user_flat.address %></p> 
-              <p>You agree to rent your flat to <%= other_user_flat.user.name %> at the price of euros <%= current_user_flat.rent %> euros</p>
-              <p><%=other_user_flat.user.name %> rents his flat at the price of euros <%= other_user_flat.rent %> euros</p>
-              <h5>In that case :</h5>
+          <p class="m-0 font-weight-bold"><span><%= other_user_flat.user.name %></span> wants also to exchange his flat with yours</p> 
+            <p class="m-0 font-weight-bold">Just one more step and you'll be ready to live and study abroad</p>
+            <p class="m-0 font-weight-bold">Here you are the terms of the contract beetween you and <%= other_user_flat.user.name %></span></p>  
+              <h5 class="m-3">If both of you sign this contract : </h5>
+              <p class="m-0 font-weight-bold">Your next address will be : <%= other_user_flat.address %></p> 
+              <p class="m-0 font-weight-bold">You agree to rent your flat to <%= other_user_flat.user.name %> at the price of euros <%= current_user_flat.rent %> euros</p>
+              <p class="m-0 font-weight-bold"><%=other_user_flat.user.name %> rents his flat at the price of <%= other_user_flat.rent %> euros</p>
+              <h5 class="m-3">In that case :</h5>
                 <% if other_user_flat.rent > current_user_flat.rent %>
                 <% diff = other_user_flat.rent - current_user_flat.rent %>
-                <p> You agree to settle to <%= other_user_flat.user.name %> every renting month the amount of euros <%= diff %></p>
+                <p class="m-0 font-weight-bold"> You agree to settle to <%= other_user_flat.user.name %> every renting month the amount of euros <%= diff %></p>
                 <% else %>
                 <% diff = current_user_flat.rent - other_user_flat.rent %>
-                <p><%= other_user_flat.user.name %></span> agrees to settle to you every renting month the amount of euros <%= diff %></p>
+                <p class="m-0 font-weight-bold"><%= other_user_flat.user.name %></span> agrees to settle to you every renting month the amount of euros <%= diff %></p>
                 <% end  %>
-              <p>Your exchange will start around September 2021 for a Year</p>
+              <p class="m-0 font-weight-bold">Your exchange will start around September 2021 for a Year</p>
         </div> 
-        <div class="d-flex justify-content-start align-items-center">
-          <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 btn-lg mr-3 p-3 text-white rounded text-uppercase" %>
-          <p class="text-primary text-uppercase">sign your contract</p>
+        <div class="d-flex justify-content-center align-items-center">
+          <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 btn-lg mr-3 p-4 text-white rounded text-uppercase" %>
+          <%= link_to 'sign your contract', sign_contract_path(@contract), :format => :pdf, :target=>'blank', class: "font-weight-bold text-primary p-4 ml-3 text-uppercase" %>
         </div>    
       </div>
     </div>    
   </div>  
 </section>
-
-
-
