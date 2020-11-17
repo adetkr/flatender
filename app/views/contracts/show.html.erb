@@ -66,7 +66,7 @@
               <h5 class="m-3">If both of you sign this contract : </h5>
               <p class="m-0 font-weight-bold">Your next address will be : <%= other_user_flat.address %></p> 
               <p class="m-0 font-weight-bold">You agree to rent your flat to <%= other_user_flat.user.name %> at the price of euros <%= current_user_flat.rent %> euros</p>
-              <p class="m-0 font-weight-bold"><%=other_user_flat.user.name %> rents his flat at the price of <%= other_user_flat.rent %> euros</p>
+              <p class="m-0 font-weight-bold"><%=other_user_flat.user.name %> rents his flat at the price of euros <%= other_user_flat.rent %> euros</p>
               <h5 class="m-3">In that case :</h5>
                 <% if other_user_flat.rent > current_user_flat.rent %>
                 <% diff = other_user_flat.rent - current_user_flat.rent %>
