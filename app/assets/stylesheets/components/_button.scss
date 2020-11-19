@@ -8,7 +8,7 @@
     font-weight: 400;
     border: none;
     background-size: 300% 100%;
-    transition: background-position 1s ease-in-out, box-shadow 1s ease-in-out, padding 1s ease-in-out,;
+    transition: background-position 1s ease-in-out, box-shadow 1s ease-in-out;
     background-image: linear-gradient(to right, #e71658, #BF0A43, #e71658);
     box-shadow: 0px 16px 17px -7px rgba(0, 0, 88, 0.3);
     }
@@ -16,7 +16,7 @@
 
 .btn-style-01:hover, .btn-style-01:focus {
     background-position: 100% 0;
-    transition: background-position 1s ease-in-out, box-shadow 1s ease-in-out, padding 1s ease-in-out,;
+    transition: background-position 1s ease-in-out, box-shadow 1s ease-in-out;
     box-shadow: 0 4px 15px 0 rgba(231, 22, 88, 0.3);
     outline: none;
 }

@@ -4,27 +4,17 @@
   transition: all 0.5s ease-in-out;
 }
 
-
 .city-card:hover {
-
-    transform: scale(1.1);
-    transition: all 0.5s ease-in-out;
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
 }
 
-
-
-
-
-
-
 .city-thumb{
-
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-
-      &:before {
-       content: "";
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+    &:before {
+    content: "";
     display: block;
     height: 100%;
     width: calc(100% - 33px);
@@ -37,13 +27,12 @@
   }
 }
 
-
 span.city-text {
-    position: absolute;
-    left: 35px;
-    bottom: 30px;
-    z-index:2000;
-}
+          position: absolute;
+          left: 35px;
+          bottom: 30px;
+          z-index:2000;
+        }
 
 
 

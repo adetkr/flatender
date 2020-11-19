@@ -168,6 +168,4 @@ Equipment.create(name: "washing-machine")
 Equipment.create(name: "weekly-cleaning")
 Equipment.create(name: "wifi")
 puts "equipements créés"
-puts "equipements créés"
-puts "-------------------------------"
 

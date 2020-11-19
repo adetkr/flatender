@@ -42,8 +42,8 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initMatchCable();
   initLightGallery();
-  showPanel();
-  closePanel();
+ // showPanel();
+ // closePanel();
 });
 
 import "controllers"

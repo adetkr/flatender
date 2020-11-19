@@ -8,9 +8,11 @@ class MessagesController < ApplicationController
       if @message.save
         MatchChannel.broadcast_to(
           @match,
-          render_to_string(partial: "shared/received_message", locals: { message: @message })
+          #render_to_string(partial: "shared/received_message", locals: { message: @message, user_id: current_user.id })
+          { message: render_to_string(partial: "shared/received_message", locals: { message: @message}),
+            user_id: current_user.id
+          }
         )
-        redirect_to match_path(@match, anchor: "message-#{@message.id}")
       else
         render "matches/#{@match.id}"
       end

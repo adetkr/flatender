@@ -7,7 +7,22 @@ const initMatchCable = () => {
     consumer.subscriptions.create({ channel: "MatchChannel", id: id }, {
       received(data) {
         // called when data is broadcast in the cable
-        messagesContainer.insertAdjacentHTML('beforeend', data);
+        console.log(data);
+        messagesContainer.insertAdjacentHTML('beforeend', data.message);
+        const user_id = messagesContainer.dataset.userid;
+        console.log(user_id, data.user_id);
+        if (user_id == data.user_id) {
+          const messages = messagesContainer.querySelectorAll(".message");
+          const lastMessage = messages[messages.length-1];
+          lastMessage.classList.add("sent-message-container");
+          console.log(lastMessage);
+          const messageContent = document.querySelectorAll(".message-content");
+          // console.log(messageContent);
+          // const lastMessageContent = messageContent[messageContent.length-1];
+          // console.log(lastMessageContent);
+          // lastMessageContent.classList.add("bg-secondary");
+        }
+        window.scrollTo(0, document.body.offsetHeight);
       },
     });
   }
