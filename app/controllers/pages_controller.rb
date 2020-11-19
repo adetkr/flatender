@@ -6,6 +6,27 @@ class PagesController < ApplicationController
 
   def callback
     utility = DocusignRest::Utility.new
+
+    @flat = current_user.flats.last
+    @matches = []
+    @flat.flat_matches.map do |flat|
+    @matches << flat.match_id
+
+    @contracts = []
+    @matches.map do |match|
+    @contracts << Contract.where("match_id = #{match}")
+
+    contract = @contracts.last
+    @contract = contract.first
+
+
+    end
+
+    end
+      # .each do |m|
+      #   m.contracts.each do |contract|
+      #     contract.enveloppe_id
+      #   end
     @response = params[:event]
     if params[:event] == "signing_complete"
       flash[:notice] = "Thanks! Successfully signed"
@@ -14,7 +35,6 @@ class PagesController < ApplicationController
       flash[:notice] = "You chose not to sign the document."
 
     end
-
 
   end
 

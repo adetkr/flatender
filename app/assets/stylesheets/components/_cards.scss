@@ -15,12 +15,11 @@ img.card-img-top-blog {
   overflow: hidden;
   height: 120px;
   background: #f8fbfb;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   position: relative;
 }
-img.rounded.bg-white.p-4.box-shadow-custom.mb-5 {
+img.blog-build.rounded.bg-white.p-4.box-shadow-custom.mb-5 {
   position: absolute;
   top: 20px;
   left: 30px;
@@ -29,6 +28,8 @@ img.rounded.bg-white.p-4.box-shadow-custom.mb-5 {
 .card-contact-infos {
   position: absolute;
   left: 170px;
+  // font-weight: bold;
+
 }
 .card-contact .card-contact-infos {
   padding: 16px;

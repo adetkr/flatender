@@ -1,10 +1,17 @@
+    <% if @contract.match.flat1.user == current_user %>
+      <% current_user_flat = @contract.match.flat1 %>
+      <% other_user_flat = @contract.match.flat2 %>
+    <% else %>
+      <% current_user_flat = @contract.match.flat2 %>
+      <% other_user_flat = @contract.match.flat1 %>
+    <% end %>
 
 <section>
   <div class="ending-banner rounded-lg" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://www.brukot.be/img/shared/student-guide/coloc.jpg?v62);">
     <div class="container">
       <h1>Bravo <%= current_user.name %>!</h1>
       <br>
-      <p><strong>You haved successfully exchanged your Flat with <span class="text-primary"><%= %></span></strong></p>
+      <h3><strong>You haved successfully exchanged your Flat with <span class="text-primary"><%= other_user_flat.user.name %></span></strong></h3>
     </div>
   </div>
 </section>
@@ -16,7 +23,7 @@
 
 
         <p><%= image_tag "check.svg", class: "mr-4" %>The exchange will start october 2021</p>
-        <p><%= image_tag "check.svg", class: "mr-4" %>Don't forget to send tips and usefull informations to your exchange partner (keys, trash days, etc.)</p>
+        <p><%= image_tag "check.svg", class: "mr-4" %>Don't forget to send tips and usefull informations to your exchange partner</p>
         <p><%= image_tag "check.svg", class: "mr-4" %>Be prepared for the exchange day (have you forgot anything ?)</p>
         <p><%= image_tag "check.svg", class: "mr-4" %>Enjoy your new life abroad! ;) </p>
 
@@ -27,26 +34,26 @@
             <div >
               <h5 class="my-0">Flat</h5>
               <p class="my-0"><span class="text-primary"><strong>Address</strong></span></p>
-              <p>Lien à créer</p>
+              <p><%= other_user_flat.address %></p>
               <p class="my-0"><span class="text-primary"><strong>Further information</strong></span></p>
-              <p class="my-0 mb-5">Lien à créer</p>
+              <p class="my-0 mb-5"> my brother will give you keys at your arrival<%= %></p>
             </div>
             <div>
               <h5 class="my-0">Lanlord contact</h5>
               <p class="my-0"><span class="text-primary"><strong>Phone</strong></span></p>
-              <p>Lien à créer</p>
+              <p> +201 455 698 456</p>
               <p class="my-0"><span class="text-primary"><strong>mail</strong></span></p>
-              <p class="my-0 mb-5">Lien à créer</p>
+              <p class="my-0 mb-5"><%= other_user_flat.user.email %></p>
             </div>
             </div>
         </div>
       </div>
-      <div class="card-contact rounded-lg">
-        <%= image_tag "building.svg", class: "rounded bg-white p-4 box-shadow-custom mb-5 " %>
+      <div class="card-contact border rounded-lg">
+        <%= image_tag "building.svg", class: "blog-build rounded bg-white p-4 box-shadow-custom mb-5 " %>
         <div class="card-contact-infos">
           <h6>Any <span class="text-primary">questions ?</span></h6>
-          <h6>if you have any question regarding your exchange, please</h6>
-          <h6><span class="text-primary">contact us</span></h6>
+          <h6>if you have any question regarding your </h6>
+          <h6>exchange, please <span class="text-primary">contact us</span></h6>
         </div>
       </div>
 </div>
