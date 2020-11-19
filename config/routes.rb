@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
     resources :contracts, only: [:create, :show ]
   end
+  resources :searches, only: [:index, :create]
   resources :users, only: [:update, :show, :edit]
   get '/generate_contract/:contract_id', to: 'contracts#pdf_generate', as: 'pdf'
   get '/sign_contract/:contract_id', to: 'contracts#sign_contract', as: 'sign_contract'
