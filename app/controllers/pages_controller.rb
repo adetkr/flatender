@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   end
 
   def callback
-
     utility = DocusignRest::Utility.new
     @response = params[:event]
     if params[:event] == "signing_complete"
