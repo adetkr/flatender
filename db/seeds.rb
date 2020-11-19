@@ -167,31 +167,5 @@ Equipment.create(name: "washing-machine")
 Equipment.create(name: "weekly-cleaning")
 Equipment.create(name: "wifi")
 puts "equipements créés"
-puts "equipements créés"
-puts "-------------------------------"
-<<<<<<< HEAD
-puts "création d'un match"
-contrat1 = Contract.new(content: 'test', signature:"test", match_id: "#{Match.last.id}")
-contrat1.save!
-puts "contrat créé"
-puts "-------------------------------"
-puts "création d'un contrat"
-contrat1 = Contract.new(content: 'test', signature:"test", match_id: "#{Match.last.id}")
-contrat1.save!
-puts "contrat créé"
 
 
-
-
-
-=======
-#puts "création d'un match"
-#contrat1 = Contract.new(content: 'test', signature:"test", match_id: "#{Match.last.id}")
-#contrat1.save!
-#puts "contrat créé"
-#puts "-------------------------------"
-#puts "création d'un contrat"
-#contrat1 = Contract.new(content: 'test', signature:"test", match_id: "#{Match.last.id}")
-#contrat1.save!
-#puts "contrat créé"
->>>>>>> origin
