@@ -54,12 +54,17 @@ class FlatsController < ApplicationController
       @max_rooms = (search_params["max_rooms"] == "" ? Flat.maximum("rooms") : search_params["max_rooms"])
       @min_rooms = (search_params["min_rooms"] == "" ? Flat.minimum("rooms") : search_params["min_rooms"])
       @flats = Flat.where("rent <= ? AND rent >= ? AND surface <= ? AND surface >= ? AND rooms <= ? AND rooms >= ? ", @max_price, @min_price, @max_surface, @min_surface, @max_rooms, @min_rooms)
+      if @city_params && @city_params[:query] != ""
+        @flats = @flats.near(@city_params[:query], 30)
+      elsif params[:query] && params[:query] != ""
+        @flats = @flats.near(params[:query], 30)
+      end
     else
       @flats = Flat.all.order("created_at DESC").geocoded
-      if @city_params
-        # @flats = @flats.search_by_address(params[:search][:query])
+      if @city_params && @city_params[:query] != ""
         @flats = @flats.near(@city_params[:query], 30)
-      elsif params[:query]
+      elsif params[:query] && params[:query] != ""
+
         @flats = @flats.near(params[:query], 30)
       end
     end

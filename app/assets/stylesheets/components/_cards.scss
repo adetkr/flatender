@@ -70,6 +70,10 @@ img.blog-build.rounded.bg-white.p-4.box-shadow-custom.mb-5 {
   z-index: 2000;
 }
 
+.z-index-999 {
+  z-index: 999;
+}
+
 
 .cards-flat:hover {
     border: 1px solid $primary;

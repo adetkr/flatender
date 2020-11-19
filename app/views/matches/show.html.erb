@@ -1,4 +1,4 @@
-<section class="mt-5">
+<section id="matches" class="mt-5">
 <!-- navigation dashboard   -->
   <div id="dashboard-nav" class="bg-white-smoke border-right col-2">
     <hr class="my-5">
@@ -44,28 +44,23 @@
 <!-- Chat  -->
 <div class="messages-container flex-grow-1 pt-4">
       <% if @match %>
-      <div class="messages" id="messages" data-matchId = "<%= @match.id %>" >
-
-
-              <% @match.messages.each do |message| %>
-                <% if message.user == current_user %>
-                  <%= render 'shared/sent_message', message: message %>
-                <% else %>
-                  <%= render 'shared/received_message', message: message %>
-                <% end %>
-
-              <% end %>
-
+      <div class="messages" id="messages" data-matchId="<%= @match.id %>" data-userId="<%= current_user.id %> " >
+         <% @match.messages.each do |message| %>
+            <% if message.user == current_user %>
+          <%= render 'shared/sent_message', message: message %>
+            <% else %>
+          <%= render 'shared/received_message', message: message %>
+             <% end %>
+          <% end %>
       </div>
 
     <!-- Formulaire  -->
       <div class="message-form bg-white p-4 border-top min-height-115">
-        <%= simple_form_for [ @match, @message ] do |f| %>
+        <%= simple_form_for [ @match, @message ], remote:true do |f| %>
           <div class="search-form-control form-row">
             <div class="col-8">
-              <%= f.input :content, class: "form-control form-control-lg string required w-75", label: false, placeholder: "Entrez votre message ici..." %>
+              <%= f.input :content, class: "form-control form-control-lg string required w-75", id: "form-submit", label: false, placeholder: "Entrez votre message ici..." %>
             </div>
-
             <div class="col-4">
               <button type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i> </button>
             </div>
@@ -75,14 +70,7 @@
       </div>
 
     <!-- /Formulaire  -->
-
-
-
-
-
-
-
-      <% end %>
+     <% end %>
     </div>
 
 <!-- /Chat  -->
@@ -140,3 +128,20 @@
     <!-- /flat detail  -->
 </section>
 
+<script>
+
+
+function submitForm() {
+   // Get the first form with the name
+   // Usually the form name is not repeated
+   // but duplicate names are possible in HTML
+   // Therefore to work around the issue, enforce the correct index
+   var frm = document.getElementById('form-submit');
+   frm.reset();  // Reset all form data
+   return false; // Prevent page refresh
+}
+
+
+
+
+</script>
