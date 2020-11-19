@@ -17,7 +17,6 @@
     </div>
   </div>
 
-
   <h6>Surface</h6>
   <div class="form-row">
     <div class="col-6">
@@ -55,6 +54,9 @@
     </div>
   </div>
 
+  <% if @city_params %>
+    <%= hidden_field_tag(:query, @city_params[:query]) %>
+  <% end %>
 
 <%= f.button :submit, "Submit filter", class: "btn btn-outline-primary" %>
 <% end %>
