@@ -10,13 +10,13 @@ class PagesController < ApplicationController
     @flat = current_user.flats.last
 
     @matches = []
-    @flat.flat_matches.each do |flat|
+    @flat.flat_matches.map do |flat|
       @matches << flat.match_id
     end
 
     @signed_contracts = []
-    @matches.each do |match|
-      @signed_contracts << Contract.where("match_id =? and enveloppe_id != ?", "#{match}","nil")
+    @matches.map do |match|
+      @signed_contracts << Contract.order("updated_at").where("match_id =? and enveloppe_id != ?", "#{match}","nil").last
     end
 
     @last_signed_contracts = @signed_contracts.last
@@ -28,6 +28,7 @@ class PagesController < ApplicationController
     else
       flash[:notice] = "You chose not to sign the document."
     end
+
 end
 
   def initiate

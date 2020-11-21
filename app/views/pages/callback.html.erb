@@ -1,17 +1,17 @@
-    <% if @last_signed_contracts.first.match.flat1.user == current_user %>
-      <% current_user_flat = @last_signed_contracts.first.match.flat1 %>
-      <% other_user_flat = @last_signed_contracts.first.match.flat2 %>
+    <% if @last_signed_contracts.match.flat1.user == current_user %>
+      <% current_user_flat = @last_signed_contracts.match.flat1 %>
+      <% other_user_flat = @last_signed_contracts.match.flat2 %>
     <% else %>
-      <% current_user_flat = @last_signed_contracts.first.match.flat2 %>
-      <% other_user_flat = @last_signed_contracts.first.match.flat1 %>
+      <% current_user_flat = @last_signed_contracts.match.flat2 %>
+      <% other_user_flat = @last_signed_contracts.match.flat1 %>
     <% end %>
 
 <section>
-  <div class="ending-banner rounded-lg" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://www.brukot.be/img/shared/student-guide/coloc.jpg?v62);">
+  <div class="ending-banner rounded-lg" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(https://www.brukot.be/img/shared/student-guide/coloc.jpg?v62);">
     <div class="container">
       <h1>Bravo <%= current_user.name %>!</h1>
       <br>
-      <h3><strong>You haved successfully exchanged your Flat with <span class="text-primary"><%= other_user_flat.user.name %></span></strong></h3>
+      <h3>You haved successfully exchanged your Flat with <%= other_user_flat.user.name %></h3>
     </div>
   </div>
 </section>
@@ -54,9 +54,9 @@
           <h6>Any <span class="text-primary">questions ?</span></h6>
           <h6>if you have any question regarding your </h6>
           <h6>exchange, please <span class="text-primary">contact us</span></h6>
+         </div>
         </div>
       </div>
-</div>
     </div>
   </div>
     <div class="text-center my-5">
@@ -101,11 +101,7 @@
             </div>
           </div>
         </div>
-
-      </div>
-
-
-
+    </div>
 </div>
 
 
