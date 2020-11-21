@@ -7,7 +7,13 @@
       <% end %>
     <div class="message-content">
       <span class="message-user"><%= message.user.name %></span>
-      <p class="message-text"><%= message.content %></p>
+      <div>
+
+        <% if message.image.attached? %>
+          <%= cl_image_tag message.image.key, height: 150, width: 150, crop: :fill, class: "img-fluid" %>
+        <% end %>
+        <p class="message-text"><%= message.content %></p>
+      </div>
       <span class="message-meta"><%=  message.created_at.strftime("%a %b %e at %l:%M%p") %></span>
     </div>
   </div>

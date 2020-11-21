@@ -66,8 +66,9 @@
             <div class="col-8">
               <%= f.input :content, class: "form-control form-control-lg string required w-75", id: "form-submit", label: false, placeholder: "Entrez votre message ici..." %>
             </div>
-            <div class="col-4">
-              <button type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i> </button>
+            <div class="col-4 chat-buttons">
+              <button id= "submit-message" type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i> </button>
+              <%= f.input :image, as: :file ,input_html: { class: 'd-none hidden', id: 'message-image'}, label_html: { class: 'btn btn-danger ml-1'}, label: '<i class="fas fa-image"></i>'.html_safe  %>
             </div>
           </div>
 
