@@ -8,11 +8,16 @@
           <i class="fas fa-user h5 mr-3"></i> My profile
         </a>
       </li>
-      <li class="dashboard-menu-item active">
-        <a href="<%= matches_path() %>" class="h6">
-          <i class="fas fa-heart h5 mr-3"></i> My Matches
+      <li class="dashboard-menu-item">
+        <a href="<%= searches_path() %>" class="h6">
+          <i class="fas fa-search h5 mr-3"></i> My searches
         </a>
       </li>
+      <li class="dashboard-menu-item active">
+        <a href="<%= matches_path() %>" class="h6">
+          <i class="fas fa-heart h5 mr-3"></i> My matches
+        </a>
+      </li> 
     </ul>
 
     <div class="match-nav">

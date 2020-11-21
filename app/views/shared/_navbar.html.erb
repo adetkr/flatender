@@ -18,6 +18,8 @@
         <div class="d-flex align-items-center flex-grow-1 px-0 py-2">
           <% if @city_params %>
             <input class="border-0 bg-gray-6 my-0 px-0 w-100" type="text" name="search[query]" id="flat_address" value="<%= @city_params[:query] %>">
+          <% elsif @city_query_params %>
+            <input class="border-0 bg-gray-6 my-0 px-0 w-100" type="text" name="search[query]" id="flat_address" value="<%= @city_query_params %>">
           <% else %>
             <input placeholder="Where will you study ?" class="border-0 bg-gray-6 my-0 px-0 w-100" type="text" name="search[query]" id="flat_address">
           <% end %>

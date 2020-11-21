@@ -1,62 +1,58 @@
-<%= simple_form_for :search_flat, url: flats_path, method: :get do |f| %>
-  <h6>Rent (€)</h6>
-  <div class="form-row">
-    <div class="col-6">
-      <% if  @min_price %>
-      <%= f.input :min_price, label: "Min. Price", as: :numeric, input_html: { value: @min_price}  %>
-      <% else %>
-      <%= f.input :min_price, label: "Min. Price", as: :numeric  %>
-      <% end %>
+<div data-controller="filter">
+  <%= simple_form_for :search_flat, url: flats_path, method: :get do |f| %>
+    <h6>Rent (€)</h6>
+    <div class="form-row">
+      <div class="col-6">
+        <%= f.input :min_price, label: "Min. Price", as: :numeric, input_html: { value: @min_price, data: {target: "filter.min_price"}}  %>
+      </div>
+      <div class="col-6">
+        <%= f.input :max_price, label: "max. Price", as: :numeric, input_html: { value: @max_price, data: {target: "filter.max_price"}}  %>
+      </div>
     </div>
-    <div class="col-6">
-      <% if  @max_price %>
-      <%= f.input :max_price, label: "max. Price", as: :numeric, input_html: { value: @max_price}  %>
-      <% else %>
-      <%= f.input :max_price, label: "max. Price", as: :numeric  %>
-      <% end %>
+
+    <h6>Surface</h6>
+    <div class="form-row">
+      <div class="col-6">
+        <%= f.input :min_surface, label: "Min. surface", as: :numeric, input_html: { value: @min_surface, data: {target: "filter.min_surface"}}  %>
+      </div>
+      <div class="col-6">
+        <%= f.input :max_surface, label: "max. surface", as: :numeric, input_html: { value: @max_surface, data: {target: "filter.max_surface"}}  %>
+      </div>
     </div>
+
+
+    <h6>Rooms</h6>
+    <div class="form-row">
+      <div class="col-6">
+        <%= f.input :min_rooms, label: "Min. rooms", as: :numeric, input_html: { value: @min_rooms, data: {target: "filter.min_rooms"}}  %>
+      </div>
+      <div class="col-6">
+        <%= f.input :max_rooms, label: "max. rooms", as: :numeric, input_html: { value: @max_rooms, data: {target: "filter.max_rooms"}}  %>
+      </div>
+    </div>
+
+    <% if @city_params %>
+      <%= hidden_field_tag(:query, @city_params[:query]) %>
+    <% end %>
+  <div>
+    <%= f.button :submit, "Submit filter", class: "btn btn-outline-primary mr-1" %>
+    <% end %>
+
+    <button class="btn btn-outline-primary ml-1" data-action="filter#saveSearch">Save this search</button>
   </div>
+    
 
-  <h6>Surface</h6>
-  <div class="form-row">
-    <div class="col-6">
-      <% if  @min_surface %>
-      <%= f.input :min_surface, label: "Min. surface", as: :numeric, input_html: { value: @min_surface}  %>
-      <% else %>
-      <%= f.input :min_surface, label: "Min. surface", as: :numeric  %>
-      <% end %>
-    </div>
-    <div class="col-6">
-      <% if  @max_surface %>
-      <%= f.input :max_surface, label: "max. surface", as: :numeric, input_html: { value: @max_surface}  %>
-      <% else %>
-      <%= f.input :max_surface, label: "max. surface", as: :numeric  %>
-      <% end %>
-    </div>
+  <div class="d-none">
+    <%= simple_form_for Search.new, remote: true do |f| %>
+      <%= f.input_field :min_price, data: { target: "filter.formMin_price"} %>
+      <%= f.input_field :max_price, data: { target: "filter.formMax_price"} %>
+      <%= f.input_field :min_surface, data: { target: "filter.formMin_surface"} %>
+      <%= f.input_field :max_surface, data: { target: "filter.formMax_surface"} %>
+      <%= f.input_field :min_rooms, data: { target: "filter.formMin_rooms"} %>
+      <%= f.input_field :max_rooms, data: { target: "filter.formMax_rooms"} %>
+      <%= f.input_field :city, data: { target: "filter.formCity"} %>
+      <%= f.submit data: { target: "filter.submit"} %>
+    <% end %>
   </div>
-
-
-  <h6>Rooms</h6>
-  <div class="form-row">
-    <div class="col-6">
-      <% if  @min_rooms %>
-      <%= f.input :min_rooms, label: "Min. rooms", as: :numeric, input_html: { value: @min_rooms}  %>
-      <% else %>
-      <%= f.input :min_rooms, label: "Min. rooms", as: :numeric  %>
-      <% end %>
-    </div>
-    <div class="col-6">
-      <% if  @max_rooms %>
-      <%= f.input :max_rooms, label: "max. rooms", as: :numeric, input_html: { value: @max_rooms}  %>
-      <% else %>
-      <%= f.input :max_rooms, label: "max. rooms", as: :numeric  %>
-      <% end %>
-    </div>
-  </div>
-
-  <% if @city_params %>
-    <%= hidden_field_tag(:query, @city_params[:query]) %>
-  <% end %>
-
-<%= f.button :submit, "Submit filter", class: "btn btn-outline-primary" %>
-<% end %>
+  
+</div>
