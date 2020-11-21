@@ -44,16 +44,34 @@ class FlatsController < ApplicationController
 
 
   def index
-    @flats = Flat.all.order("created_at DESC").geocoded
-    if params[:search]
-      # @flats = @flats.search_by_address(params[:search][:query])
-      @flats = @flats.near(params[:search][:query], 30)
-    elsif params[:query]
-      @flats = @flats.near(params[:query], 30)
+    search_params = params["search_flat"]
+    @city_params = params[:search]
+    if search_params
+      @max_price = (search_params["max_price"] == "" ? Flat.maximum("rent") : search_params["max_price"])
+      @min_price = (search_params["min_price"] == "" ? Flat.minimum("rent")  : search_params["min_price"])
+      @max_surface = (search_params["max_surface"] == "" ? Flat.maximum("surface") : search_params["max_surface"])
+      @min_surface = (search_params["min_surface"] == "" ? Flat.minimum("surface")  : search_params["min_surface"])
+      @max_rooms = (search_params["max_rooms"] == "" ? Flat.maximum("rooms") : search_params["max_rooms"])
+      @min_rooms = (search_params["min_rooms"] == "" ? Flat.minimum("rooms") : search_params["min_rooms"])
+      @flats = Flat.where("rent <= ? AND rent >= ? AND surface <= ? AND surface >= ? AND rooms <= ? AND rooms >= ? ", @max_price, @min_price, @max_surface, @min_surface, @max_rooms, @min_rooms)
+      if @city_params && @city_params[:query] != ""
+        @flats = @flats.near(@city_params[:query], 30)
+      elsif params[:query] && params[:query] != ""
+        @flats = @flats.near(params[:query], 30)
+      end
+    else
+      @flats = Flat.all.order("created_at DESC").geocoded
+      if @city_params && @city_params[:query] != ""
+        @flats = @flats.near(@city_params[:query], 30)
+      elsif params[:query] && params[:query] != ""
+
+        @flats = @flats.near(params[:query], 30)
+      end
     end
 
     @markers = @flats.map do |flat|
       {
+        cardId: flat.id,
         lat: flat.latitude,
         lng: flat.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { flat: flat }),

@@ -23,6 +23,7 @@ class MatchesController < ApplicationController
 
 
     @match = Match.find(params[:id])
+    @contract = Contract.find_by(match_id: @match.id)
     if @match.flat1.user == current_user
       @flat = @match.flat2
       @user = @flat.user
@@ -32,4 +33,5 @@ class MatchesController < ApplicationController
     end
     @message = Message.new()
   end
+
 end

@@ -1,0 +1,124 @@
+    <% if @contract.match.flat1.user == current_user %>
+      <% current_user_flat = @contract.match.flat1 %>
+      <% other_user_flat = @contract.match.flat2 %>
+    <% else %>
+      <% current_user_flat = @contract.match.flat2 %>
+      <% other_user_flat = @contract.match.flat1 %>
+    <% end %>
+
+<section>
+  <div class="ending-banner rounded-lg" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://www.brukot.be/img/shared/student-guide/coloc.jpg?v62);">
+    <div class="container">
+      <h1>Bravo <%= current_user.name %>!</h1>
+      <br>
+      <h3><strong>You haved successfully exchanged your Flat with <span class="text-primary"><%= other_user_flat.user.name %></span></strong></h3>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="recap rounded-lg mx-auto">
+    <div class="row">
+      <div class="mx-auto col-10">
+        <h3 class="text-center my-5">What's <span class="text-primary">now ?</span></h3>
+
+
+        <p><%= image_tag "check.svg", class: "mr-4" %>The exchange will start october 2021</p>
+        <p><%= image_tag "check.svg", class: "mr-4" %>Don't forget to send tips and usefull informations to your exchange partner</p>
+        <p><%= image_tag "check.svg", class: "mr-4" %>Be prepared for the exchange day (have you forgot anything ?)</p>
+        <p><%= image_tag "check.svg", class: "mr-4" %>Enjoy your new life abroad! ;) </p>
+
+      <div class="middle-card">
+        <h5 class="my-5 text-center">Please find below the information about your future apartment</h5>
+        <div class="row ">
+          <div class="d-flex justify-content-between col-10 ml-4">
+            <div >
+              <h5 class="my-0">Flat</h5>
+              <p class="my-0"><span class="text-primary"><strong>Address</strong></span></p>
+              <p><%= other_user_flat.address %></p>
+              <p class="my-0"><span class="text-primary"><strong>Further information</strong></span></p>
+              <p class="my-0 mb-5"> my brother will give you keys at your arrival<%= %></p>
+            </div>
+            <div>
+              <h5 class="my-0">Lanlord contact</h5>
+              <p class="my-0"><span class="text-primary"><strong>Phone</strong></span></p>
+              <p> +201 455 698 456</p>
+              <p class="my-0"><span class="text-primary"><strong>mail</strong></span></p>
+              <p class="my-0 mb-5"><%= other_user_flat.user.email %></p>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="card-contact border rounded-lg">
+        <%= image_tag "building.svg", class: "blog-build rounded bg-white p-4 box-shadow-custom mb-5 " %>
+        <div class="card-contact-infos">
+          <h6>Any <span class="text-primary">questions ?</span></h6>
+          <h6>if you have any question regarding your </h6>
+          <h6>exchange, please <span class="text-primary">contact us</span></h6>
+        </div>
+      </div>
+</div>
+    </div>
+  </div>
+    <div class="text-center my-5">
+      <h5>Do you need <span class="text-primary">tips and information </span>about your studies and life abroad?</h5>
+      <h5>The many posts of our <span class="text-primary">blog</span> could interest you !</h5>
+    </div>
+      <div class="row mx-0 mb-5">
+        <div class="col-12">
+          <div class="card-deck">
+
+            <div class="card blog" style="width: 15rem;">
+              <img class="card-img-top-blog rounded-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4gxzEYeINTXoht8koB2NkBNKL0bzlsUnRlw&usqp=CAU" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Best bootcamp ever</h5>
+                <p class="card-text">Try to learn code fast and seriously in Paris with Lewagon University.</p>
+                <a href="#" class="btn btn-primary ">Read this article</a>
+              </div>
+            </div>
+            <div class="card blog" style="width: 15rem;">
+              <img class="card-img-top-blog rounded-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWcjs8uSO_LSvGb60FCt9TOpNX2NScqocePA&usqp=CAU" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Team spirit</h5>
+                <p class="card-text">Alone you go faster together you go further! See all our group learning methods</p>
+                <a href="#" class="btn btn-primary">Read this article</a>
+              </div>
+            </div>
+            <div class="card blog" style="width: 15rem;">
+              <img class="card-img-top-blog rounded-top" src="data:image/jpeg;base64,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" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Study under the sun</h5>
+                <p class="card-text">Sun is good for you and your brain, see how to improve your skills on the beach.</p>
+                <a href="#" class="btn btn-primary">Read this article</a>
+              </div>
+            </div>
+            <div class="card blog" style="width: 15rem;">
+              <img class="card-img-top-blog rounded-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp_shVg4qS1axClht7CoqE-87Qk2Zujajezg&usqp=CAU" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Saving money</h5>
+                <p class="card-text">It's an hard job to save money for your Fridays'drinks. Here you are 5 great recipies for 5 euros each.</p>
+                <a href="#" class="btn btn-primary">Read this article</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

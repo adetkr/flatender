@@ -14,27 +14,28 @@
 .main-img img {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  padding-right:0.25rem;
-  padding-left:0.25rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+
+.lightgallery-flat {
+  padding-left: 0.75rem !important;
+  padding-right: 0.75rem !important;
 }
 
 .gal-thumb {
   width: 20%;
-  padding-right:0.25rem;
-  padding-left:0.25rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
-
-
-
 
 .lightgallery-flat .gal-thumb:nth-child(2) img {
   border-bottom-left-radius: 1rem;
-
 }
 
 .lightgallery-flat .gal-thumb:last-child img {
   border-bottom-right-radius: 1rem;
-
 }
 
 
