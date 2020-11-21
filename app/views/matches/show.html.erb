@@ -15,6 +15,7 @@
       </li>
     </ul>
 
+
     <div class="match-nav">
        <% @matchs.each do |match| %>
           <% if match.flat1.user == current_user
@@ -23,14 +24,17 @@
             user = match.flat1.user
           end %>
         <ul class="matches-menu">
-          <li class="matches-menu-item">
-            <a href="<%= match_path(match) %>" class="h6">
+
+          <li class="matches-menu-item <%= "online" if user.online? %> ">
+            <a href="<%= match_path(match) %>" class="d-block bg-gray-6 p-1 rounded-lg">
+              <div class="avatar-wrapper d-inline-block mr-2">
               <% if user.photo.attached? %>
-                <%= cl_image_tag user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle mr-3 border border-white"%>
+                <%= cl_image_tag user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar-sm rounded-circle border border-white"%>
               <% else %>
-                  <%= image_tag "noavatar.png",  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle mr-3 border border-white"%>
+                  <%= image_tag "noavatar.png",  height: 150, width: 150, crop: :fill, class: "avatar-sm rounded-circle border border-white"%>
               <% end %>
-              <%= user.name %>
+              </div>
+              <%= user.name %> <span class="online-badge badge badge-pill badge-success text-white small">online</span>
             </a>
           </li>
         </ul>
