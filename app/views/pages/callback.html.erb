@@ -1,17 +1,17 @@
-    <% if @contract.match.flat1.user == current_user %>
-      <% current_user_flat = @contract.match.flat1 %>
-      <% other_user_flat = @contract.match.flat2 %>
+    <% if @last_signed_contracts.match.flat1.user == current_user %>
+      <% current_user_flat = @last_signed_contracts.match.flat1 %>
+      <% other_user_flat = @last_signed_contracts.match.flat2 %>
     <% else %>
-      <% current_user_flat = @contract.match.flat2 %>
-      <% other_user_flat = @contract.match.flat1 %>
+      <% current_user_flat = @last_signed_contracts.match.flat2 %>
+      <% other_user_flat = @last_signed_contracts.match.flat1 %>
     <% end %>
 
 <section>
-  <div class="ending-banner rounded-lg" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url(https://www.brukot.be/img/shared/student-guide/coloc.jpg?v62);">
+  <div class="ending-banner rounded-lg" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(https://www.brukot.be/img/shared/student-guide/coloc.jpg?v62);">
     <div class="container">
       <h1>Bravo <%= current_user.name %>!</h1>
       <br>
-      <h3><strong>You haved successfully exchanged your Flat with <span class="text-primary"><%= other_user_flat.user.name %></span></strong></h3>
+      <h3>You haved successfully exchanged your Flat with <%= other_user_flat.user.name %></h3>
     </div>
   </div>
 </section>
@@ -54,9 +54,9 @@
           <h6>Any <span class="text-primary">questions ?</span></h6>
           <h6>if you have any question regarding your </h6>
           <h6>exchange, please <span class="text-primary">contact us</span></h6>
+         </div>
         </div>
       </div>
-</div>
     </div>
   </div>
     <div class="text-center my-5">
@@ -72,7 +72,7 @@
               <div class="card-body">
                 <h5 class="card-title">Best bootcamp ever</h5>
                 <p class="card-text">Try to learn code fast and seriously in Paris with Lewagon University.</p>
-                <a href="#" class="btn btn-primary ">Read this article</a>
+                <a  id="myBtn" class="btn btn-primary blog-js">Read this article</a>
               </div>
             </div>
             <div class="card blog" style="width: 15rem;">
@@ -80,7 +80,7 @@
               <div class="card-body">
                 <h5 class="card-title">Team spirit</h5>
                 <p class="card-text">Alone you go faster together you go further! See all our group learning methods</p>
-                <a href="#" class="btn btn-primary">Read this article</a>
+                <a  id="myBtn" class="btn btn-primary blog-js">Read this article</a>
               </div>
             </div>
             <div class="card blog" style="width: 15rem;">
@@ -88,7 +88,7 @@
               <div class="card-body">
                 <h5 class="card-title">Study under the sun</h5>
                 <p class="card-text">Sun is good for you and your brain, see how to improve your skills on the beach.</p>
-                <a href="#" class="btn btn-primary">Read this article</a>
+                <a  id="myBtn" class="btn btn-primary blog-js ">Read this article</a>
               </div>
             </div>
             <div class="card blog" style="width: 15rem;">
@@ -96,19 +96,39 @@
               <div class="card-body">
                 <h5 class="card-title">Saving money</h5>
                 <p class="card-text">It's an hard job to save money for your Fridays'drinks. Here you are 5 great recipies for 5 euros each.</p>
-                <a href="#" class="btn btn-primary">Read this article</a>
+                <a  id="myBtn" class="btn btn-primary blog-js">Read this article</a>
               </div>
             </div>
           </div>
         </div>
-
-      </div>
-
-
-
+    </div>
 </div>
 
-
+<div  class="puff-in-center modal  bd-example-modal-lg" id="ContractSigned" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content match-modal-container closing-modal p-5 box-shadow-custom-lg">
+        <div class="match-modal-content">
+          <div class="d-flex justify-content-between">
+            <%= image_tag "heart.svg", class: "mr-4 " %>
+            <%= image_tag "heart.svg", class: "mr-4 closing-modal" %>
+          </div>
+          <div class="batch">
+          <span class="text-primary font-weight-normal h3 pl-2">#BATCH</span><span class="text-secondary h3 font-weight-bold">422</span>
+          </div>
+          <h1 class="puff-in-center-2 display-4 text-center text-primary  mb-0 closing-modal">CONGRATS !</h1>
+          <h2 class="puff-in-center-2 display-3 text-center text-primary mb-0 "><span class="text-primary font-weight-normal pl-2">fla</span><span class="text-secondary font-weight-bold">tender</span> is born</h4>
+          <h3 class="puff-in-center-2 h4 text-center text-black mb-3">MANY THANKS TO OUR WONDERFUL TEACHERS AND OUR GREAT TEAM</h3>
+          <ul class="d-flex justify-content-between closing-modal">
+            <li><img src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1592123730/sj3kowiyfaf1ax8fdgqp.jpg" alt="aline" class=" avatar-x-large mr-2 rounded-circle"><p class="text-center">Aline</p>
+            <li> <img src="https://avatars3.githubusercontent.com/u/66008397?v=4" alt="ademola" class=" avatar-x-large mr-2 rounded-circle"><p class="text-center">Adémola</p>
+            <li> <img src="https://avatars2.githubusercontent.com/u/40993057?v=4" alt="pierre" class=" avatar-x-large mr-2 rounded-circle"><p class="text-center">Pierre</p>
+            <li> <img src="https://avatars3.githubusercontent.com/u/63870614?v=4" alt="alex" class=" avatar-x-large mr-2 rounded-circle"><p class="text-center">Alexandre</p>
+          </ul>
+          <img src="data:image/png;base64,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" alt="lewagon" class="lewagon-logo" >
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

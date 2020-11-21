@@ -28,7 +28,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { initMatchCable } from '../channels/match_channel';
 import { initLightGallery } from '../plugins/init_lightgallery';
-import { showPanel, closePanel } from './custom/toggle_button';
+import { showPanel, closePanel, endingModal } from './custom/toggle_button';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -44,6 +44,10 @@ document.addEventListener('turbolinks:load', () => {
   initLightGallery();
  // showPanel();
  // closePanel();
+  endingModal();
+//    if ($('#ContractSigned')) {
+//     $('#ContractSigned').modal('show');
+// }
 });
 
 import "controllers"
