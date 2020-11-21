@@ -1,0 +1,45 @@
+<section class="mt-5">
+<!-- navigation dashboard   -->
+  <div id="dashboard-nav" class="bg-white-smoke border-right col-2">
+    <hr class="my-5">
+    <ul class="dashboard-menu ">
+      <li class="dashboard-menu-item active">
+        <a href="<%= user_path(current_user) %>" class="h6">
+          <i class="fas fa-user h5 mr-3"></i> My profile
+        </a>
+      </li>
+
+       <li class="dashboard-menu-item">
+        <a href="<%= searches_path() %>" class="h6">
+          <i class="fas fa-search h5 mr-3"></i> My searches
+        </a>
+      </li>
+
+      <li class="dashboard-menu-item">
+        <a href="<%= matches_path %>" class="h6">
+          <i class="fas fa-heart h5 mr-3"></i> My Matches
+        </a>
+      </li>
+    </ul>
+    
+  </div>
+<!-- / navigation dashboard   -->
+
+<div class="messages-container flex-grow-1 pt-4">
+  <div class="row">
+    <div class="col-12 p-5">
+      <div class="d-flex align-items-center justify-content-start rounded-lg p-4 bg-white-smoke border">
+        
+      <ul class="list-unstyled">
+        <li class="h5 mb-3">My searches in...</li>
+          <% @searches.each do |search| %>
+            <%= link_to "#{search.city}", flats_path(search_flat: {min_price: "#{search.min_price}", max_price: "#{search.max_price}", min_surface: "#{search.min_surface}", max_surface: "#{search.max_surface}", min_rooms: "#{search.min_rooms}", max_rooms: "#{search.max_rooms}"}, query: "#{search.city}"), class: "btn btn-outline-primary" %>
+          <% end %>
+      </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+

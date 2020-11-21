@@ -26,6 +26,10 @@
   color: $primary;
 }
 
+.chat-buttons {
+  display: flex;
+  place-items: flex-start;
+}
 
 .message {
   .sent{
@@ -105,9 +109,3 @@
     }
   }
 }
-
-
-
-
-
-
