@@ -11,6 +11,21 @@ const previewImageOnFileSelect = () => {
   }
 }
 
+
+const sendImageOnFileSelect = () => {
+  // we select the photo input
+  const image = document.getElementById('message-image');
+  if (image) {
+
+    // we add a listener to know when a new picture is uploaded
+    image.addEventListener('change', () => {
+      // we call the displayPreview function (who retrieve the image url and display it)
+      const submitButton = document.getElementById('submit-message');
+      submitButton.click();
+    })
+  }
+}
+
 const displayPreview = (input) => {
   if (input.files && input.files[0]) {
     const reader = new FileReader();
@@ -23,4 +38,4 @@ const displayPreview = (input) => {
   }
 }
 
-export { previewImageOnFileSelect };
+export { previewImageOnFileSelect, sendImageOnFileSelect };

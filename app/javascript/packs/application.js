@@ -32,13 +32,14 @@ import { showPanel, closePanel } from './custom/toggle_button';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { previewImageOnFileSelect } from '../plugins/photo_preview';
+import { previewImageOnFileSelect, sendImageOnFileSelect } from '../plugins/photo_preview';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
   previewImageOnFileSelect();
+  sendImageOnFileSelect();
   initAutocomplete();
   initMatchCable();
   initLightGallery();
