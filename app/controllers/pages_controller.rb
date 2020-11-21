@@ -8,35 +8,27 @@ class PagesController < ApplicationController
     utility = DocusignRest::Utility.new
 
     @flat = current_user.flats.last
+
     @matches = []
-    @flat.flat_matches.map do |flat|
-    @matches << flat.match_id
-
-    @contracts = []
-    @matches.map do |match|
-    @contracts << Contract.where("match_id = #{match}")
-
-    contract = @contracts.last
-    @contract = contract.first
-
-
+    @flat.flat_matches.each do |flat|
+      @matches << flat.match_id
     end
 
+    @signed_contracts = []
+    @matches.each do |match|
+      @signed_contracts << Contract.where("match_id =? and enveloppe_id != ?", "#{match}","nil")
     end
-      # .each do |m|
-      #   m.contracts.each do |contract|
-      #     contract.enveloppe_id
-      #   end
+
+    @last_signed_contracts = @signed_contracts.last
+
     @response = params[:event]
     if params[:event] == "signing_complete"
       flash[:notice] = "Thanks! Successfully signed"
 
     else
       flash[:notice] = "You chose not to sign the document."
-
     end
-
-  end
+end
 
   def initiate
 

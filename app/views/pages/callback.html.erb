@@ -1,9 +1,9 @@
-    <% if @contract.match.flat1.user == current_user %>
-      <% current_user_flat = @contract.match.flat1 %>
-      <% other_user_flat = @contract.match.flat2 %>
+    <% if @last_signed_contracts.first.match.flat1.user == current_user %>
+      <% current_user_flat = @last_signed_contracts.first.match.flat1 %>
+      <% other_user_flat = @last_signed_contracts.first.match.flat2 %>
     <% else %>
-      <% current_user_flat = @contract.match.flat2 %>
-      <% other_user_flat = @contract.match.flat1 %>
+      <% current_user_flat = @last_signed_contracts.first.match.flat2 %>
+      <% other_user_flat = @last_signed_contracts.first.match.flat1 %>
     <% end %>
 
 <section>
