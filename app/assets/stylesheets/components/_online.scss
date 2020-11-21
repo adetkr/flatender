@@ -1,3 +1,13 @@
-.activity-status.online {
-  color:lime;
+
+.online-badge {
+    display: none;
+  }
+
+
+.online {
+  .online-badge {
+    display: inline;
+  }
 }
+
+

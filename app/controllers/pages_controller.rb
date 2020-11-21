@@ -4,6 +4,20 @@ class PagesController < ApplicationController
   def home
   end
 
+  def myflats
+    @flats = Flat.where(user: current_user)
+          @matchs = []
+    @match = nil
+    current_user.flats.each do |flat|
+      flatmatchs = FlatMatch.where(flat_id: flat.id)
+      flatmatchs.each do |flatmatch|
+        @matchs << Match.find(flatmatch.match.id)
+      end
+    end
+  end
+
+
+
   def callback
     utility = DocusignRest::Utility.new
 

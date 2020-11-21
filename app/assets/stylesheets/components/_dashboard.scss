@@ -45,22 +45,24 @@ li.dashboard-menu-item.active {
 
 .matches-menu {
   list-style: none;
-  padding: 0px;
+  padding-top: 0.5rem;
+  padding-left: 0px;
   margin-bottom: 0px;
 }
 
 
 li.matches-menu-item {
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   margin: 0;
 }
 
 
 li.matches-menu-item {
   &:hover{
-    background-color: $gray-6;
+    background-color:$primary-light !important;
     a {
       color: $primary;
+      font-weight: bold;
       img {
         border-color: $primary !important;
       }

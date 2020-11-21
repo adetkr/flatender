@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     post 'flat_equipments'
   end
 
+  get '/myflats', to:"pages#myflats"
+
   resources :likes, only: [:create]
   resources :matches, only: [:show, :index] do
     resources :messages, only: :create
