@@ -10,7 +10,7 @@
   <div class="container">
     <div class="row">
       <div class="col-6">
-        <%= image_tag "pdf_generate", width: 550, height: 550, class: "rounded" %>
+        <%= cl_image_tag "pdf_generate_mmskqs", width: 550, height: 550, crop: :fill, class: "rounded" %>
       </div>
       <div class="col-6 p-3">
         <h4> <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,8 +78,8 @@
               <p class="m-0 font-weight-bold">Your exchange will start around September 2021 for a Year</p>
         </div> 
         <div class="d-flex justify-content-center align-items-center">
-          <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 btn-lg mr-3 p-4 text-white rounded text-uppercase" %>
-          <%= link_to 'sign your contract', sign_contract_path(@contract), :format => :pdf, :target=>'blank', class: "font-weight-bold text-primary p-4 ml-3 text-uppercase" %>
+          <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "size-16 btn-style-01 btn-lg mr-3 mt-3 p-3 text-white rounded text-uppercase" %>
+          <%= link_to 'sign your contract', sign_contract_path(@contract), :format => :pdf, :target=>'blank', class: "size-16 font-weight-bold text-primary p-3 ml-3 mt-3 text-uppercase" %>
         </div>    
       </div>
     </div>    

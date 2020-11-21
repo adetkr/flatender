@@ -111,7 +111,13 @@ ActiveRecord::Schema.define(version: 2020_11_19_183907) do
   end
 
   create_table "searches", force: :cascade do |t|
-    t.string "name"
+    t.string "city"
+    t.integer "min_price"
+    t.integer "max_price"
+    t.integer "min_surface"
+    t.integer "max_surface"
+    t.integer "min_rooms"
+    t.integer "max_rooms"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
