@@ -170,8 +170,6 @@ Equipment.create(name: "washing-machine")
 Equipment.create(name: "weekly-cleaning")
 Equipment.create(name: "wifi")
 puts "equipements créés"
-puts "equipements créés"
-puts "-------------------------------"
 
 puts "searches par user"
 Search.create(city: "Paris", min_price: 100, max_price: 800, min_surface: 10, max_surface: 50, min_rooms: 1, max_rooms: 3, user_id: aline.id)

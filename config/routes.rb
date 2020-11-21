@@ -18,5 +18,4 @@ Rails.application.routes.draw do
 
   get '/docusign/callback', to: 'pages#callback'
   get '/docusign/initiate', to: 'pages#initiate'
-
 end

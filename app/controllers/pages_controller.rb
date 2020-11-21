@@ -5,19 +5,32 @@ class PagesController < ApplicationController
   end
 
   def callback
-
     utility = DocusignRest::Utility.new
+
     @response = params[:event]
     if params[:event] == "signing_complete"
       flash[:notice] = "Thanks! Successfully signed"
 
+
     else
       flash[:notice] = "You chose not to sign the document."
-
     end
 
+    @flat = current_user.flats.last
+    @matches = []
+    @flat.flat_matches.map do |flat|
+      @matches << flat.match_id
+    end
 
-  end
+    @signed_contracts = []
+    @matches.map do |match|
+      cont = Contract.order(signature: :desc)
+      @signed_contracts << cont.where("match_id = #{match}").first
+    end
+
+    @last_signed_contracts = @signed_contracts.first
+
+end
 
   def initiate
 

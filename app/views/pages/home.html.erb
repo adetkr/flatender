@@ -1,5 +1,5 @@
-<section class="vh-75 bg-white d-flex hero align-items-center my-5 mb-5" style="background-image: url('<%= image_path "bg-home-01.png" %>'), url('<%= image_path "bg-home-02.png" %>');">
-  <div class="container-fluid">
+<section class="vh-75 bg-white d-flex hero align-items-center my-5 mb-5 pt-5" style="background-image: url('<%= image_path "bg-home-01.png" %>'), url('<%= image_path "bg-home-02.png" %>');">
+  <div class="container-fluid pt-5">
     <div class="row">
     <div class="col-7 p-5">
       <h1 class="display-3 text-primary font-weight-bold  mb-5">Home exchange<br>
@@ -8,8 +8,8 @@
           <%= simple_form_for :search, url: flats_path, method: :get do |f| %>
             <form class="">
               <div class="d-flex align-items-center">
-                  <input placeholder= "Where do you go studying ?" class=" form-control form-control-lg border-0 p-0 m-0" type="text" name="search[query]" id="flat_address" >
-                <button type="submit" class="btn-style-01 rounded font-weight-bold h6 text-uppercase py-4 col-3 ml-4 mb-0">Search</button>
+                  <input placeholder= "Where do you go studying ?" class=" form-control form-control-lg border-0 py-3 m-0" type="text" name="search[query]" id="flat_address" >
+                <button type="submit" class="btn-style-01 rounded font-weight-bold h6 text-uppercase py-4 px-0 col-3 ml-4 mb-0">Search</button>
               </div>
             </form>
           <% end %>
@@ -100,15 +100,15 @@
                           </div>
 
                           <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
-                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Moscou") %>">
-                              <span class="city-text text-white h5 font-weight-bold">Moscou</span>
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Moscow") %>">
+                              <span class="city-text text-white h5 font-weight-bold">Moscow</span>
                               <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2017/09/12/15/36/moscow-2742642_1280.jpg)">
                               </div>
                             </a>
                           </div>
                           <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
-                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Londre") %>">
-                              <span class="city-text text-white h5 font-weight-bold">Londre</span>
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "London") %>">
+                              <span class="city-text text-white h5 font-weight-bold">London</span>
                               <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2010/12/13/10/21/bridge-2715_1280.jpg">
                               </div>
                             </a>
@@ -125,25 +125,25 @@
 
                     </div>
                     <div class="carousel-item">
-                                                <div class="row mx-0 mb-5">
-                          <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
-                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Singapour") %>">
-                              <span class="city-text text-white h5 font-weight-bold">Singapour</span>
+                      <div class="row mx-0 mb-5">
+                         <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Singapore") %>">
+                              <span class="city-text text-white h5 font-weight-bold">Singapore</span>
                               <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2017/08/30/11/12/singapore-2696704_1280.jpg)">
                               </div>
                             </a>
                           </div>
 
                           <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
-                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Moscou") %>">
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Moscow") %>">
                               <span class="city-text text-white h5 font-weight-bold">Rio</span>
                               <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2020/01/31/21/25/brazil-4809011_1280.jpg)">
                               </div>
                             </a>
                           </div>
                           <div class="col-3 city-card  overflow-hidden p-3 d-flex align-items-stretch">
-                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "marrakech") %>">
-                              <span class="city-text text-white h5 font-weight-bold">marrakech</span>
+                            <a class="city-container d-flex align-items-stretch flex-grow-1 box-shadow-custom " href="<%= flats_path(query: "Marrakech") %>">
+                              <span class="city-text text-white h5 font-weight-bold">Marrakech</span>
                               <div class="city-thumb mx-0 flex-grow-1 rounded-lg" style="background-image: url(https://cdn.pixabay.com/photo/2017/10/02/19/46/morocco-2809965_1280.jpg">
                               </div>
                             </a>

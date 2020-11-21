@@ -8,7 +8,7 @@
   </button>
 
   <% if controller_name == "flats" && action_name == "index" %>
-    <div class="row w-75">
+    <div class="row w-60">
     <div class="col-8 d-flex align-items-center">
       <%= simple_form_for :search, url: flats_path, method: :get, :html=> { class: 'w-100' } do |f| %>
       <div class="form-group mb-0 bg-gray-6 no-algolia-icon d-flex w-100 justify-content-start rounded">
