@@ -1,0 +1,92 @@
+<section id="matches" class="mt-5">
+<!-- navigation dashboard   -->
+  <div id="dashboard-nav" class="bg-white-smoke border-right col-2">
+    <hr class="my-5">
+    <ul class="dashboard-menu">
+      <li class="dashboard-menu-item">
+        <a href="<%= user_path(current_user) %>" class="h6">
+          <i class="fas fa-user h5 mr-3"></i> My profile
+        </a>
+      </li>
+      <li class="dashboard-menu-item active">
+        <a href="<%= myflats_path %>" class="h6">
+          <i class="fas fa-building h5 mr-3"></i> My flats
+        </a>
+      </li>
+      <li class="dashboard-menu-item">
+        <a href="<%= matches_path() %>" class="h6">
+          <i class="fas fa-heart h5 mr-3"></i> My Matches
+        </a>
+      </li>
+    </ul>
+
+    <div class="match-nav">
+       <% @matchs.each do |match| %>
+          <% if match.flat1.user == current_user
+            user = match.flat2.user
+          else
+            user = match.flat1.user
+          end %>
+        <ul class="matches-menu">
+
+          <li class="matches-menu-item <%= "online" if user.online? %> ">
+            <a href="<%= match_path(match) %>">
+              <div class="avatar-wrapper d-inline-block mr-2">
+              <% if user.photo.attached? %>
+                <%= cl_image_tag user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle border border-white"%>
+              <% else %>
+                  <%= image_tag "noavatar.png",  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle border border-white"%>
+              <% end %>
+              </div>
+              <%= user.name %> <span class="online-badge badge badge-pill badge-success text-white small">online</span>
+            </a>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+  </div>
+
+
+
+  </div>
+
+<!-- / navigation dashboard   -->
+
+
+
+  <div class="messages-container flex-grow-1 pt-4">
+    <div class="row">
+      <div class="col-12 p-5 ">
+        <h1 class="mb-4 h3">My Flats</h1>
+        <% @flats.each do |flat| %>
+          <div class="bg-white-smoke py-3 px-1 mb-4 rounded-lg border row">
+
+                  <div class="col-3">
+                    <% if flat.photos.attached? %>
+                      <%= cl_image_tag flat.photos.first.key, height: 200, width: 300, crop: :fill, class: "img-fluid rounded" %>
+                    <% else %>
+                      <%= image_tag "noimage.png", height: 200, width: 300, crop: :fill, class: "img-fluid rounded" %>
+                    <% end %>
+                  </div>
+
+                  <div class="col-9 d-flex align-items-stretch ">
+                    <div class="d-flex flex-column align-content-between flex-grow-1 p-3">
+                      <h4 class="mb-auto">
+                       <%=  flat.title %>
+                      </h4>
+                      <div style="min-height: 10px">
+                        <a href="<%= flat_path(flat) %>" class="text-white btn btn-primary mr-4"><i class="far fa-eye"></i> view flat</a>
+                        <a href="<%= edit_flat_path(flat) %>" class="text-primary  btn btn-outline-primary"><i class="fas fa-edit"></i> edit flat</a>
+
+
+                      </div>
+                    </div>
+
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
