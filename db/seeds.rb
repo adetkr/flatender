@@ -14,7 +14,9 @@ FlatEquipment.delete_all
 Equipment.delete_all
 Flat.all.each(&:destroy)
 FlatMatch.delete_all
+Search.delete_all
 User.delete_all
+
 
 
 
@@ -169,3 +171,10 @@ Equipment.create(name: "weekly-cleaning")
 Equipment.create(name: "wifi")
 puts "equipements créés"
 
+puts "searches par user"
+Search.create(city: "Paris", min_price: 100, max_price: 800, min_surface: 10, max_surface: 50, min_rooms: 1, max_rooms: 3, user_id: aline.id)
+Search.create(city: "Paris", min_price: 100, max_price: 800, min_surface: 10, max_surface: 50, min_rooms: 1, max_rooms: 3, user_id: pierre.id)
+Search.create(city: "Roma", min_price: 100, max_price: 800, min_surface: 15, max_surface: 25, min_rooms: 1, max_rooms: 1, user_id: ademola.id)
+Search.create(city: "Madrid", min_price: 300, max_price: 600, min_surface: 20, max_surface: 38, min_rooms: 1, max_rooms: 2, user_id: alex.id)
+puts "searches créés"
+puts "-------------------------------"

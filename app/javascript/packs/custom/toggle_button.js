@@ -20,4 +20,16 @@ const closePanel = () => {
 
 }
 
-export { showPanel, closePanel };
+const endingModal = () => {
+  var modal = document.querySelector("#ContractSigned");
+  var btns = document.querySelectorAll(".blog-js");
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', function() {
+    $('#ContractSigned').modal('show');
+    });
+  })
+
+}
+
+export { showPanel, closePanel, endingModal };
