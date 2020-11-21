@@ -7,8 +7,16 @@ class PagesController < ApplicationController
   def callback
     utility = DocusignRest::Utility.new
 
-    @flat = current_user.flats.last
+    @response = params[:event]
+    if params[:event] == "signing_complete"
+      flash[:notice] = "Thanks! Successfully signed"
 
+
+    else
+      flash[:notice] = "You chose not to sign the document."
+    end
+
+    @flat = current_user.flats.last
     @matches = []
     @flat.flat_matches.map do |flat|
       @matches << flat.match_id
@@ -16,18 +24,11 @@ class PagesController < ApplicationController
 
     @signed_contracts = []
     @matches.map do |match|
-      @signed_contracts << Contract.order("updated_at").where("match_id =? and enveloppe_id != ?", "#{match}","nil").last
+      cont = Contract.order(signature: :desc)
+      @signed_contracts << cont.where("match_id = #{match}").first
     end
 
-    @last_signed_contracts = @signed_contracts.last
-
-    @response = params[:event]
-    if params[:event] == "signing_complete"
-      flash[:notice] = "Thanks! Successfully signed"
-
-    else
-      flash[:notice] = "You chose not to sign the document."
-    end
+    @last_signed_contracts = @signed_contracts.first
 
 end
 
