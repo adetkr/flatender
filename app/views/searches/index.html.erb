@@ -2,26 +2,53 @@
 <!-- navigation dashboard   -->
   <div id="dashboard-nav" class="bg-white-smoke border-right col-2">
     <hr class="my-5">
-    <ul class="dashboard-menu ">
-      <li class="dashboard-menu-item active">
+    <ul class="dashboard-menu">
+      <li class="dashboard-menu-item">
         <a href="<%= user_path(current_user) %>" class="h6">
           <i class="fas fa-user h5 mr-3"></i> My profile
         </a>
       </li>
-
-       <li class="dashboard-menu-item">
+      <li class="dashboard-menu-item ">
+        <a href="<%= myflats_path %>" class="h6">
+          <i class="fas fa-building h5 mr-3"></i> My flats
+        </a>
+      </li>
+      <li class="dashboard-menu-item active">
         <a href="<%= searches_path() %>" class="h6">
           <i class="fas fa-search h5 mr-3"></i> My searches
         </a>
       </li>
-
       <li class="dashboard-menu-item">
-        <a href="<%= matches_path %>" class="h6">
+        <a href="<%= matches_path() %>" class="h6">
           <i class="fas fa-heart h5 mr-3"></i> My Matches
         </a>
       </li>
     </ul>
-    
+    <div class="match-nav">
+       <% @matchs.each do |match| %>
+          <% if match.flat1.user == current_user
+            user = match.flat2.user
+          else
+            user = match.flat1.user
+          end %>
+        <ul class="matches-menu">
+
+          <li class="matches-menu-item <%= "online" if user.online? %> ">
+            <a href="<%= match_path(match) %>">
+              <div class="avatar-wrapper d-inline-block mr-2">
+              <% if user.photo.attached? %>
+                <%= cl_image_tag user.photo.key,  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle border border-white"%>
+              <% else %>
+                  <%= image_tag "noavatar.png",  height: 150, width: 150, crop: :fill, class: "avatar rounded-circle border border-white"%>
+              <% end %>
+              </div>
+              <%= user.name %> <span class="online-badge badge badge-pill badge-success text-white small">online</span>
+            </a>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+
   </div>
 <!-- / navigation dashboard   -->
 
@@ -29,7 +56,7 @@
   <div class="row">
     <div class="col-12 p-5">
       <div class="d-flex align-items-center justify-content-start rounded-lg p-4 bg-white-smoke border">
-        
+
       <ul class="list-unstyled">
         <li class="h5 mb-3">My searches in...</li>
           <% @searches.each do |search| %>

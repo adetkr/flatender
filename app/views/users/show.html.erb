@@ -25,13 +25,14 @@
     </ul>
 
     <div class="match-nav">
+        <ul class="matches-menu">
        <% @matchs.each do |match| %>
           <% if match.flat1.user == current_user
             user = match.flat2.user
           else
             user = match.flat1.user
           end %>
-        <ul class="matches-menu">
+
 
           <li class="matches-menu-item <%= "online" if user.online? %> ">
             <a href="<%= match_path(match) %>">
@@ -45,8 +46,8 @@
               <%= user.name %> <span class="online-badge badge badge-pill badge-success text-white small">online</span>
             </a>
           </li>
+          <% end %>
         </ul>
-      <% end %>
     </div>
   </div>
   </div>
