@@ -42,7 +42,7 @@ class PagesController < ApplicationController
       @signed_contracts << cont.where("match_id = #{match}").first
     end
 
-    @last_signed_contracts = @signed_contracts.first
+    @last_signed_contracts = Contract.find(params[:contract_id])
 
 end
 

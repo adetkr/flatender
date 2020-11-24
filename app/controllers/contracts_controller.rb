@@ -77,7 +77,7 @@ class ContractsController < ApplicationController
   def sign_contract
     @contract = Contract.find(params[:contract_id])
     client = DocusignRest::Client.new
-    url = client.get_recipient_view(envelope_id: @contract.enveloppe_id, name: current_user.name, email: current_user.email, return_url: "#{ENV['ROOT_URL']}/docusign/callback")['url']
+    url = client.get_recipient_view(envelope_id: @contract.enveloppe_id, name: current_user.name, email: current_user.email, return_url: "#{ENV['ROOT_URL']}/docusign/callback/#{@contract.id}")['url']
     @contract.update(signature: DateTime.now)
     redirect_to url
   end
