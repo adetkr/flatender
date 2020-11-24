@@ -110,6 +110,20 @@ ActiveRecord::Schema.define(version: 2020_11_21_160215) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "searches", force: :cascade do |t|
+    t.string "city"
+    t.integer "min_price"
+    t.integer "max_price"
+    t.integer "min_surface"
+    t.integer "max_surface"
+    t.integer "min_rooms"
+    t.integer "max_rooms"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_searches_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -136,4 +150,5 @@ ActiveRecord::Schema.define(version: 2020_11_21_160215) do
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "matches"
   add_foreign_key "messages", "users"
+  add_foreign_key "searches", "users"
 end
