@@ -43,12 +43,9 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   initMatchCable();
   initLightGallery();
- // showPanel();
- // closePanel();
+  showPanel();
+  closePanel();
   endingModal();
-//    if ($('#ContractSigned')) {
-//     $('#ContractSigned').modal('show');
-// }
 });
 
 import "controllers"
