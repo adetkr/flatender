@@ -44,6 +44,16 @@ class PagesController < ApplicationController
 
     @last_signed_contracts = @signed_contracts.first
 
+
+    if @last_signed_contracts && @last_signed_contracts.match.flat1.user == current_user
+       @current_user_flat = @last_signed_contracts.match.flat1
+       @other_user_flat = @last_signed_contracts.match.flat2
+    elsif @last_signed_contracts
+      @current_user_flat = @last_signed_contracts.match.flat2
+      @other_user_flat = @last_signed_contracts.match.flat1
+    else
+      @error = true
+    end
 end
 
   def initiate
