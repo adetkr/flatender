@@ -21,7 +21,9 @@ const sendImageOnFileSelect = () => {
     image.addEventListener('change', () => {
       // we call the displayPreview function (who retrieve the image url and display it)
       const submitButton = document.getElementById('submit-message');
+      console.log("here");
       submitButton.click();
+      image.value = "";
     })
   }
 }
