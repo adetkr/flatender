@@ -17,12 +17,13 @@ const initMatchCable = () => {
           lastMessage.classList.add("sent-message-container");
           console.log(lastMessage);
           const messageContent = document.querySelectorAll(".message-content");
-          // console.log(messageContent);
-          // const lastMessageContent = messageContent[messageContent.length-1];
-          // console.log(lastMessageContent);
-          // lastMessageContent.classList.add("bg-secondary");
+
         }
         window.scrollTo(0, document.body.offsetHeight);
+        const messageContent = document.getElementById('message_content');
+        messageContent.value = "";
+
+
       },
     });
   }

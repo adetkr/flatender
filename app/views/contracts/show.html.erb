@@ -10,10 +10,10 @@
   <div class="container">
     <div class="row">
       <div class="col-6">
-        <%= image_tag "pdf_generate", width: 550, height: 550, class: "rounded" %>
+        <%= cl_image_tag "pdf_generate_mmskqs", width: 550, height: 550, crop: :fill, class: "rounded" %>
       </div>
-      <div class="col-6 p-3">
-        <h4> <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="col-6 p-4">
+        <h3 class="mb-4"> <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M22.1001 29.6795V28.9816C22.1001 28.7898 22.1888 28.6088 22.3403 28.4913C22.6606 28.2428 22.6606 27.7591 22.3403 27.5106C22.1888 27.3931 22.1001 27.2121 22.1001 27.0203V26.3223C22.1001 26.0783 22.298 25.8805 22.542 25.8805C22.786 25.8805 22.9838 25.6826 22.9838 25.4385V24.9372C22.9838 24.6931 22.786 24.4953 22.542 24.4953C22.2979 24.4953 22.1001 24.2974 22.1001 24.0534V22.7199C22.1001 22.4759 22.298 22.278 22.542 22.278C22.786 22.278 22.9838 22.0801 22.9838 21.8361V19.5837H17.9863V30.9617C17.9863 31.4126 18.1516 31.8479 18.4508 32.1852L19.7785 33.6819C20.1543 34.1056 20.8159 34.1056 21.1917 33.6819L22.5194 32.1852C22.8187 31.8479 22.9839 31.4126 22.9839 30.9617V30.5633C22.9839 30.3193 22.786 30.1214 22.542 30.1214C22.298 30.1215 22.1001 29.9236 22.1001 29.6795Z" fill="url(#paint0_radial)"/>
             <path d="M21.2829 19.5839V31.3915C21.2829 31.8318 20.926 32.1887 20.4857 32.1887C20.0455 32.1887 19.6885 31.8318 19.6885 31.3915V19.5839H21.2829Z" fill="#E71658"/>
             <path d="M20.4852 6.88831C16.5028 6.88831 13.2744 10.1167 13.2744 14.0991C13.2744 18.0815 16.5028 21.3099 20.4852 21.3099C24.4676 21.3099 27.696 18.0815 27.696 14.0991C27.696 10.1167 24.4676 6.88831 20.4852 6.88831ZM20.4852 13.4047C19.3562 13.4047 18.4406 12.4899 18.4406 11.3602C18.4406 10.2312 19.3562 9.31644 20.4852 9.31644C21.6142 9.31644 22.5297 10.2312 22.5297 11.3602C22.5297 12.4899 21.6142 13.4047 20.4852 13.4047Z" fill="url(#paint1_radial)"/>
@@ -58,30 +58,30 @@
             </radialGradient>
             </defs>
             </svg>
-            Congratulations <span class="text-primary"><%=current_user.name%></span> !</h4>
+             Congratulations <span class="text-primary"><%=current_user.name%></span> !</h1>
         <div class="bg-white-smoke p-4 my-2 rounded-lg">
-          <p class="m-0 font-weight-bold"><span><%= other_user_flat.user.name %></span> wants also to exchange his flat with yours</p> 
-            <p class="m-0 font-weight-bold">Just one more step and you'll be ready to live and study abroad</p>
-            <p class="m-0 font-weight-bold">Here you are the terms of the contract beetween you and <%= other_user_flat.user.name %></span></p>  
-              <h5 class="m-3">If both of you sign this contract : </h5>
-              <p class="m-0 font-weight-bold">Your next address will be : <%= other_user_flat.address %></p> 
-              <p class="m-0 font-weight-bold">You agree to rent your flat to <%= other_user_flat.user.name %> at the price of euros <%= current_user_flat.rent %> euros</p>
-              <p class="m-0 font-weight-bold"><%=other_user_flat.user.name %> rents his flat at the price of euros <%= other_user_flat.rent %> euros</p>
-              <h5 class="m-3">In that case :</h5>
+          <p class="m-0"><span class="text-primary font-weight-bold"><%= other_user_flat.user.name %></span> wants also to exchange his flat with yours</p>
+            <p class="m-0">Just one more step and you'll be ready to live and study abroad</p>
+            <p class="m-0">Here you are the terms of the contract beetween you and <%= other_user_flat.user.name %></span></p>
+              <h5 class="my-3">If both of you sign this contract : </h5>
+              <p class="m-0">Your next address will be : <%= other_user_flat.address %></p>
+              <p class="m-0">You agree to rent your flat to <%= other_user_flat.user.name %> at the price of euros <%= current_user_flat.rent %> euros</p>
+              <p class="m-0"><%=other_user_flat.user.name %> rents his flat at the price of euros <%= other_user_flat.rent %> euros</p>
+              <h5 class="my-3">In that case :</h5>
                 <% if other_user_flat.rent > current_user_flat.rent %>
                 <% diff = other_user_flat.rent - current_user_flat.rent %>
-                <p class="m-0 font-weight-bold"> You agree to settle to <%= other_user_flat.user.name %> every renting month the amount of euros <%= diff %></p>
+                <p class="m-0"> You agree to settle to <%= other_user_flat.user.name %> every renting month the amount of euros <%= diff %></p>
                 <% else %>
                 <% diff = current_user_flat.rent - other_user_flat.rent %>
-                <p class="m-0 font-weight-bold"><%= other_user_flat.user.name %></span> agrees to settle to you every renting month the amount of euros <%= diff %></p>
+                <p class="m-0"><%= other_user_flat.user.name %></span> agrees to settle to you every renting month the amount of euros <%= diff %></p>
                 <% end  %>
-              <p class="m-0 font-weight-bold">Your exchange will start around September 2021 for a Year</p>
-        </div> 
+              <p class="m-0">Your exchange will start around September 2021 for a Year</p>
+        </div>
         <div class="d-flex justify-content-center align-items-center">
-          <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "btn-style-01 btn-lg mr-3 p-4 text-white rounded text-uppercase" %>
-          <%= link_to 'sign your contract', sign_contract_path(@contract), :format => :pdf, :target=>'blank', class: "font-weight-bold text-primary p-4 ml-3 text-uppercase" %>
-        </div>    
+          <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "size-16 btn-style-01 btn-lg mr-3 mt-3 p-3 text-white rounded text-uppercase" %>
+          <%= link_to 'sign your contract', sign_contract_path(@contract), :format => :pdf, :target=>'blank', class: "size-16 font-weight-bold text-primary p-3 ml-3 mt-3 text-uppercase" %>
+        </div>
       </div>
-    </div>    
-  </div>  
+    </div>
+  </div>
 </section>

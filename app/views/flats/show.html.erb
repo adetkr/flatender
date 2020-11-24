@@ -25,7 +25,7 @@
 <!-- Matches Modal -->
 <div  class="puff-in-center modal  bd-example-modal-lg" id="MatchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content match-modal-container p-5 box-shadow-custom-lg overflow-hidden"
+    <div class="modal-content match-modal-container p-5 box-shadow-custom-lg overflow-hidden">
 
       <% if @flat.photos.attached? %>
       style="background-image: url('<%= cl_image_path @flat.photos.first.key, height: 900, width: 1200, crop: :fill %>');"

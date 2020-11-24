@@ -1,6 +1,9 @@
  <div class="message">
     <div class="d-flex align-items-end p-3 my-2 sent">
        <div class="message-content">
+        <% if message.image.attached? %>
+          <%= cl_image_tag message.image.key, height: 150, width: 150, crop: :fill, class: "img-fluid" %>
+        <% end %>
          <p class="message-text"><%= message.content %></p>
          <span class="message-meta"><%=  message.created_at.strftime("%a %b %e at %l:%M%p") %></span>
        </div>

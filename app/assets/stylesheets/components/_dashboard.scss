@@ -22,12 +22,16 @@
 li.dashboard-menu-item {
   padding: 1rem 2rem;
   margin: 0;
+  transition: box-shadow 0.2s ease-in-out, border 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 
 li.dashboard-menu-item {
   &:hover{
     background-color: $gray-6;
+    border-right:4px solid $primary;
+    box-shadow: 0px 4px 17px -7px rgba(0, 0, 88, 0.3);
+    transition: box-shadow 0.2s ease-in-out, border 0.2s ease-in-out, color 0.2s ease-in-out;
     a {
       color: $primary;
     }
@@ -36,7 +40,8 @@ li.dashboard-menu-item {
 
 li.dashboard-menu-item.active {
   background-color: $gray-6;
-    a {
+  border-right:4px solid $primary;
+    .fas {
       color: $primary;
   }
 }
@@ -45,22 +50,29 @@ li.dashboard-menu-item.active {
 
 .matches-menu {
   list-style: none;
-  padding: 0px;
+  padding-top: 0.5rem;
+  padding-left: 0px;
   margin-bottom: 0px;
 }
 
 
 li.matches-menu-item {
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   margin: 0;
+  border-right:4px solid $white-smoke;
+  transition: box-shadow 0.2s ease-in-out, border 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 
 li.matches-menu-item {
   &:hover{
-    background-color: $gray-6;
+    background-color:$primary-light !important;
+    border-right:4px solid $primary;
+    box-shadow: 0px 4px 17px -7px rgba(0, 0, 88, 0.3);
+    transition: box-shadow 0.2s ease-in-out, border 0.2s ease-in-out, color 0.2s ease-in-out;
     a {
       color: $primary;
+      font-weight: bold;
       img {
         border-color: $primary !important;
       }
@@ -74,6 +86,33 @@ li.matches-menu-item.active {
       color: $primary;
   }
 }
+
+
+li.matches-menu-item.online {
+  border-right:4px solid $success;
+
+}
+
+
+
+
+
+.online-badge {
+    display: none;
+  }
+
+
+.online {
+  .online-badge {
+    display: inline;
+  }
+}
+
+
+
+
+
+
 
 
 .messages-container {
