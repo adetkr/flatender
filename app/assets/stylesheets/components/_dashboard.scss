@@ -72,7 +72,6 @@ li.matches-menu-item {
     transition: box-shadow 0.2s ease-in-out, border 0.2s ease-in-out, color 0.2s ease-in-out;
     a {
       color: $primary;
-      font-weight: bold;
       img {
         border-color: $primary !important;
       }
@@ -89,7 +88,9 @@ li.matches-menu-item.active {
 
 
 li.matches-menu-item.online {
-  border-right:4px solid $success;
+  .avatar {
+    border: 1px solid $success !important;
+  }
 
 }
 
