@@ -33,7 +33,7 @@ clement = User.new(name: 'Clément', email:'clement@test.com', presentation: "Pr
 clement.save!
 puts "clement exist"
 
-fatoutmata = User.new(name: 'Fatoutmata', email:'fatoutmata@test.com', presentation: "Hey my name is Fatou and i'm a digital consultant ( product owner). I would like to learn to code so that I can be more efficient at work the day and work on personal project by night ;)", university: "EDHEC Business school paris", password: "fatoutmata@test.com")
+fatoutmata = User.new(name: 'Fatoumata', email:'fatoumata@test.com', presentation: "Hey my name is Fatou and i'm a digital consultant ( product owner). I would like to learn to code so that I can be more efficient at work the day and work on personal project by night ;)", university: "EDHEC Business school paris", password: "fatoumata@test.com")
 fatoutmata.save!
 puts "fatoutmata exist"
 
@@ -62,7 +62,7 @@ aline.save!
 puts "aline exist"
 
 alex = User.new(name: 'Alex', email:'alex@test.com', presentation: "For the last 10 years I was working as a market manager. I have chosen Le Wagon to learn web development and find a job in the tech industry.", university: "
-National Autonomous University of Mexico", password: "alex@test.com@test.com")
+National Autonomous University of Mexico", password: "alex@test.com")
 alex.save!
 puts "alex exist"
 
