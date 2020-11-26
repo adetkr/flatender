@@ -21,13 +21,11 @@
 </div>
 
 
-
 <!-- Matches Modal -->
 <div  class="puff-in-center modal  bd-example-modal-lg" id="MatchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content match-modal-container p-5 box-shadow-custom-lg overflow-hidden">
-
-      <% if @flat.photos.attached? %>
+    <div class="modal-content match-modal-container p-5 box-shadow-custom-lg overflow-hidden"
+     <% if @flat.photos.attached? %>
       style="background-image: url('<%= cl_image_path @flat.photos.first.key, height: 900, width: 1200, crop: :fill %>');"
       <% else %>
       style="background-image: url('<%= image_path "noimage.png", height: 300, width: 400, crop: :fill %>');"
@@ -74,13 +72,13 @@
         </div>
 
         <!-- presentation -->
-        <div id="presentation" class="bg-white-smoke rounded-lg p-4 mb-5 border">
+        <div id="presentation" class="bg-white-smoke rounded-lg p-4 mb-5">
           <h3 class="mb-2 h5"><%= @flat.surface %>m<sup>2</sup> - <%= @flat.rooms %> rooms</h3>
           <p><%= @flat.presentation %></p>
         </div>
 
         <!--  Equipment -->
-        <div id="equipment" class="bg-white-smoke rounded-lg p-4 mb-5 border">
+        <div id="equipment" class="bg-white-smoke rounded-lg p-4 mb-5">
           <h3 class="mb-4 h5">Equipment</h3>
           <div class="d-flex flex-wrap">
             <% @flat.equipments.each do |equipment| %>
@@ -110,7 +108,7 @@
 
       <!--  User presentation -->
       <div class="pl-5 col-5" data-controller="like">
-        <div class="col-4 bg-white-smoke rounded-lg p-4 mb-5 mr-3 border position-fixed">
+        <div class="col-4 bg-white-smoke rounded-lg p-4 mb-5 mr-3 position-fixed">
            <div id="info" class="d-flex">
             <div>
                 <% if @flat.user.photo.attached? %>

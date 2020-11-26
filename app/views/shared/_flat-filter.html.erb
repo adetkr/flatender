@@ -35,12 +35,13 @@
       <%= hidden_field_tag(:query, @city_params[:query]) %>
     <% end %>
   <div>
+    <hr>
     <%= f.button :submit, "Submit filter", class: "btn btn-outline-primary mr-1" %>
     <% end %>
 
-    <button class="btn btn-outline-primary ml-1" data-action="filter#saveSearch">Save this search</button>
+    <button class="btn btn-outline-primary ml-1 border border-white" data-action="filter#saveSearch">Save this search</button>
   </div>
-    
+
 
   <div class="d-none">
     <%= simple_form_for Search.new, remote: true do |f| %>
@@ -54,5 +55,5 @@
       <%= f.submit data: { target: "filter.submit"} %>
     <% end %>
   </div>
-  
+
 </div>
