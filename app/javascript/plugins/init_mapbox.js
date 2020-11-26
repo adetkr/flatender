@@ -5,10 +5,9 @@ const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/alevek/ckhz8a6k92jdc19p9ci2jqclb'
   });
 };
-
 
 
 const addMarkersToMap = (map, markers) => {
