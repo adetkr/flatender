@@ -68,11 +68,11 @@
       </div>
 
     <!-- Formulaire  -->
-      <div class="message-form bg-white p-4 border-top min-height-115">
+      <div class="message-form bg-white-smoke p-4 border-top min-height-115">
         <%= simple_form_for [ @match, @message ], remote:true do |f| %>
           <div class="search-form-control form-row">
             <div class="col-8">
-              <%= f.input :content, class: "form-control form-control-lg string required w-75", id: "form-submit", label: false, placeholder: "Entrez votre message ici..." %>
+              <%= f.input :content, class: "form-control form-control-lg string requiredbg-white w-75", id: "form-submit", label: false, placeholder: "Entrez votre message ici..." %>
             </div>
             <div class="col-4 chat-buttons">
               <button id= "submit-message" type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i> </button>
