@@ -42,8 +42,19 @@ class PagesController < ApplicationController
       @signed_contracts << cont.where("match_id = #{match}").first
     end
 
-    @last_signed_contracts = @signed_contracts.first
+    @last_signed_contracts = Contract.find(params[:contract_id])
 
+
+
+    if @last_signed_contracts && @last_signed_contracts.match.flat1.user == current_user
+       @current_user_flat = @last_signed_contracts.match.flat1
+       @other_user_flat = @last_signed_contracts.match.flat2
+    elsif @last_signed_contracts
+      @current_user_flat = @last_signed_contracts.match.flat2
+      @other_user_flat = @last_signed_contracts.match.flat1
+    else
+      @error = true
+    end
 end
 
   def initiate

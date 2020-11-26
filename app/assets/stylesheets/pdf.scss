@@ -1,23 +1,31 @@
+
 .contract-container {
   display: block;
   width: 100%;
-  height: auto;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 span.fla {
   color: #e83a59;
   font-size: 70px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+
+
 }
 
 span.tender {
   color: #4b154a;
   font-size: 70px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bolder;
 
 }
 
 #pdf-title {
   color: #e83a59;
   font-size: 40px;
+  font-weight: lighter;
   text-align: center;
 
 }
@@ -40,5 +48,7 @@ span.tender {
 
 .contract-end-page {
     text-align: right;
-
 }
+
+
+

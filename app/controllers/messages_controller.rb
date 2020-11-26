@@ -1,10 +1,12 @@
 class MessagesController < ApplicationController
     def create
-
       @match = Match.find(params[:match_id])
       @message = Message.new(message_params)
       @message.match = @match
       @message.user = current_user
+      if @message.image.attached?
+        @message.content = "Image"
+      end
       if @message.save
         MatchChannel.broadcast_to(
           @match,
