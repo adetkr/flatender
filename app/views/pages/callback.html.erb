@@ -1,20 +1,25 @@
-    <% if @last_signed_contracts.match.flat1.user == current_user %>
-      <% current_user_flat = @last_signed_contracts.match.flat1 %>
-      <% other_user_flat = @last_signed_contracts.match.flat2 %>
-    <% else %>
-      <% current_user_flat = @last_signed_contracts.match.flat2 %>
-      <% other_user_flat = @last_signed_contracts.match.flat1 %>
-    <% end %>
-
+<% if @error %>
 <section>
   <div class="ending-banner rounded-lg" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(https://www.brukot.be/img/shared/student-guide/coloc.jpg?v62);">
     <div class="container">
-      <h1>Bravo <%= current_user.name %>!</h1>
+      <h1>Something went wrong </h1>
       <br>
-      <h3>You haved successfully exchanged your Flat with <%= other_user_flat.user.name %></h3>
+      <h3>We couldn't find your signature</h3>
     </div>
   </div>
 </section>
+<% else %>
+<section>
+  <div class="ending-banner rounded-lg" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.5)), url(https://www.brukot.be/img/shared/student-guide/coloc.jpg?v62);">
+    <div class="container">
+      <h1>Bravo <%= @current_user.name %>!</h1>
+      <br>
+      <h3>You haved successfully exchanged your Flat with <%= @other_user_flat.user.name %></h3>
+    </div>
+  </div>
+</section>
+<% end %>
+<% if @error %>
 <div class="container">
   <div class="recap rounded-lg mx-auto">
     <div class="row">
@@ -34,7 +39,41 @@
             <div >
               <h5 class="my-0">Flat</h5>
               <p class="my-0"><span class="text-primary"><strong>Address</strong></span></p>
-              <p><%= other_user_flat.address %></p>
+              <p> Information not found </p>
+              <p class="my-0"><span class="text-primary"><strong>Further information</strong></span></p>
+              <p class="my-0 mb-5"> Information not found </p>
+            </div>
+            <div>
+              <h5 class="my-0">Lanlord contact</h5>
+              <p class="my-0"><span class="text-primary"><strong>Phone</strong></span></p>
+              <p> Information not found </p>
+              <p class="my-0"><span class="text-primary"><strong>mail</strong></span></p>
+              <p class="my-0 mb-5"> Information not found </p>
+            </div>
+            </div>
+        </div>
+      </div>
+<% else %>
+<div class="container">
+  <div class="recap rounded-lg mx-auto">
+    <div class="row">
+      <div class="mx-auto col-10">
+        <h3 class="text-center my-5">What's <span class="text-primary">now ?</span></h3>
+
+
+        <p><%= image_tag "check.svg", class: "mr-4" %>The exchange will start october 2021</p>
+        <p><%= image_tag "check.svg", class: "mr-4" %>Don't forget to send tips and usefull informations to your exchange partner</p>
+        <p><%= image_tag "check.svg", class: "mr-4" %>Be prepared for the exchange day (have you forgot anything ?)</p>
+        <p><%= image_tag "check.svg", class: "mr-4" %>Enjoy your new life abroad! ;) </p>
+
+      <div class="middle-card">
+        <h5 class="my-5 text-center">Please find below the information about your future apartment</h5>
+        <div class="row ">
+          <div class="d-flex justify-content-between col-10 ml-4">
+            <div >
+              <h5 class="my-0">Flat</h5>
+              <p class="my-0"><span class="text-primary"><strong>Address</strong></span></p>
+              <p><%= @other_user_flat.address %></p>
               <p class="my-0"><span class="text-primary"><strong>Further information</strong></span></p>
               <p class="my-0 mb-5"> my brother will give you keys at your arrival<%= %></p>
             </div>
@@ -43,11 +82,12 @@
               <p class="my-0"><span class="text-primary"><strong>Phone</strong></span></p>
               <p> +201 455 698 456</p>
               <p class="my-0"><span class="text-primary"><strong>mail</strong></span></p>
-              <p class="my-0 mb-5"><%= other_user_flat.user.email %></p>
+              <p class="my-0 mb-5"><%= @other_user_flat.user.email %></p>
             </div>
             </div>
         </div>
       </div>
+<% end %>
       <div class="card-contact border rounded-lg">
         <%= image_tag "building.svg", class: "blog-build rounded bg-white p-4 box-shadow-custom mb-5 " %>
         <div class="card-contact-infos">
@@ -129,6 +169,7 @@
     </div>
   </div>
 </div>
+
 
 
 
