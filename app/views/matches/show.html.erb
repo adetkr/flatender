@@ -72,7 +72,9 @@
         <%= simple_form_for [ @match, @message ], remote:true do |f| %>
           <div class="search-form-control form-row">
             <div class="col-8">
+
               <%= f.input :content, class: "form-control form-control-lg string requiredbg-white w-75", id: "form-submit", label: false, placeholder: "Type your message here..." %>
+
             </div>
             <div class="col-4 chat-buttons">
               <button id= "submit-message" type="submit" class="btn btn-danger"><i class="fas fa-paper-plane"></i> </button>

@@ -65,17 +65,16 @@
             <p class="m-0">Here you are the terms of the contract beetween you and <%= other_user_flat.user.name %></span></p>
               <h5 class="my-3">If both of you sign this contract : </h5>
               <p class="m-0">Your next address will be : <%= other_user_flat.address %></p>
-              <p class="m-0">You agree to rent your flat to <%= other_user_flat.user.name %> at the price of euros <%= current_user_flat.rent %> euros</p>
-              <p class="m-0"><%=other_user_flat.user.name %> rents his flat at the price of euros <%= other_user_flat.rent %> euros</p>
+              <p class="m-0">You agree to rent your flat to <%= other_user_flat.user.name %> at the price of euros <%= current_user_flat.rent %></p>
+              <p class="m-0"><%=other_user_flat.user.name %> rents his flat at the price of euros <%= other_user_flat.rent %></p>
               <h5 class="my-3">In that case :</h5>
                 <% if other_user_flat.rent > current_user_flat.rent %>
                 <% diff = other_user_flat.rent - current_user_flat.rent %>
                 <p class="m-0"> You agree to settle to <%= other_user_flat.user.name %> every renting month the amount of euros <%= diff %></p>
                 <% else %>
                 <% diff = current_user_flat.rent - other_user_flat.rent %>
-                <p class="m-0"><%= other_user_flat.user.name %></span> agrees to settle to you every renting month the amount of euros <%= diff %></p>
-                <% end  %>
-              <p class="m-0">Your exchange will start around September 2021 for a Year</p>
+                <p class="m-0"><%= other_user_flat.user.name %></span> agrees to settle to you every renting month the amount of euros <%= diff %>.
+                <% end  %>Your exchange will start around September 2021 for a year</p>
         </div>
         <div class="d-flex justify-content-center align-items-center">
           <%= link_to 'Generate pdf', pdf_path(@contract), :format => :pdf, :target=>'blank', class: "size-16 btn-style-01 btn-lg mr-3 mt-3 p-3 text-white rounded text-uppercase" %>
