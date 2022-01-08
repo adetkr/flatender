@@ -19,10 +19,27 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6.6
+
+      - name: Cache bundle
+        uses: actions/cache@v1
+        env:
+          cache-name: bundle
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ env.cache-name }}-${{ hashFiles('**/Gemfile.lock') }}
+
+      - name: Install dependencies
+        run: |
+          bundle install --path=vendor/bundle --jobs 4 --retry 3
+          yarn install
+
       - uses: actions/checkout@v2.1.0
       - uses: jitterbit/get-changed-files@v1
         id: abc
