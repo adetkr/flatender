@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
       @message.match = @match
       @message.user = current_user
       if @message.image.attached?
-        @message.content = "Imagess"
+        @message.content = "Imagessnhjk"
       end
       if @message.save
         MatchChannel.broadcast_to(
