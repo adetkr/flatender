@@ -1,0 +1,41 @@
+name: Tests
+
+on:
+  push:
+  pull_request_target:
+    branches:
+      - 'dependabot/*'
+    types:
+      - opened
+# jobs:
+#   cleanup-runs:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: rokroskar/workflow-run-cleanup-action@master
+#         env:
+#           GITHUB_TOKEN: "${{ secrets.GH_ACCESS_TOKEN }}"
+#         if: "github.ref != 'refs/heads/develop' && github.ref != 'refs/heads/production'"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.1.0
+      - uses: jitterbit/get-changed-files@v1
+        id: abc
+        with:
+          format: space-delimited
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Printing
+        run: |
+          echo "All:"
+          echo "${{ steps.abc.outputs.all }}"
+          echo "Added:"
+          echo "${{ steps.abc.outputs.added }}"
+          echo "Removed:"
+          echo "${{ steps.abc.outputs.removed }}"
+          echo "Renamed:"
+          echo "${{ steps.abc.outputs.renamed }}"
+          echo "Modified:"
+          echo "${{ steps.abc.outputs.modified }}"
+          echo "Added+Modified:"
+          echo "${{ steps.abc.outputs.added_modified }}"
