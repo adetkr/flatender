@@ -32,13 +32,13 @@ jobs:
         with:
           node-version: 14.x
 
-      - name: Cache bundle
-        uses: actions/cache@v1
-        env:
-          cache-name: bundle
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ env.cache-name }}-${{ hashFiles('**/Gemfile.lock') }}
+      # - name: Cache bundle
+      #   uses: actions/cache@v1
+      #   env:
+      #     cache-name: bundle
+      #   with:
+      #     path: vendor/bundle
+      #     key: ${{ runner.os }}-gems-${{ env.cache-name }}-${{ hashFiles('**/Gemfile.lock') }}
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
