@@ -6,6 +6,7 @@ namespace :db do
   files_list = args.files_list.present?
 
   puts args.files_list
+  puts args.files_list.class
   # output = `rails db:migrate`
   # puts output
   # next if ENV['SLACK_DATABASE_NEWS_TOKEN'].blank?
