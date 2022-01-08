@@ -56,7 +56,7 @@ jobs:
       - name: Install dependencies
         run: |
           bundle install --jobs 4 --retry 3
-          yarn install
+          yarn install --check-files
 
       - uses: actions/checkout@v2.1.0
       - uses: jitterbit/get-changed-files@v1
