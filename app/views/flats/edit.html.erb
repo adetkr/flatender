@@ -33,7 +33,7 @@
           end %>
         <ul class="matches-menu">
 
-          <li class="matches-menu-item <%= "online" if user.online? %> ">
+          <li class="matches-menu-item <%= "online" if user.online? %>">
             <a href="<%= match_path(match) %>">
               <div class="avatar-wrapper d-inline-block mr-2">
               <% if user.photo.attached? %>

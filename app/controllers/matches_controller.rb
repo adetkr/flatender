@@ -13,6 +13,7 @@ class MatchesController < ApplicationController
   end
   def show
 
+
     @matchs = []
     current_user.flats.each do |flat|
       flatmatchs = FlatMatch.where(flat_id: flat.id)

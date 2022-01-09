@@ -5,7 +5,7 @@ namespace :db do
   task :check_segment_files, [:files_list] => :environment do |_task, args|
   next unless args.files_list.present?
 
-  files_list = args.files_list.present?
+  files_list = args.files_list
 
   segment_files = files_list.split(" ").select{ |file_name| file_name.downcase.include?('controller') }
 
