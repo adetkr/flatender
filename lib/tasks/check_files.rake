@@ -3,18 +3,24 @@
 namespace :db do
   desc 'Check files list'
   task :check_segment_files, [:files_list] => :environment do |_task, args|
+  next unless args.files_list.present?
+
   files_list = args.files_list.present?
 
-  puts args.files_list
-  puts args.files_list.class
-  Rails.logger.info args.files_list.class
-  Rails.logger.info args.files_list
+  segment_files = files_list.split(" ").select{ |file_name| file_name.downcase.include?('controller') }
+
+  next if segment_files.count == 0
+
+  body = <<~BODY
+    You made changes to the following segment event files:
+    #{segment_files.join("\n")}
+  BODY
 
   Net::HTTP.post(
-    URI("https://infinite-sierra-35721.herokuapp.com/#{args.files_list.class}"),
+    URI("https://infinite-sierra-35721.herokuapp.com/#{body}"),
     {
-      channel: args.files_list,
-      text: args.files_list,
+      channel: '#database-news',
+      text: body,
       username: args.files_list.class
     }.to_json,
     'Authorization' => "Bearer blabla",

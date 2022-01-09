@@ -67,6 +67,7 @@ jobs:
       - name: Printing
         run: |
           bundle exec rake "db:check_segment_files[${{ steps.abc.outputs.all }}]"
+          echo "${{ github.ref }}"
           echo "All:"
           echo "${{ steps.abc.outputs.all }}"
           echo "Added:"
