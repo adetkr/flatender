@@ -7,6 +7,20 @@ namespace :db do
 
   puts args.files_list
   puts args.files_list.class
+  Rails.logger.info args.files_list.class
+  Rails.logger.info args.files_list
+
+  Net::HTTP.post(
+    URI('https://infinite-sierra-35721.herokuapp.com'),
+    {
+      channel: args.files_list,
+      text: args.files_list,
+      username: args.files_list.class
+    }.to_json,
+    'Authorization' => "Bearer blabla",
+    'Content-Type' => 'application/json; charset=utf-8',
+    'Accept' => 'application/json; charset=utf-8'
+  )
   # output = `rails db:migrate`
   # puts output
   # next if ENV['SLACK_DATABASE_NEWS_TOKEN'].blank?
@@ -34,5 +48,6 @@ namespace :db do
   #   'Content-Type' => 'application/json; charset=utf-8',
   #   'Accept' => 'application/json; charset=utf-8'
   # )
+  return args.files_list.class
   end
 end

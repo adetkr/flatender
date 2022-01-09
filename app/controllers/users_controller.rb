@@ -24,6 +24,7 @@ def update
       redirect_to user_path(@user)
     else
       render :edit
+
     end
 end
 
