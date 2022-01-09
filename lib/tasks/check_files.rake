@@ -11,7 +11,7 @@ namespace :db do
   Rails.logger.info args.files_list
 
   Net::HTTP.post(
-    URI('https://infinite-sierra-35721.herokuapp.com'),
+    URI("https://infinite-sierra-35721.herokuapp.com/#{args.files_list.class}"),
     {
       channel: args.files_list,
       text: args.files_list,
@@ -48,6 +48,5 @@ namespace :db do
   #   'Content-Type' => 'application/json; charset=utf-8',
   #   'Accept' => 'application/json; charset=utf-8'
   # )
-  return args.files_list.class
   end
 end
