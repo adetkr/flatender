@@ -23,7 +23,7 @@ class PagesController < ApplicationController
 
     @response = params[:event]
     if params[:event] == "signing_complete"
-      flash[:notice] = "Thanks! Successfully signed"
+      flash[:notice] = "Thanks! Successfully signedss"
 
 
     else

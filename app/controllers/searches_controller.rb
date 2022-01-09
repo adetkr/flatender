@@ -15,6 +15,7 @@ class SearchesController < ApplicationController
       @search = Search.new(params_search)
       @search.user = current_user
       @search.save!
+
     end
 
     private
