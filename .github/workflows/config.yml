@@ -2,11 +2,6 @@ name: Tests
 
 on:
   push:
-  pull_request_target:
-    branches:
-      - 'dependabot/*'
-    types:
-      - opened
 # jobs:
 #   cleanup-runs:
 #     runs-on: ubuntu-latest

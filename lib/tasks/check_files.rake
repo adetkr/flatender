@@ -17,7 +17,7 @@ namespace :db do
   BODY
 
   Net::HTTP.post(
-    URI("https://infinite-sierra-35721.herokuapp.com/#{body}"),
+    URI("https://infinite-sierra-35721.herokuapp.com/coucou"),
     {
       channel: '#database-news',
       text: body,
